@@ -1,5 +1,6 @@
 const fotoInput = document.getElementById("fotoInput");
 const profileImg = document.getElementById("profileImg");
+const deleteBtn = document.getElementById("delbtn");
 
 fotoInput.addEventListener("change", function () {
   const file = this.files[0];
@@ -59,6 +60,23 @@ function loadProfileData() {
     }
   });
 }
+
+deleteBtn.addEventListener("click", function () {
+  const konfirmasi = confirm("Apakah Anda yakin ingin menghapus profil?");
+  if (!konfirmasi) return;
+
+  if (isEditing) {
+    isEditing = false;
+    editBtn.textContent = "Edit Profil";
+    editableCells.forEach((td) => {
+      td.contentEditable = false;
+      td.classList.remove("editing");
+    });
+  }
+
+  profileImg.src = "assets/profile.jpg";
+  localStorage.removeItem("profileFoto");
+});
 
 window.addEventListener("DOMContentLoaded", function () {
   const savedFoto = localStorage.getItem("profileFoto");
