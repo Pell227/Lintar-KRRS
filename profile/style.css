@@ -9,12 +9,13 @@
   background-color: #a31313;
   border-radius: 5px;
   width: 100%;
-  height: 5em;
+  height: 4em;
   padding: 10px 10px 15px 20px;
 }
 
 .boxx h1 {
   color: #ffffff;
+  text-align: center;
 }
 
 body img {
@@ -86,9 +87,24 @@ body img {
   background-color: #7a0f0f;
 }
 
+#delbtn {
+  background-color: #a31313;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#delbtn:hover {
+  background-color: #7a0f0f;
+}
+
 .editval.editing {
-  background-color: #fff7d6;
-  outline: 2px dashed #a31313;
+  background-color: #ecc4a3;
+  outline: 2px solid #a31313;
   outline-offset: -2px;
 }
 
