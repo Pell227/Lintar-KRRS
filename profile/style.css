@@ -1,7 +1,7 @@
 .boxx {
   box-sizing: border-box;
   position: relative;
-  border: 2px, solid, white;
+  border: 2px solid white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,23 +13,122 @@
   padding: 10px 10px 15px 20px;
 }
 
+.boxx h1 {
+  color: #ffffff;
+}
+
 body img {
   border-radius: 50%;
 }
 
 .container {
   display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  margin-left: 250px;
+  margin-top: 30px;
+}
+
+.photo-column {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 15px;
+  cursor: pointer;
+}
+
+.foto-wrapper {
+  position: relative;
+  width: fit-content;
+}
+
+.foto-wrapper img {
+  display: block;
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+}
+
+.upload-btn {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background-color: #a31313;
+  color: #ffffff;
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+.upload-btn:hover {
+  background-color: #7a0f0f;
+}
+
+#editBtn {
+  background-color: #a31313;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#editBtn:hover {
+  background-color: #7a0f0f;
+}
+
+.editval.editing {
+  background-color: #fff7d6;
+  outline: 2px dashed #a31313;
+  outline-offset: -2px;
+}
+
+.tablesection {
+  display: flex;
+  flex-direction: column;
   gap: 20px;
 }
 
 table {
-  width: 20%;
+  width: 500px;
+  border-collapse: collapse;
 }
 
 table,
 th,
 td {
   border: 1px solid black;
-  border-collapse: collapse;
+}
+
+.datam th {
+  text-align: left;
+}
+
+.datam td {
+  text-align: left;
+}
+
+.datas th {
+  text-align: left;
+}
+
+.datas td {
+  text-align: left;
+}
+
+.datao th {
+  text-align: left;
+}
+
+.datao td {
+  text-align: left;
 }
