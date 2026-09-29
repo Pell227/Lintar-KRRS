@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Mahasiswa</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="boxx">
+        <h1>Profile Mahasiswa</h1>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="photo-column">
+        <div class="foto-wrapper">
+          <img id="profileImg" src="assets/profile.jpg"/>
+          <label for="fotoInput" class="upload-btn" title="Ganti Foto">&#128247;</label>
+          <input type="file" id="fotoInput" accept="image/*" hidden />
+        </div>
+
+        <button id="editBtn" type="button">Edit Profile</button>
+        <button id="delbtn" type="button">Delete Profile</button>
+      </div>
+
+     <div class="tablesection">
+      <table>
+        <tbody class="datam">
+          <tr>
+            <td style="border: none">DATA MAHASISWA</td>
+          </tr>
+          <tr>
+            <th>Nama</th>
+            <td class="editval" data-field="nama">pell</td>
+          </tr>
+          <tr>
+            <th>NIM</th>
+            <td class="editval" data-field="nim">535250166</td>
+          </tr>
+          <tr>
+            <th>Tempat Tanggal Lahir</th>
+            <td class="editval" data-field="ttl">Denpasar, 27/02/2007</td>
+          </tr>
+          <tr>
+            <th>Fakultas</th>
+            <td class="editval" data-field="fakultas">Teknologi Informasi</td>
+          </tr>
+          <tr>
+            <th>Jurusan</th>
+            <td class="editval" data-field="jurusan">Teknik Informatika</td>
+          </tr>
+          <tr>
+            <th>Jenis Kelamin</th>
+            <td class="editval" data-field="jk">Perempuan</td>
+          </tr>
+          <tr>
+            <th>Agama</th>
+            <td class="editval" data-field="agama">Buddha</td>
+          </tr>
+          <tr>
+            <th>No Hp</th>
+            <td class="editval" data-field="hp">08889998888</td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td class="editval" data-field="email">your@gmail.com</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table>
+        <tbody class="datas">
+          <tr>
+            <td style="border:none">DATA SEKOLAH</td>
+          </tr>
+          <tr>
+            <th>Asal Sekolah</th>
+            <td class="editval" data-field="sekolah">SMAK Santo Yoseph Denpasar</td>
+          </tr>
+          <tr>
+            <th>No Ijazah</th>
+            <td class="editval" data-field="ijazah">131202509852305</td>
+          </tr>
+          <tr>
+            <th>Tanggal Ijazah</th>
+            <td class="editval" data-field="tglijazah">28/05/2025</td>
+          </Tr>
+        </tbody>
+      </table>
+
+      <table>
+        <tbody class="datao">
+          <tr>
+            <td style="border:none">DATA ORANG TUA/WALI</td>
+          </tr>
+          <tr>
+            <th>Nama Orang Tua/Wali</th>
+            <td class="editval" data-field="namaortu">namaortu</td>
+          </tr>
+          <tr>
+            <th>Alamat</th>
+            <td class="editval" data-field="alamat">jl raya sesetan</td>
+          </tr>
+          <tr>
+            <th>No Hp</th>
+            <td class="editval" data-field="hportu">0888899999</td>
+          </tr>
+        </tbody>
+      </table>
+     </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
