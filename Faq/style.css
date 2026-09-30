@@ -14,113 +14,62 @@ body {
     height: 65px;
     background-color: #a31313;
     color: white;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    padding: 0 28px;
-
+    padding: 0 35px;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-
     z-index: 1000;
 }
 
-.header-left {
+.header-logo {
     display: flex;
     align-items: center;
     gap: 12px;
-
     font-size: 22px;
     font-weight: bold;
 }
 
-.header-left i {
+.header-logo i {
     font-size: 25px;
 }
 
-.header-right {
+.header-user {
     display: flex;
     align-items: center;
     gap: 25px;
 }
 
-.header-right > i {
-    font-size: 20px;
+.header-user > i {
+    font-size: 19px;
 }
 
-.profile {
+.user-profile {
     display: flex;
     align-items: center;
     gap: 8px;
-
     font-size: 14px;
 }
 
-.profile i {
+.user-profile i {
     font-size: 27px;
 }
 
-.menu-item {
-    height: 50px;
-
-    display: flex;
-    align-items: center;
-
-    gap: 15px;
-
-    padding: 0 25px;
-
-    color: #555;
-    text-decoration: none;
-
-    font-size: 14px;
-
-    transition: 0.2s;
-}
-
-.menu-item i {
-    font-size: 18px;
-}
-
-.menu-item:hover {
-    background-color: #f8eaea;
-    color: #a31313;
-}
-
-.menu-item.active {
-    background-color: #a31313;
-    color: white;
-
-    border-radius: 0 25px 25px 0;
-    margin-right: 15px;
-}
-
-.logout {
-    border-top: 1px solid #eee;
-}
-
 .main-content {
-    margin-left: 240px;
-    padding: 95px 40px 40px;
-
     min-height: 100vh;
+    padding: 95px 7% 50px;
 }
 
 .breadcrumb {
     display: flex;
     align-items: center;
-
     gap: 10px;
-
-    color: #777;
-
-    font-size: 14px;
-
     margin-bottom: 25px;
+    font-size: 14px;
+    color: #777;
 }
 
 .breadcrumb i:first-child {
@@ -128,137 +77,111 @@ body {
 }
 
 .breadcrumb i {
-    font-size: 12px;
+    font-size: 11px;
 }
 
-.page-header {
-    margin-bottom: 25px;
+.page-heading {
+    margin-bottom: 30px;
 }
 
-.page-header h1 {
+
+.page-heading h1 {
+    font-size: 30px;
     color: #a31313;
-
-    font-size: 28px;
-
     margin-bottom: 8px;
 }
 
-.page-header p {
+.page-heading p {
     color: #777;
-
     font-size: 14px;
+    line-height: 1.6;
 }
 
 .content-card {
     background-color: white;
-
     border-radius: 10px;
-
-    padding: 25px;
-
+    padding: 28px;
     margin-bottom: 25px;
-
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.section-title {
+.section-heading {
     display: flex;
     align-items: center;
-
     gap: 15px;
-
     margin-bottom: 25px;
 }
 
-.title-icon {
+.section-icon {
     width: 45px;
     height: 45px;
-
-    background-color: #f8e5e5;
-
-    color: #a31313;
-
-    border-radius: 10px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
+    border-radius: 10px;
+    background-color: #f9e5e5;
+    color: #a31313;
     font-size: 20px;
 }
 
-.section-title h2 {
+.section-heading h2 {
     font-size: 19px;
-
-    color: #333;
-
     margin-bottom: 4px;
+    color: #333;
 }
 
-.section-title p {
+.section-heading p {
     font-size: 13px;
-
     color: #888;
 }
 
 .faq-container {
     display: flex;
     flex-direction: column;
-
     gap: 10px;
 }
 
 .faq-item {
-    border: 1px solid #e1e1e1;
-
+    border: 1px solid #e2e2e2;
     border-radius: 8px;
-
     overflow: hidden;
-
     background-color: white;
 }
 
 .faq-question {
     width: 100%;
-
     border: none;
-
     background-color: white;
-
     padding: 18px 20px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    gap: 20px;
     text-align: left;
-
+    cursor: pointer;
+    color: #333;
     font-size: 14px;
     font-weight: 600;
-
-    color: #333;
-
-    cursor: pointer;
-
     transition: 0.2s;
 }
+
 
 .faq-question:hover {
     background-color: #fdf5f5;
 }
 
+
 .faq-question i {
     color: #a31313;
-
+    font-size: 14px;
     transition: transform 0.3s;
+    flex-shrink: 0;
 }
 
 .faq-item.active .faq-question {
     color: #a31313;
-
     background-color: #fdf5f5;
 }
-
 
 .faq-item.active .faq-question i {
     transform: rotate(180deg);
@@ -266,159 +189,114 @@ body {
 
 .faq-answer {
     max-height: 0;
-
     overflow: hidden;
-
+    background-color: white;
     transition: max-height 0.3s ease;
-
-    background-color: #fff;
 }
+
 
 .faq-answer p {
     padding: 0 20px 18px;
-
     color: #666;
-
     font-size: 14px;
-
     line-height: 1.7;
 }
 
 .lecturer-card {
     display: flex;
-
+    align-items: flex-start;
     gap: 25px;
-
-    background-color: #fdf7f7;
-
-    border: 1px solid #f1dede;
-
-    border-radius: 10px;
-
     padding: 25px;
+    border-radius: 10px;
+    background-color: #fdf7f7;
+    border: 1px solid #f1dede;
 }
 
 .lecturer-photo {
     width: 90px;
     height: 90px;
-
     min-width: 90px;
-
-    background-color: #a31313;
-
-    color: white;
-
     border-radius: 50%;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
+    background-color: #a31313;
+    color: white;
     font-size: 45px;
 }
 
 .lecturer-info h3 {
-    color: #333;
-
     font-size: 18px;
-
+    color: #333;
     margin-bottom: 5px;
 }
 
 .lecturer-role {
-    color: #a31313;
-
     font-size: 14px;
-
+    color: #a31313;
     margin-bottom: 20px;
 }
 
 .contact-list {
     display: flex;
-
     flex-wrap: wrap;
-
     gap: 25px;
 }
 
-
 .contact-item {
     display: flex;
-
     align-items: center;
-
     gap: 10px;
 }
 
 .contact-item > i {
     color: #a31313;
-
     font-size: 18px;
 }
 
 .contact-item span {
     display: block;
-
-    font-size: 11px;
-
     color: #888;
-
+    font-size: 11px;
     margin-bottom: 3px;
 }
 
 .contact-item strong {
     font-size: 13px;
-
     color: #444;
 }
 
 @media (max-width: 768px) {
 
-    .menu-item {
-        justify-content: center;
-
-        padding: 0;
+    .header {
+        padding: 0 20px;
     }
 
-    .menu-item span {
+    .header-logo span {
         display: none;
     }
 
-    .menu-item.active {
-        margin-right: 8px;
+    .user-profile span {
+        display: none;
     }
 
     .main-content {
-        margin-left: 70px;
-
-        padding: 90px 20px 30px;
-    }
-
-    .header {
-        padding: 0 15px;
-    }
-
-    .header-left span {
-        display: none;
-    }
-
-    .profile span {
-        display: none;
+        padding: 90px 20px 40px;
     }
 
     .lecturer-card {
         flex-direction: column;
-    }
-
-    .lecturer-photo {
-        margin: auto;
+        align-items: center;
+        text-align: center;
     }
 
     .contact-list {
         flex-direction: column;
-
+        align-items: flex-start;
+        text-align: left;
         gap: 15px;
     }
+
 }
 
 @media (max-width: 480px) {
@@ -432,11 +310,16 @@ body {
         padding: 18px;
     }
 
-    .page-header h1 {
-        font-size: 24px;
+    .page-heading h1 {
+        font-size: 25px;
+    }
+
+    .section-heading h2 {
+        font-size: 17px;
     }
 
     .faq-question {
-        padding: 15px;
+        padding: 16px;
     }
+
 }
