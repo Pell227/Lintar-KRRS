@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+      integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="site-nav">
+      <button class="sidebar-toggle">
+        <span class="matsym"><i class="fa-solid fa-bars"></i></span>
+      </button>
+    </nav>
+
+    <div class="container">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <div class="mainlogo">
+            <span class="matsym" id="iconlin"
+              ><i class="fa-solid fa-graduation-cap header-logo"></i
+            ></span>
+            <span class="lintext">Lintar KRRS</span>
+          </div>
+          <button class="sidebar-toggle">
+            <span class="matsym"
+              ><i class="fa-solid fa-circle-chevron-left"></i
+            ></span>
+          </button>
+        </div>
+
+        <div class="sidebar-content">
+          <form action="#" class="search-form">
+            <span class="matsym"
+              ><i class="fa-solid fa-magnifying-glass"></i
+            ></span>
+            <input type="search" placeholder="search..." required />
+          </form>
+
+          <ul class="menu-list">
+            <li class="menu-item">
+              <a href="../profile/index.html" class="menu-link">
+                <span class="matsym"
+                  ><i class="fa-regular fa-circle-user"></i
+                ></span>
+                <span class="menu-label">Profile</span>
+              </a>
+            </li>
+
+            <li class="menu-item">
+              <a href="../Dashboard/index.html" class="menu-link active">
+                <span class="matsym"
+                  ><i class="fa-solid fa-tachograph-digital"></i
+                ></span>
+                <span class="menu-label">Dashboard</span>
+              </a>
+            </li>
+
+            <li class="menu-item">
+              <a href="../KRRS/pengisian-krrs.html" class="menu-link">
+                <span class="matsym"><i class="fa-solid fa-book"></i></span>
+                <span class="menu-label">KRRS</span>
+              </a>
+            </li>
+
+            <li class="menu-item">
+              <a href="../Jadwal/index.html" class="menu-link">
+                <span class="matsym"><i class="fa-solid fa-calendar"></i></span>
+                <span class="menu-label">Jadwal Akademik</span>
+              </a>
+            </li>
+
+            <li class="menu-item">
+              <a href="../Faq/index.html" class="menu-link">
+                <span class="matsym"><i class="fa-solid fa-question"></i></span>
+                <span class="menu-label">FAQ</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <div class="main-content">
+        <div class="borderhead">
+          <i class="fa-solid fa-tachograph-digital"></i>
+          <h1 class="page-title">Dashboard</h1>
+        </div>
+        <div class="card">
+          <div class="information">
+            <h2>Informasi Akademik</h2>
+            <div class="card">
+              <h3>Kartu Hasil Studi (KHS)</h3>
+            </div>
+
+            <div class="card">
+              <h3>Pengumuman</h3>
+            </div>
+
+            <div class="card">
+              <h3>Today Schedule</h3>
+            </div>
+
+            <div class="card">
+              <div class="men">
+                <h3>Access</h3>
+                <button><i class="fa-solid fa-user"></i>Profile</button>
+                <button><i class="fa-solid fa-pencil"></i>Isi KRRS</button>
+                <button>
+                  <i class="fa-regular fa-file-lines"></i>Transkrip Nilai
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <p>
+            Welcome to your dashboard! Use the menu to navigate, toggle the
+            sidebar, or switch between light and dark themes to personalize your
+            experience.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
