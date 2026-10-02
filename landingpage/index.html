@@ -1,11 +1,324 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
+    <title>Portal Akademik KRRS - Universitas Tarumanagara</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>Landing Page</h1>
+<body class="bg-slate-50 text-gray-800 font-sans antialiased">
+
+    <div id="toast-container" class="fixed top-5 right-5 z-50 flex flex-col gap-2"></div>
+
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 bg-white rounded-xl p-1.5 shadow-md border border-gray-100 flex items-center justify-center overflow-hidden transition-transform group-hover:scale-105">
+                    <img src="../Login/image/pngwing.com.png" alt="Logo UNTAR" class="max-h-full max-w-full object-contain" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/9E0000/FFFFFF?text=UNTAR';">
+                </div>
+                <div>
+                    <span class="font-extrabold text-base sm:text-lg tracking-tight text-gray-900 block leading-tight">UNIVERSITAS TARUMANAGARA</span>
+                    <span class="text-xs font-semibold text-[#9E0000] tracking-wider uppercase">Portal Akademik KRRS</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-6 text-xs font-semibold text-gray-600">
+                <a href="#beranda" class="hover:text-[#9E0000] transition">Beranda</a>
+                <a href="#fitur" class="hover:text-[#9E0000] transition">Modul Layanan</a>
+                <a href="../Hal_pengumuman/index.html" class="hover:text-[#9E0000] transition">Pengumuman</a>
+                <a href="../Kalender_akademik/index.html" class="hover:text-[#9E0000] transition">Kalender</a>
+                <a href="../Faq/index.html" class="hover:text-[#9E0000] transition">Bantuan & FAQ</a>
+            </nav>
+
+            <div id="auth-actions" class="flex items-center gap-3">
+                <a href="../Login/index.html" class="px-4 py-2.5 text-xs font-semibold text-[#9E0000] hover:text-[#800000] transition border border-red-200 hover:border-red-300 rounded-xl">
+                    Masuk Portal
+                </a>
+                <a href="../Registrasi/index.html" class="px-4 py-2.5 text-xs font-semibold text-white bg-[#9E0000] hover:bg-[#800000] transition rounded-xl shadow-md shadow-red-900/20">
+                    Daftar Akun
+                </a>
+            </div>
+
+            <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-gray-600 hover:text-gray-900 focus:outline-none">
+                <i class="fas fa-bars text-xl" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#beranda" onclick="toggleMobileMenu()" class="block py-2 text-sm font-medium text-gray-700 hover:text-[#9E0000]">Beranda</a>
+            <a href="#fitur" onclick="toggleMobileMenu()" class="block py-2 text-sm font-medium text-gray-700 hover:text-[#9E0000]">Modul Layanan</a>
+            <a href="../Hal_pengumuman/index.html" class="block py-2 text-sm font-medium text-gray-700 hover:text-[#9E0000]">Pengumuman Akademik</a>
+            <a href="../Kalender_akademik/index.html" class="block py-2 text-sm font-medium text-gray-700 hover:text-[#9E0000]">Kalender Akademik</a>
+            <a href="../Faq/index.html" class="block py-2 text-sm font-medium text-gray-700 hover:text-[#9E0000]">Bantuan & FAQ</a>
+            <div id="mobile-auth-actions" class="pt-2 flex flex-col gap-2">
+                <a href="../Login/index.html" class="w-full text-center py-2.5 text-xs font-semibold text-[#9E0000] border border-red-200 rounded-xl">Masuk Portal</a>
+                <a href="../Registrasi/index.html" class="w-full text-center py-2.5 text-xs font-semibold text-white bg-[#9E0000] rounded-xl shadow-md">Daftar Akun</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="beranda" class="relative bg-gradient-to-br from-[#9E0000] via-[#800000] to-[#500000] text-white py-20 lg:py-28 overflow-hidden">
+        <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-red-500 rounded-full opacity-20 blur-3xl"></div>
+        <div class="absolute left-10 top-10 w-72 h-72 bg-yellow-500 rounded-full opacity-10 blur-2xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 text-xs text-red-100">
+                    <span class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span>
+                    <span>Tahun Akademik 2025/2026 - Semester Genap</span>
+                </div>
+
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
+                    Sistem Informasi Kartu Rencana Studi Elektronik <span class="text-yellow-400">(KRRS)</span>
+                </h1>
+
+                <p class="text-sm sm:text-base text-red-100 max-w-2xl leading-relaxed">
+                    Portal akademik terpadu Universitas Tarumanagara. Kelola pengisian KRRS, jadwal perkuliahan, nilai KHS, transkrip, hingga pengumuman akademik dalam satu sistem terintegrasi.
+                </p>
+
+                <div class="pt-2 flex flex-wrap gap-4 justify-center lg:justify-start">
+                    <a href="../Login/index.html" class="px-6 py-3.5 bg-white text-[#9E0000] hover:bg-red-50 font-bold text-xs sm:text-sm rounded-xl shadow-xl transition-all flex items-center gap-2">
+                        <span>Masuk ke Portal KRRS</span>
+                        <i class="fas fa-arrow-right text-xs"></i>
+                    </a>
+                    <a href="../KRRS/pengisian-krrs.html" class="px-6 py-3.5 bg-red-900/40 hover:bg-red-900/60 border border-white/20 text-white font-semibold text-xs sm:text-sm rounded-xl transition-all flex items-center gap-2">
+                        <i class="fas fa-edit text-xs"></i>
+                        <span>Pengisian KRRS</span>
+                    </a>
+                </div>
+
+                <div class="pt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-red-800/60 text-center lg:text-left">
+                    <div>
+                        <span class="block text-2xl font-extrabold text-white">8</span>
+                        <span class="text-[11px] text-red-200">Fakultas</span>
+                    </div>
+                    <div>
+                        <span class="block text-2xl font-extrabold text-white">30+</span>
+                        <span class="text-[11px] text-red-200">Program Studi</span>
+                    </div>
+                    <div>
+                        <span class="block text-2xl font-extrabold text-white">15.000+</span>
+                        <span class="text-[11px] text-red-200">Mahasiswa Aktif</span>
+                    </div>
+                    <div>
+                        <span class="block text-2xl font-extrabold text-white">24/7</span>
+                        <span class="text-[11px] text-red-200">Layanan Online</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="w-full max-w-md bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 shadow-2xl relative">
+                    <div class="bg-white rounded-xl p-5 text-gray-800 shadow-lg space-y-4">
+                        <div class="flex items-center justify-between pb-3 border-b border-gray-100">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-red-100 text-[#9E0000] rounded-xl flex items-center justify-center font-bold text-lg">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm text-gray-900">Portal Akademik UNTAR</h4>
+                                    <p class="text-[11px] text-gray-500">Status Pengisian KRRS</p>
+                                </div>
+                            </div>
+                            <span class="bg-green-100 text-green-700 text-[10px] font-bold px-2.5 py-1 rounded-full">Aktif</span>
+                        </div>
+
+                        <div class="space-y-2 text-xs">
+                            <div class="flex justify-between py-1 border-b border-gray-50">
+                                <span class="text-gray-500">Periode Akademik:</span>
+                                <span class="font-semibold text-gray-800">2025/2026 Genap</span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-gray-50">
+                                <span class="text-gray-500">Pengisian KRRS:</span>
+                                <span class="font-semibold text-green-600">Terbuka</span>
+                            </div>
+                            <div class="flex justify-between py-1">
+                                <span class="text-gray-500">Sistem Keamanan:</span>
+                                <span class="font-semibold text-blue-600"><i class="fas fa-shield-alt mr-1"></i> Terenkripsi</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 pt-2">
+                            <a href="../Dashboard/index.html" class="text-center py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold text-xs rounded-lg transition">
+                                Dashboard
+                            </a>
+                            <a href="../Login/index.html" class="text-center py-2 bg-[#9E0000] hover:bg-[#800000] text-white font-semibold text-xs rounded-lg transition shadow-md">
+                                Login Portal
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="fitur" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-bold text-[#9E0000] uppercase tracking-wider bg-red-50 px-3 py-1 rounded-full border border-red-100">Ekosistem Terpadu</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900">Modul Layanan Akademik KRRS</h2>
+                <p class="text-xs sm:text-sm text-gray-500">Seluruh modul terintegrasi untuk mendukung kelancaran administrasi akademik mahasiswa Universitas Tarumanagara.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-slate-50 rounded-2xl p-6 border border-gray-200/80 hover:border-red-200 hover:shadow-xl transition-all group">
+                    <div class="w-12 h-12 bg-[#9E0000] text-white rounded-xl flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <span class="text-[10px] font-bold text-[#9E0000] uppercase tracking-wider block mb-1">Modul Autentikasi</span>
+                    <h3 class="font-bold text-gray-900 text-base mb-2">Portal Akses & Autentikasi</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed mb-4">
+                        Gerbang utama akses sistem untuk Mahasiswa, Dosen, dan Staf, dilengkapi pendaftaran akun dan pemulihan password.
+                    </p>
+                    <div class="space-y-1.5 border-t border-gray-200/60 pt-3">
+                        <a href="../Login/index.html" class="flex items-center justify-between text-xs text-gray-700 hover:text-[#9E0000] font-medium">
+                            <span><i class="fas fa-sign-in-alt text-red-600 mr-2"></i> Halaman Login Portal</span>
+                            <i class="fas fa-chevron-right text-[10px]"></i>
+                        </a>
+                        <a href="../Registrasi/index.html" class="flex items-center justify-between text-xs text-gray-700 hover:text-[#9E0000] font-medium">
+                            <span><i class="fas fa-user-plus text-red-600 mr-2"></i> Pendaftaran Akun Baru</span>
+                            <i class="fas fa-chevron-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl p-6 border border-gray-200/80 hover:border-red-200 hover:shadow-xl transition-all group">
+                    <div class="w-12 h-12 bg-[#9E0000] text-white rounded-xl flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <span class="text-[10px] font-bold text-[#9E0000] uppercase tracking-wider block mb-1">Modul Mahasiswa</span>
+                    <h3 class="font-bold text-gray-900 text-base mb-2">Dashboard & Profil Mahasiswa</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed mb-4">
+                        Ringkasan IPK kumulatif, semester berjalan, kelola biodata diri, serta pembaruan profil mahasiswa secara mandiri.
+                    </p>
+                    <div class="space-y-1.5 border-t border-gray-200/60 pt-3">
+                        <a href="../Dashboard/index.html" class="flex items-center justify-between text-xs text-gray-700 hover:text-[#9E0000] font-medium">
+                            <span><i class="fas fa-chart-line text-red-600 mr-2"></i> Dashboard Beranda</span>
+                            <i class="fas fa-chevron-right text-[10px]"></i>
+                        </a>
+                        <a href="../profile/index.html" class="flex items-center justify-between text-xs text-gray-700 hover:text-[#9E0000] font-medium">
+                            <span><i class="fas fa-id-card text-red-600 mr-2"></i> Profil & Ubah Biodata</span>
+                            <i class="fas fa-chevron-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl p-6 border border-gray-200/80 hover:border-red-200 hover:shadow-xl transition-all group">
+                    <div class="w-12 h-12 bg-[#9E0000] text-white rounded-xl flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <span class="text-[10px] font-bold text-[#9E0000] uppercase tracking-wider block mb-1">Modul Studi</span>
+                    <h3 class="font-bold text-gray-900 text-base mb-2">Pengisian & Rincian KRRS</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed mb-4">
+                        Perencanaan mata kuliah, peninjauan rincian mata kuliah yang telah diambil, serta cetak draf KRRS digital.
+                    </p>
+                    <div class="space-y-1.5 border-t border-gray-200/60 pt-3">
+                        <a href="../KRRS/pengisian-krrs.html" class="flex items-center justify-between text-xs text-gray-700 hover:text-[#9E0000] font-medium">
+                            <span><i class="fas fa-edit text-red-600 mr-2"></i> Form Pengisian KRRS</span>
+                            <i class="fas fa-chevron-right text-[10px]"></i>
+                        </a>
+                        <a href="../KRRS/rincian-krrs.html" class="flex items-center justify-between text-xs text-gray-700 hover:text-[#9E0000] font-medium">
+                            <span><i class="fas fa-list-alt text-red-600 mr-2"></i> Rincian & Preview Cetak</span>
+                            <i class="fas fa-chevron-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl p-6 border border-gray-200/80 hover:border-red-200 hover:shadow-xl transition-all group">
+                    <div class="w-12 h-12 bg-[#9E0000] text-white rounded-xl flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <span class="text-[10px] font-bold text-[#9E0000] uppercase tracking-wider block mb-1">Modul Hasil Studi</span>
+                    <h3 class="font-bold text-gray-900 text-base mb-2">Jadwal, KHS & Transkrip</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed mb-4">
+                        Jadwal kuliah mingguan, evaluasi Kartu Hasil Studi (KHS) tiap semester, serta rekapitulasi transkrip kumulatif.
+                    </p>
+                    <div class="space-y-1.5 border-t border-gray-200/60 pt-3">
+                        <a href="../Jadwal/index.html" class="flex items-center justify-between text-xs text-gray-700 hover:text-[#9E0000] font-medium">
+                            <span><i class="fas fa-calendar-week text-red-600 mr-2"></i> Jadwal Kuliah & KHS</span>
+                            <i class="fas fa-chevron-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl p-6 border border-gray-200/80 hover:border-red-200 hover:shadow-xl transition-all group md:col-span-2 lg:col-span-2">
+                    <div class="w-12 h-12 bg-[#9E0000] text-white rounded-xl flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <span class="text-[10px] font-bold text-[#9E0000] uppercase tracking-wider block mb-1">Modul Informasi</span>
+                    <h3 class="font-bold text-gray-900 text-base mb-2">Berita Akademik, Kalender & Bantuan FAQ</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed mb-4">
+                        Akses pengumuman resmi fakultas, kalender akademik semester berjalan, pusat bantuan/FAQ, serta kontak Dosen Pembimbing Akademik (DPA).
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 border-t border-gray-200/60 pt-3 text-xs">
+                        <a href="../Hal_pengumuman/index.html" class="flex items-center gap-2 p-2 bg-white rounded-lg border border-gray-200 hover:border-red-200 hover:text-[#9E0000] transition font-medium">
+                            <i class="fas fa-newspaper text-red-600"></i> Pengumuman
+                        </a>
+                        <a href="../Kalender_akademik/index.html" class="flex items-center gap-2 p-2 bg-white rounded-lg border border-gray-200 hover:border-red-200 hover:text-[#9E0000] transition font-medium">
+                            <i class="fas fa-calendar-check text-red-600"></i> Kalender Akademik
+                        </a>
+                        <a href="../Faq/index.html" class="flex items-center gap-2 p-2 bg-white rounded-lg border border-gray-200 hover:border-red-200 hover:text-[#9E0000] transition font-medium">
+                            <i class="fas fa-question-circle text-red-600"></i> Bantuan & FAQ
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gradient-to-br from-[#600000] to-[#300000] text-white pt-16 pb-8 border-t border-red-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-red-900/60">
+            
+            <div class="md:col-span-5 space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-white rounded-lg p-1 flex items-center justify-center">
+                        <img src="../Login/image/pngwing.com.png" alt="Logo UNTAR" class="max-h-full max-w-full object-contain" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/9E0000/FFFFFF?text=UNTAR';">
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm">UNIVERSITAS TARUMANAGARA</h4>
+                        <p class="text-[10px] text-red-200">PORTAL KRRS ONLINE</p>
+                    </div>
+                </div>
+                <p class="text-xs text-red-200/80 leading-relaxed max-w-sm">
+                    Jl. Letjen S. Parman No. 1, Grogol Petamburan, Jakarta Barat, DKI Jakarta 11440.
+                </p>
+            </div>
+
+            <div class="md:col-span-3 space-y-3">
+                <h5 class="font-bold text-xs uppercase tracking-wider text-red-100">Akses Cepat Modul</h5>
+                <ul class="text-xs text-red-200/80 space-y-2">
+                    <li><a href="../Login/index.html" class="hover:text-white transition">Login Portal</a></li>
+                    <li><a href="../Registrasi/index.html" class="hover:text-white transition">Registrasi Akun</a></li>
+                    <li><a href="../Dashboard/index.html" class="hover:text-white transition">Dashboard Mahasiswa</a></li>
+                    <li><a href="../KRRS/pengisian-krrs.html" class="hover:text-white transition">Pengisian KRRS</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-4 space-y-3">
+                <h5 class="font-bold text-xs uppercase tracking-wider text-red-100">Informasi & Bantuan</h5>
+                <ul class="text-xs text-red-200/80 space-y-2">
+                    <li><a href="../Hal_pengumuman/index.html" class="hover:text-white transition"><i class="fas fa-bullhorn text-red-300 mr-1.5"></i> Berita & Pengumuman</a></li>
+                    <li><a href="../Kalender_akademik/index.html" class="hover:text-white transition"><i class="fas fa-calendar text-red-300 mr-1.5"></i> Kalender Akademik</a></li>
+                    <li><a href="../Faq/index.html" class="hover:text-white transition"><i class="fas fa-question-circle text-red-300 mr-1.5"></i> Pusat FAQ & Bantuan</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-red-300/60 gap-4">
+            <p>&copy; 2026 Universitas Tarumanagara. All rights reserved.</p>
+            <p class="text-[11px]">Proyek UTS Front-End KRRS UNTAR</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
