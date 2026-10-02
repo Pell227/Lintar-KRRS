@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KHS</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../sidebar/style.css" />
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+      integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body>
+    <div class="app">
+        <div id="sidebar-container"></div>
+        <div class="page"> 
+            <header class="topbar">
+                <div class="brand">
+                    <div class="brand-logo"> 
+                        <i class="fa-solid fa-folder-open"></i>
+                    </div>
+                    <div><div class="brand-title">Kartu Hasil Studi</div></div>
+                </div>
+            </header>
+
+            <main class="layout">
+                <div class="table-head"></div>
+                <div class="progress">
+                    <div class="steps" id="steps"></div></div>
+                    <p class="view-label" id="viewLabel"></p>
+                    <div class="table-box">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Kode MK</th>
+                                    <th>Nama Mata Kuliah</th>
+                                    <th>Kredit</th>
+                                    <th>Nilai (Huruf)</th>
+                                    <th>Nilai (Angka)</th>
+                                    <th>Bobot Kualitas</th>
+                                </tr>
+                            </thead>
+                            <tbody id="row"></tbody>
+                        </table>
+                    </div>
+                <div class="table-foot"></div>
+            </main>
+            <section>
+                <div class="stats">
+                    <div class="stat">
+                        <table>
+                            <tr>
+                                <th>Total SKS</th>
+                                <th>IPS</th>
+                                <th>Kredit Diambil</th>
+                                <th>Kredit Diperoleh</th>
+                                <th>IPK</th>
+                            </tr>
+                            <tr>
+                                <td id="totalSks"></td>
+                                <td id="ips"></td>
+                                <td id="kreditDiambil"></td>
+                                <td id="kreditDiperoleh"></td>
+                                <td id="ipk"></td>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="script.js"></script>
+  <script src="../sidebar/app.js"></script>
+  <script>
+    fetch("../sidebar/index.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("sidebar-container").innerHTML = data;
+        initside();
+      });
+    </script>
+</body>
+</html>

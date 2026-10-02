@@ -2,13 +2,23 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "poppins";
+}
+
+.app {
+  display: flex;
+}
+
+.page {
+  flex: 1;
+  min-width: 0;
 }
 
 body {
   background-color: #f7f8fa;
   color: #101828;
-  font-family: Inter, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 15px;
+  min-height: 100vh;
 }
 
 button, input, select, textarea {
@@ -38,9 +48,10 @@ svg {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  padding: 30px 48px;
+  flex-wrap: balance;
+  gap: 10px;
+  padding: 10px 30px 10px 30px;
+  height: 87px;
   background-color: #a31313;
   border-bottom: 1px solid #a31313;
 }
@@ -57,10 +68,13 @@ svg {
   align-items: center;
   width: 70px;
   height: 70px;
+  gap: 14px;
   border-radius: 12px;
-  background-color: whitesmoke;
-  color: white;
   cursor: pointer;
+}
+
+.icolor {
+  filter : brightness(0) invert(1);
 }
 
 .brand-logo svg {
@@ -69,7 +83,7 @@ svg {
 }
 
 .brand-title {
-  font-size: 18px;
+  font-size: 1.5rem;
   font-weight: bold;
   color: white;
 }
@@ -346,7 +360,7 @@ svg {
   box-shadow: -15px 15px 30px rgba(0, 0, 0, 0.15);
 }
 
-.dow, .grid {
+.dow, .grid, .dowc {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
 }
@@ -360,6 +374,15 @@ svg {
 }
 
 .grid {
+  border-top: 1px solid #e7eaf0;
+  border-left: 1px solid #e7eaf0;
+}
+
+.gridc {
+  display: grid;
+  grid-template-columns: 56px repeat(5, 1fr);
+  grid-template-rows: 36px;      /* the row with the day names */
+  grid-auto-rows: 52px;          /* every hour row */
   border-top: 1px solid #e7eaf0;
   border-left: 1px solid #e7eaf0;
 }
@@ -423,6 +446,51 @@ svg {
   width: 6px;
   height: 6px;
   border-radius: 50%;
+}
+
+.timetable {
+  display: grid;
+  grid-template-columns: 56px repeat(5, 1fr);
+  grid-template-rows: 36px;      /* the row with the day names */
+  grid-auto-rows: 52px;          /* every hour row */
+  border-top: 1px solid #e7eaf0;
+  border-left: 1px solid #e7eaf0;
+}
+
+.tt-day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #e7eaf0;
+  border-bottom: 1px solid #e7eaf0;
+  font-size: 12px;
+  font-weight: bold;
+  color: #98a2b3;
+}
+
+.tt-hour {
+  padding: 6px 6px 0 0;
+  text-align: right;
+  border-right: 1px solid #e7eaf0;
+  border-bottom: 1px solid #e7eaf0;
+  font-size: 11px;
+  color: #98a2b3;
+}
+
+.tt-cell {
+  border-right: 1px solid #e7eaf0;
+  border-bottom: 1px solid #e7eaf0;
+}
+
+.tt-course {
+  display: flex;
+  flex-direction: column;
+  margin: 2px;
+  padding: 6px;
+  border-radius: 8px;
+  color: white;
+  font-size: 11px;
+  overflow: hidden;
 }
 
 .more {
