@@ -35,15 +35,6 @@ const dummyUsers = [
         "email": "windriew.535250168@stu.untar.ac.id",
         "fakultas": "Teknologi Informasi",
         "prodi": "Teknik Informatika"
-    },
-    {
-        "id": "10392001",
-        "password": "dosen123",
-        "role": "dosen",
-        "nama": "Dr. Ir. Dosen UNTAR, M.T.",
-        "email": "dosen@untar.ac.id",
-        "fakultas": "Teknologi Informasi",
-        "prodi": "Teknik Informatika"
     }
 ];
 
