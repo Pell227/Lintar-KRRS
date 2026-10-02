@@ -2,16 +2,17 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #ffff;
+    background-color: #f8fafc;
 }
 
+/* Custom Scrollbar Styling */
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #ffff;
+    background: #ffffff;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -20,9 +21,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #a31313
+    background: #820f0f;
 }
 
+/* Toast Notification Animation */
 .toast-enter {
     animation: slideInRight 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
 }
