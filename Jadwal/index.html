@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jadwal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-logo"> <img src="image/calendar.png"> </div>
+      <div><div class="brand-title">Schedule</div><div class="brand-sub">Jadwal Kegiatan</div></div>
+    </div>
+    <div class="actions">
+      <label class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="search" type="search" placeholder="Search activities" autocomplete="off"></label>
+      <button class="btn" id="viewBtn" type="button"><svg viewBox="0 0 24 24"><path d="M3 10h18M8 2v4M16 2v4M5 4h14a2 2 0 0 1 2 2v14H3V6a2 2 0 0 1 2-2z"/></svg><span>Month view</span></button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel side">
+      <div class="panel-head">
+        <div><h2 id="listTitle">Today's activities</h2><p>Upcoming events and important reminders</p></div>
+        <div class="menu-wrap">
+          <button class="btn small" id="filterBtn" type="button"><svg viewBox="0 0 24 24"><path d="M3 5h18l-7 8v6l-4 2v-8z"/></svg><span id="filterLabel">Filter</span></button>
+          <ul class="menu" id="filterMenu" hidden></ul>
+        </div>
+      </div>
+      <div class="list" id="list"></div>
+    </section>
+
+    <section class="panel cal">
+      <div class="panel-head">
+        <h2 id="calTitle"></h2>
+        <div class="cal-nav">
+          <button class="btn small" id="todayBtn" type="button">Today</button>
+          <button class="icon-btn" id="prev" type="button" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <button class="icon-btn" id="next" type="button" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+      <div class="dow" id="dow"></div>
+      <div class="grid" id="grid"></div>
+    </section>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

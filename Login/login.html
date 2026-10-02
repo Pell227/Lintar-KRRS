@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Portal KRRS UNTAR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body class="bg-slate-100 font-sans min-h-screen flex items-center justify-center p-4">
+    <div id="toast-container" class="fixed top-5 right-5 z-50 flex flex-col gap-2"></div>
+    <div class="w-full max-w-5xl bg-white rounded-2xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-12 min-h-[600px] my-auto">
+        <div class="md:col-span-5 bg-gradient-to-br from-[#9E0000] to-[#600000] text-white p-8 flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-red-500 rounded-full opacity-20 blur-2xl"></div>
+            <div class="absolute -left-10 -top-10 w-48 h-48 bg-yellow-500 rounded-full opacity-10 blur-xl"></div>
+
+            <div class="relative z-10">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-14 h-14 bg-white rounded-xl p-2 shadow-md flex items-center justify-center overflow-hidden">
+                        <img src="image/logo.png" alt="Logo UNTAR" class="max-h-full max-w-full object-contain" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/9E0000/FFFFFF?text=UNTAR';">
+                    </div>
+                    <div>
+                        <h2 class="font-bold text-lg leading-tight">UNIVERSITAS TARUMANAGARA</h2>
+                        <p class="text-xs text-red-200">PORTAL AKADEMIK KRRS</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 space-y-3">
+                    <h1 class="text-3xl font-extrabold tracking-tight">Selamat Datang!</h1>
+                    <p class="text-sm text-red-100 leading-relaxed">
+                        Akses Kartu Rencana Studi Elektronik (KRRS) Anda. Kelola mata kuliah, jadwal perkuliahan, dan informasi akademik dengan mudah.
+                    </p>
+                </div>
+            </div>
+
+            <div class="relative z-10 mt-8 pt-6 border-t border-red-800/60 text-xs text-red-200 flex justify-between items-center">
+                <span>&copy; 2026 Universitas Tarumanagara</span>
+                <a href="../index.html" class="hover:underline flex items-center gap-1">
+                    <i class="fas fa-home text-xs"></i> Beranda Utama
+                </a>
+            </div>
+        </div>
+
+        <div class="md:col-span-7 p-6 sm:p-10 flex flex-col justify-center bg-white relative">
+            <div id="view-login">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Masuk ke Akun Anda</h2>
+                    <p class="text-xs text-gray-500 mt-1">Pilih peran dan masukkan kredensial akun Anda.</p>
+                </div>
+
+                <div class="flex bg-slate-100 p-1 rounded-xl mb-6">
+                    <button type="button" onclick="selectRole('mahasiswa')" id="role-mahasiswa" class="role-btn flex-1 py-2 text-xs font-semibold rounded-lg transition-all bg-white text-[#9E0000] shadow-sm">
+                        <i class="fas fa-user-graduate mr-1"></i> Mahasiswa
+                    </button>
+                    <button type="button" onclick="selectRole('dosen')" id="role-dosen" class="role-btn flex-1 py-2 text-xs font-semibold text-gray-500 rounded-lg transition-all hover:text-gray-700">
+                        <i class="fas fa-chalkboard-teacher mr-1"></i> Dosen
+                    </button>
+                    <button type="button" onclick="selectRole('staf')" id="role-staf" class="role-btn flex-1 py-2 text-xs font-semibold text-gray-500 rounded-lg transition-all hover:text-gray-700">
+                        <i class="fas fa-user-tie mr-1"></i> Staf
+                    </button>
+                </div>
+
+                <form onsubmit="handleLogin(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1" id="id-label">NIM / Username</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                                <i class="fas fa-id-card"></i>
+                            </span>
+                            <input type="text" id="login-id" required class="w-full pl-10 pr-4 py-2.5 text-sm bg-gray-50 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#9E0000] focus:border-transparent outline-none transition" placeholder="Masukkan NIM atau Username">
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="block text-xs font-semibold text-gray-700">Kata Sandi</label>
+                            <a href="javascript:void(0)" onclick="toggleResetView(true)" class="text-xs text-[#9E0000] hover:underline font-medium">Lupa Kata Sandi?</a>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                            <input type="password" id="login-password" required class="w-full pl-10 pr-10 py-2.5 text-sm bg-gray-50 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#9E0000] focus:border-transparent outline-none transition" placeholder="••••••••">
+                            <button type="button" onclick="togglePasswordVisibility('login-password', 'eye-icon-login')" class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600">
+                                <i class="fas fa-eye" id="eye-icon-login"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-1">
+                        <label class="flex items-center text-xs text-gray-600 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 text-[#9E0000] border-gray-300 rounded focus:ring-[#9E0000]">
+                            <span class="ml-2">Ingat Saya</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="w-full py-3 bg-[#9E0000] hover:bg-[#800000] text-white font-semibold rounded-xl shadow-lg shadow-red-900/20 transition-all flex items-center justify-center gap-2">
+                        <span>Masuk Portal</span>
+                        <i class="fas fa-arrow-right text-xs"></i>
+                    </button>
+                </form>
+
+                <div class="mt-6 text-center text-xs text-gray-600">
+                    Belum memiliki akun? 
+                    <a href="../Registrasi/registrasi.html" class="text-[#9E0000] font-semibold hover:underline">Daftar Akun Mahasiswa</a>
+                </div>
+            </div>
+
+            <div id="view-reset" class="hidden">
+                <div class="mb-5">
+                    <h2 class="text-2xl font-bold text-gray-800">Lupa Kata Sandi</h2>
+                    <p class="text-xs text-gray-500 mt-1">Masukkan NIM / Email terdaftar untuk menyetel ulang kata sandi Anda.</p>
+                </div>
+
+                <form onsubmit="handleResetPassword(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">NIM / NIDN / Email</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <input type="text" id="reset-id" required class="w-full pl-10 pr-4 py-2.5 text-sm bg-gray-50 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#9E0000] outline-none" placeholder="Contoh: 535250178 / email@untar.ac.id">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Kata Sandi Baru</label>
+                        <input type="password" id="reset-new-password" required class="w-full px-3 py-2.5 text-sm bg-gray-50 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#9E0000] outline-none" placeholder="Kata sandi baru">
+                    </div>
+
+                    <button type="submit" class="w-full py-3 bg-[#9E0000] hover:bg-[#800000] text-white font-semibold rounded-xl shadow-md transition-all text-sm">
+                        Perbarui Kata Sandi
+                    </button>
+                </form>
+
+                <div class="mt-6 text-center text-xs text-gray-600">
+                    <a href="javascript:void(0)" onclick="toggleResetView(false)" class="text-[#9E0000] font-semibold hover:underline flex items-center justify-center gap-1">
+                        <i class="fas fa-arrow-left text-xs"></i> Kembali ke Login
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
