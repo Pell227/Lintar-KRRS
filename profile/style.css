@@ -1,21 +1,24 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+
 .boxx {
   box-sizing: border-box;
   position: relative;
-  border: 2px solid white;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   background-color: #a31313;
-  border-radius: 5px;
   width: 100%;
-  height: 4em;
-  padding: 10px 10px 15px 20px;
+  height: 87px;
+  padding: 0 30px;
 }
 
 .boxx h1 {
   color: #ffffff;
-  text-align: center;
+  margin: 0;
+  font-size: 1.5rem;
 }
 
 body img {
@@ -26,8 +29,8 @@ body img {
   display: flex;
   align-items: flex-start;
   gap: 30px;
-  margin-left: 250px;
   margin-top: 30px;
+  padding-left: 20px;
 }
 
 .photo-column {
