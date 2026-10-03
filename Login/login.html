@@ -5,11 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Mahasiswa - Portal KRRS UNTAR</title>
     <link rel="stylesheet" href="login.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+      integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
 </head>
+
 <body class="login-body">
 
     <div id="toast-container" class="toast-container"></div>
@@ -17,36 +24,23 @@
     <div class="auth-card">
         <div class="auth-banner">
             <div class="banner-top">
-                <div class="banner-logo">
-                    <img src="image/pngwing.com.png" alt="UNTAR" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/a31313/FFFFFF?text=UNTAR';" />
-                </div>
-                <div class="banner-brand">
-                    <h2>UNIVERSITAS TARUMANAGARA</h2>
-                    <p>PORTAL AKADEMIK KRRS</p>
-                </div>
+                <div class="banner-logo"><img src="image/pngwing.com.png" alt="UNTAR" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/a31313/FFFFFF?text=UNTAR';" /></div>
+                <div class="banner-brand"><h2>UNIVERSITAS TARUMANAGARA</h2><p>PORTAL AKADEMIK KRRS</p></div>
             </div>
-
-            <div class="banner-content">
-                <h1>Selamat Datang!</h1>
-                <p>Akses Kartu Rencana Studi Elektronik (KRRS) Mahasiswa Anda. Kelola mata kuliah, jadwal perkuliahan, dan informasi akademik dengan mudah.</p>
-            </div>
-
-            <div class="banner-footer">
-                <span>&copy; 2026 Universitas Tarumanagara</span>
-                <a href="../index.html"><i class="fas fa-home"></i> Beranda Utama</a>
-            </div>
+            <div class="banner-content"><h1>Selamat Datang!</h1><p>Akses Kartu Rencana Studi Elektronik (KRRS) Mahasiswa Anda. Kelola mata kuliah, jadwal perkuliahan, dan informasi akademik dengan mudah.</p></div>
+            <div class="banner-footer"><span>&copy; 2026 Universitas Tarumanagara</span><a href="../index.html"><i class="fas fa-home"></i> Beranda</a></div>
         </div>
 
         <div class="auth-form-wrapper">
             <div id="view-login">
                 <div class="form-header">
                     <h2>Login Mahasiswa</h2>
-                    <p>Masukkan email student UNTAR dan kata sandi akun Anda.</p>
+                    <p>Masukkan email UNTAR dan kata sandi akun Anda.</p>
                 </div>
 
                 <form onsubmit="handleLogin(event)" class="auth-form">
                     <div class="form-group">
-                        <label>Email Student UNTAR</label>
+                        <label>Email UNTAR</label>
                         <div class="input-icon-wrapper">
                             <i class="fas fa-envelope input-icon"></i>
                             <input type="email" id="login-email" required placeholder="nama@stu.untar.ac.id" />
@@ -54,47 +48,29 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="label-row">
-                            <label>Kata Sandi</label>
-                            <a href="javascript:void(0)" onclick="toggleResetView(true)" class="link-forgot">Lupa Kata Sandi?</a>
-                        </div>
+                        <div class="label-row"><label>Kata Sandi</label><a href="javascript:void(0)" onclick="toggleResetView(true)" class="link-forgot">Lupa Kata Sandi?</a></div>
                         <div class="input-icon-wrapper">
                             <i class="fas fa-lock input-icon"></i>
-                            <input type="password" id="login-password" required placeholder="••••••••" />
+                            <input type="password" id="login-password" required placeholder="********" />
                             <button type="button" onclick="togglePasswordVisibility('login-password', 'eye-icon-login')" class="btn-toggle-password">
                                 <i class="fas fa-eye" id="eye-icon-login"></i>
                             </button>
                         </div>
                     </div>
 
-                    <div class="form-options">
-                        <label class="checkbox-container">
-                            <input type="checkbox" />
-                            <span>Ingat Saya</span>
-                        </label>
-                    </div>
+                    <div class="form-options"><label class="checkbox-container"><input type="checkbox" /><span>Ingat Saya</span></label></div>
 
-                    <button type="submit" class="btn-submit">
-                        <span>Masuk Portal</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
+                    <button type="submit" class="btn-submit"><span>Masuk Portal</span><i class="fas fa-arrow-right"></i></button>
                 </form>
 
-                <div class="form-footer">
-                    <span>Belum memiliki akun? </span>
-                    <a href="../Registrasi/registrasi.html">Daftar Akun Mahasiswa</a>
-                </div>
+                <div class="form-footer"><span>Belum memiliki akun? </span><a href="../Registrasi/registrasi.html">Daftar Akun Mahasiswa</a></div>
             </div>
 
             <div id="view-reset" class="hidden">
-                <div class="form-header">
-                    <h2>Lupa Kata Sandi</h2>
-                    <p>Masukkan email student UNTAR terdaftar untuk menyetel ulang kata sandi.</p>
-                </div>
+                <div class="form-header"><h2>Lupa Kata Sandi</h2><p>Masukkan email UNTAR terdaftar untuk menyetel ulang kata sandi.</p></div>
 
                 <form onsubmit="handleResetPassword(event)" class="auth-form">
-                    <div class="form-group">
-                        <label>Email Student UNTAR</label>
+                    <div class="form-group"><label>Email Student UNTAR</label>
                         <div class="input-icon-wrapper">
                             <i class="fas fa-envelope input-icon"></i>
                             <input type="email" id="reset-email" required placeholder="email@stu.untar.ac.id" />
@@ -110,9 +86,7 @@
                 </form>
 
                 <div class="form-footer">
-                    <a href="javascript:void(0)" onclick="toggleResetView(false)" class="link-back">
-                        <i class="fas fa-arrow-left"></i> Kembali ke Login
-                    </a>
+                    <a href="javascript:void(0)" onclick="toggleResetView(false)" class="link-back"><i class="fas fa-arrow-left"></i> Kembali ke Login</a>
                 </div>
             </div>
         </div>

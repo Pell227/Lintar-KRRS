@@ -15,43 +15,6 @@ function togglePasswordVisibility(inputId, iconId) {
     }
 }
 
-function checkPasswordStrength(password) {
-    const bar = document.getElementById('strength-bar');
-    const text = document.getElementById('strength-text');
-    
-    if (!bar || !text) return;
-
-    let strength = 0;
-    if (password.length >= 6) strength += 25;
-    if (password.match(/[a-z]/) && password.match(/[A-Z]/)) strength += 25;
-    if (password.match(/\d/)) strength += 25;
-    if (password.match(/[^a-zA-Z0-9]/)) strength += 25;
-
-    bar.style.width = strength + '%';
-
-    if (strength === 0) {
-        bar.className = 'strength-bar-fill strength-empty';
-        text.textContent = 'Kekuatan password: -';
-        text.className = 'strength-text';
-    } else if (strength <= 25) {
-        bar.className = 'strength-bar-fill strength-weak';
-        text.textContent = 'Kekuatan password: Lemah';
-        text.className = 'strength-text text-weak';
-    } else if (strength <= 50) {
-        bar.className = 'strength-bar-fill strength-medium';
-        text.textContent = 'Kekuatan password: Sederhana';
-        text.className = 'strength-text text-medium';
-    } else if (strength <= 75) {
-        bar.className = 'strength-bar-fill strength-good';
-        text.textContent = 'Kekuatan password: Baik';
-        text.className = 'strength-text text-good';
-    } else {
-        bar.className = 'strength-bar-fill strength-strong';
-        text.textContent = 'Kekuatan password: Sangat Kuat';
-        text.className = 'strength-text text-strong';
-    }
-}
-
 function handleRegister(e) {
     e.preventDefault();
 
@@ -62,15 +25,7 @@ function handleRegister(e) {
     const prodi = document.getElementById('reg-prodi').value.trim();
     const password = document.getElementById('reg-password').value.trim();
 
-    const newUser = {
-        id: nim,
-        password: password,
-        role: "mahasiswa",
-        nama: nama,
-        email: email,
-        fakultas: fakultas,
-        prodi: prodi
-    };
+    const newUser = {id: nim,password: password,role: "mahasiswa",nama: nama,email: email,fakultas: fakultas,prodi: prodi};
 
     const initialUsers = typeof dummyUsers !== 'undefined' ? dummyUsers : [];
     let existingUsers = JSON.parse(localStorage.getItem('registeredUsers') || '[]');

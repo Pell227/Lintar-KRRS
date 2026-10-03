@@ -1,5 +1,8 @@
 function getAllUsers() {
-    const initialUsers = typeof dummyUsers !== 'undefined' ? dummyUsers : [];
+    let initialUsers = [];
+    if (typeof dummyUsers !== 'undefined') {
+        initialUsers = dummyUsers.users || dummyUsers.user || (Array.isArray(dummyUsers) ? dummyUsers : []);
+    }
     const localUsers = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
     return [...initialUsers, ...localUsers];
 }
@@ -36,36 +39,42 @@ function toggleResetView(showReset) {
 
 function handleLogin(e) {
     e.preventDefault();
-    const inputEmail = document.getElementById('login-email').value.trim();
+    const inputEmail = document.getElementById('login-email').value.trim().toLowerCase();
     const inputPass = document.getElementById('login-password').value.trim();
 
     showToast('Memeriksa kredensial akun mahasiswa...', 'info');
 
     const allUsers = getAllUsers();
 
-    const foundUser = allUsers.find(u => 
-        u.email.toLowerCase() === inputEmail.toLowerCase() && u.password === inputPass
-    );
+    const foundUser = allUsers.find(u => {
+        const email = (u.email || '').toLowerCase();
+        const id = (u.id || '').toLowerCase();
+        return (email === inputEmail || id === inputEmail) && u.password === inputPass;
+    });
 
     if (foundUser) {
         localStorage.setItem('sessionUser', JSON.stringify(foundUser));
         showToast(`Login Berhasil! Selamat datang, ${foundUser.nama}.`, 'success');
 
         setTimeout(() => {
-            window.location.href = "../index.html";
+            window.location.href = "../Hal_pengumuman/index.html";
         }, 1200);
     } else {
-        showToast('Email atau Kata Sandi salah!', 'error');
+        showToast('Email/NIM atau Kata Sandi salah!', 'error');
     }
 }
 
 function handleResetPassword(e) {
     e.preventDefault();
-    const resetEmail = document.getElementById('reset-email').value.trim();
+    const resetEmail = document.getElementById('reset-email').value.trim().toLowerCase();
     const newPass = document.getElementById('reset-new-password').value.trim();
 
     const allUsers = getAllUsers();
-    const userIndex = allUsers.findIndex(u => u.email.toLowerCase() === resetEmail.toLowerCase());
+    const userIndex = allUsers.findIndex(u => {
+        const email = (u.email || '').toLowerCase();
+        const id = (u.id || '').toLowerCase();
+        return email === resetEmail || id === resetEmail;
+    });
 
     if (userIndex !== -1) {
         allUsers[userIndex].password = newPass;
@@ -76,7 +85,7 @@ function handleResetPassword(e) {
             toggleResetView(false);
         }, 1200);
     } else {
-        showToast('Email tidak terdaftar dalam sistem.', 'error');
+        showToast('Email/NIM tidak terdaftar dalam sistem.', 'error');
     }
 }
 

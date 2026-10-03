@@ -1,6 +1,5 @@
 const datamahasiswa = JSON.parse(`{
-  "datamahasiswa" : [
-  ]
+  "datamahasiswa": []
 }`);
 
 const dummyUsers = JSON.parse(`{
@@ -21,7 +20,7 @@ const dummyUsers = JSON.parse(`{
       "nama": "Azzarqy Fizran M Nasrun",
       "email": "azzarqy.535250161@stu.untar.ac.id",
       "fakultas": "Teknologi Informasi",
-      "prodi": "Teknik Informatika",
+      "prodi": "Teknik Informatika"
     },
     {
       "id": "535250166",
@@ -30,7 +29,7 @@ const dummyUsers = JSON.parse(`{
       "nama": "Felisia",
       "email": "felisia.535250166@stu.untar.ac.id",
       "fakultas": "Teknologi Informasi",
-      "prodi": "Teknik Informatika",
+      "prodi": "Teknik Informatika"
     },
     {
       "id": "535250168",
@@ -39,6 +38,7 @@ const dummyUsers = JSON.parse(`{
       "nama": "Windriew Aeron Siaury",
       "email": "windriew.535250168@stu.untar.ac.id",
       "fakultas": "Teknologi Informasi",
-      "prodi": "Teknik Informatika",
+      "prodi": "Teknik Informatika"
     }
-]}`);
+  ]
+}`);
