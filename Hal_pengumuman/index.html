@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Pengumuman - Lintar KRRS</title>
+
+    <!-- Sidebar CSS -->
+    <link rel="stylesheet" href="../sidebar/style.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+      integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Pengumuman -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+
+    <!-- ==========================================
+         NAVBAR / SIDEBAR TOGGLE
+    =========================================== -->
+
+    <nav class="site-nav">
+
+      <button class="sidebar-toggle">
+
+        <span class="matsym">
+          <i class="fa-solid fa-bars"></i>
+        </span>
+
+      </button>
+
+    </nav>
+
+
+    <!-- ==========================================
+         MAIN CONTAINER
+    =========================================== -->
+
+    <div class="container">
+
+
+      <!-- ========================================
+           SIDEBAR
+      ========================================= -->
+
+      <div id="sidebar-container"></div>
+
+
+      <!-- ========================================
+           MAIN CONTENT
+      ========================================= -->
+
+      <div class="main-content">
+
+
+        <!-- ======================================
+             PAGE HEADER
+        ======================================= -->
+
+        <div class="borderhead">
+
+          <i class="fa-solid fa-bullhorn"></i>
+
+          <h1 class="page-title">
+            Pengumuman
+          </h1>
+
+        </div>
+
+
+        <!-- ======================================
+             INTRODUCTION
+        ======================================= -->
+
+        <div class="card">
+
+          <div class="information">
+
+            <h2>
+              Berita Akademik
+            </h2>
+
+            <p class="section-description">
+              Informasi terbaru mengenai kegiatan dan
+              layanan akademik mahasiswa.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- ======================================
+             ANNOUNCEMENT LIST
+        ======================================= -->
+
+        <div class="announcement-container" id="announcementContainer">
+
+          <!--
+            Data pengumuman akan dimasukkan
+            melalui JavaScript.
+          -->
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         JAVASCRIPT PENGUMUMAN
+    =========================================== -->
+
+    <script src="script.js"></script>
+
+
+    <!-- ==========================================
+         JAVASCRIPT SIDEBAR
+    =========================================== -->
+
+    <script src="../sidebar/app.js"></script>
+
+
+    <!-- ==========================================
+         LOAD SIDEBAR
+    =========================================== -->
+
+    <script>
+
+      fetch("../sidebar/index.html")
+
+        .then((response) => response.text())
+
+        .then((data) => {
+
+          document.getElementById(
+            "sidebar-container"
+          ).innerHTML = data;
+
+
+          // ======================================
+          // ACTIVE MENU PENGUMUMAN
+          // ======================================
+
+          const menuLinks =
+            document.querySelectorAll(
+              "#sidebar-container .menu-link"
+            );
+
+
+          menuLinks.forEach((link) => {
+
+            link.classList.remove("active");
+
+
+            const label =
+              link.querySelector(".menu-label");
+
+
+            if (
+              label &&
+              label.textContent
+                .trim()
+                .toLowerCase() === "pengumuman"
+            ) {
+
+              link.classList.add("active");
+
+            }
+
+          });
+
+
+          // ======================================
+          // INISIALISASI SIDEBAR
+          // ======================================
+
+          if (typeof initside === "function") {
+
+            initside();
+
+          }
+
+        })
+
+        .catch((error) => {
+
+          console.error(
+            "Gagal memuat sidebar:",
+            error
+          );
+
+        });
+
+    </script>
+
+  </body>
+</html>

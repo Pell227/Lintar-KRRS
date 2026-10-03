@@ -1,294 +1,226 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>FAQ & Bantuan - Lintar KRRS</title>
-    
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="../sidebar/style.css" />
 
-<body>
-    <header class="header">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+      integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"/>
 
-        <div class="header-left">
-            <i class="bi bi-mortarboard-fill"></i>
-            <span>Lintar KRRS</span>
-        </div>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
 
-        <div class="header-right">
-            <i class="bi bi-bell"></i>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"/>
 
-            <div class="profile">
-                <i class="bi bi-person-circle"></i>
-                <span>Mahasiswa</span>
-            </div>
-        </div>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-    </header>
+  <body>
 
-    <main class="main-content">
+    <nav class="site-nav">
+      <button class="sidebar-toggle">
+        <span class="matsym">
+          <i class="fa-solid fa-bars"></i>
+        </span>
+      </button>
+    </nav>
 
-        <!-- Breadcrumb -->
-        <div class="breadcrumb">
+    <div class="container">
 
-            <i class="bi bi-house-fill"></i>
+    <div id="sidebar-container">
+        <div class="sidebar-loading"></div>
+    </div>
 
-            <span>Home</span>
+      <div class="main-content">
 
-            <i class="bi bi-chevron-right"></i>
+        <div class="borderhead">
 
-            <span>FAQ & Bantuan</span>
+          <i class="fa-solid fa-circle-question"></i>
 
-        </div>
-
-        <div class="page-header">
-
-            <div>
-                <h1>FAQ & Bantuan</h1>
-
-                <p>
-                    Temukan jawaban atas pertanyaan umum mengenai
-                    sistem Lintar KRRS.
-                </p>
-            </div>
+          <h1 class="page-title">
+            FAQ & Bantuan
+          </h1>
 
         </div>
 
-        <section class="content-card">
+        <div class="card">
 
-            <div class="section-title">
+          <div class="information">
 
-                <div class="title-icon">
-                    <i class="bi bi-question-lg"></i>
-                </div>
+            <h2>
+              Pertanyaan yang Sering Diajukan
+            </h2>
 
-                <div>
-                    <h2>Pertanyaan yang Sering Diajukan</h2>
-                    <p>
-                        Klik pertanyaan untuk melihat jawabannya.
-                    </p>
-                </div>
+            <p class="section-description">
+              Temukan jawaban atas pertanyaan umum
+              mengenai sistem Lintar KRRS.
+            </p>
 
-            </div>
-
-            <div class="faq-container">
-
-                <div class="faq-item">
-
-                    <button class="faq-question">
-
-                        <span>
-                            Bagaimana cara melakukan pengisian KRRS?
-                        </span>
-
-                        <i class="bi bi-chevron-down"></i>
-
-                    </button>
-
-                    <div class="faq-answer">
-
-                        <p>
-                            Mahasiswa dapat melakukan pengisian KRRS
-                            melalui menu pengisian KRRS pada sistem
-                            Lintar. Pilih mata kuliah yang ingin diambil
-                            kemudian simpan ke pengisian KRRS.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="faq-item">
-
-                    <button class="faq-question">
-
-                        <span>
-                            Bagaimana jika mata kuliah yang ingin diambil
-                            mengalami bentrok jadwal?
-                        </span>
-
-                        <i class="bi bi-chevron-down"></i>
-
-                    </button>
-
-                    <div class="faq-answer">
-
-                        <p>
-                            Periksa kembali jadwal mata kuliah sebelum
-                            melakukan konfirmasi KRRS. Jika terjadi
-                            bentrok, mahasiswa dapat memilih kelas atau
-                            mata kuliah lain yang memiliki jadwal berbeda.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="faq-item">
-
-                    <button class="faq-question">
-
-                        <span>
-                            Bagaimana cara melihat mata kuliah yang sudah
-                            diambil?
-                        </span>
-
-                        <i class="bi bi-chevron-down"></i>
-
-                    </button>
-
-                    <div class="faq-answer">
-
-                        <p>
-                            Mata kuliah yang telah dipilih dapat dilihat
-                            melalui menu rincian KRRS. Halaman tersebut
-                            menampilkan daftar mata kuliah yang telah
-                            diambil pada semester berjalan.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="faq-item">
-
-                    <button class="faq-question">
-
-                        <span>
-                            Bagaimana cara cetak KRRS?
-                        </span>
-
-                        <i class="bi bi-chevron-down"></i>
-
-                    </button>
-
-                    <div class="faq-answer">
-
-                        <p>
-                            Setelah pengisian KRRS selesai dan telah
-                            dikonfirmasi, mahasiswa dapat membuka menu
-                            cetak atau preview KRRS untuk melihat dan
-                            mencetak dokumen KRRS.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="faq-item">
-
-                    <button class="faq-question">
-
-                        <span>
-                            Siapa yang dapat dihubungi jika mengalami
-                            masalah akademik?
-                        </span>
-
-                        <i class="bi bi-chevron-down"></i>
-
-                    </button>
-
-                    <div class="faq-answer">
-
-                        <p>
-                            Jika mengalami masalah terkait akademik,
-                            mahasiswa dapat menghubungi dosen wali
-                            untuk mendapatkan arahan dan bantuan.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="content-card">
-
-            <div class="section-title">
-
-                <div class="title-icon">
-                    <i class="bi bi-person-vcard-fill"></i>
-                </div>
-
-                <div>
-                    <h2>Kontak Dosen Wali</h2>
-
-                    <p>
-                        Informasi dosen wali mahasiswa.
-                    </p>
-                </div>
+            <div
+              id="faqContainer"
+              class="faq-container"
+            >
 
             </div>
 
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <div class="information">
+
+            <h2>
+              Kontak Dosen Wali
+            </h2>
+
+            <p class="section-description">
+              Informasi dosen wali mahasiswa.
+            </p>
 
             <div class="lecturer-card">
 
-                <div class="lecturer-photo">
+              <div class="lecturer-photo">
 
-                    <i class="bi bi-person-fill"></i>
+                <i class="fa-solid fa-user"></i>
 
-                </div>
+              </div>
 
+              <div class="lecturer-info">
 
-                <div class="lecturer-info">
+                <h3 id="dosenNama">
+                  -
+                </h3>
 
-                    <h3 class="lecturer-name"></h3>
+                <p
+                  id="dosenJabatan"
+                  class="lecturer-role"
+                >
+                  -
+                </p>
 
-                    <p class="lecturer-role"></p>
+                <div class="contact-list">
 
+                  <div class="contact-item">
 
-                    <div class="contact-list">
+                    <i class="fa-solid fa-envelope"></i>
 
-                        <div class="contact-item">
+                    <div>
 
-                            <i class="bi bi-envelope-fill"></i>
+                      <span>Email</span>
 
-                            <div>
-                                <span>Email</span>
-                                <strong>
-                                    <a href="mailto:" class="lecturer-email"></a>
-                                </strong>
-                            </div>
-
-                        </div>
-
-
-                        <div class="contact-item">
-                            <i class="bi bi-telephone-fill"></i>
-                            <div>
-                                <span>Telepon</span>
-                                <strong class="lecturer-phone"></strong>
-                            </div>
-                        </div>
-
-
-                        <div class="contact-item">
-
-                            <i class="bi bi-building-fill"></i>
-
-                            <div>
-                                <span>Kantor</span>
-                                <strong class="lecturer-room"></strong>
-                            </div>
-
-                        </div>
+                      <strong id="dosenEmail">
+                        -
+                      </strong>
 
                     </div>
 
+                  </div>
+
+                  <div class="contact-item">
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    <div>
+
+                      <span>Telepon</span>
+
+                      <strong id="dosenTelepon">
+                        -
+                      </strong>
+
+                    </div>
+
+                  </div>
+
+                  <div class="contact-item">
+
+                    <i class="fa-solid fa-building"></i>
+
+                    <div>
+
+                      <span>Ruangan</span>
+
+                      <strong id="dosenRuangan">
+                        -
+                      </strong>
+
+                    </div>
+
+                  </div>
+
+
                 </div>
+
+              </div>
 
             </div>
 
-        </section>
+          </div>
+
+        </div>
 
 
-    </main>
+      </div>
+
+    </div>
 
     <script src="script.js"></script>
 
-</body>
+    <script src="../sidebar/app.js"></script>
+
+    <script>
+
+      fetch("../sidebar/index.html")
+  .then((response) => response.text())
+  .then((data) => {
+
+    document.getElementById("sidebar-container").innerHTML = data;
+
+    const menuLinks =
+      document.querySelectorAll("#sidebar-container .menu-link");
+
+    menuLinks.forEach((link) => {
+
+      link.classList.remove("active");
+
+      const label =
+        link.querySelector(".menu-label");
+
+      if (
+        label &&
+        label.textContent.trim().toLowerCase() === "faq"
+      ) {
+        link.classList.add("active");
+      }
+
+    });
+
+    if (typeof initside === "function") {
+      initside();
+    }
+
+  })
+  .catch((error) => {
+
+    console.error(
+      "Gagal memuat sidebar:",
+      error
+    );
+
+  });
+
+    </script>
+  </body>
 </html>
