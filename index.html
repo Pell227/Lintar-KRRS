@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portal Akademik KRRS - Universitas Tarumanagara</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+    <div id="toast-container" class="toast-container"></div>
+
+    <header class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="brand">
+                <div class="logo-box">
+                    <img src="../UTS/Login/image/pngwing.com.png" alt="UNTAR" onerror="this.onerror=null;" />
+                </div>
+                <div class="brand-text">
+                    <span class="brand-title">UNIVERSITAS TARUMANAGARA</span>
+                    <span class="brand-subtitle">Portal Akademik KRRS Mahasiswa</span>
+                </div>
+            </a>
+
+            <nav class="nav-links">
+                <a href="#beranda">Beranda</a>
+                <a href="#modul">Layanan Akademik</a>
+                <a href="Hal_pengumuman/index.html">Pengumuman</a>
+                <a href="Kalender_akademik/index.html">Kalender</a>
+                <a href="Faq/index.html">Bantuan</a>
+            </nav>
+
+            <div id="auth-actions" class="auth-actions">
+                <a href="Login/login.html" class="btn-outline">Masuk Portal</a>
+                <a href="Registrasi/registrasi.html" class="btn-solid">Daftar Akun</a>
+            </div>
+
+            <button onclick="toggleMobileMenu()" class="menu-toggle" aria-label="Toggle Navigation">
+                <i class="fas fa-bars" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="mobile-menu hidden">
+            <a href="#beranda" onclick="toggleMobileMenu()">Beranda</a>
+            <a href="#modul" onclick="toggleMobileMenu()">Layanan Akademik</a>
+            <a href="Hal_pengumuman/index.html">Pengumuman Akademik</a>
+            <a href="Kalender_akademik/index.html">Kalender Akademik</a>
+            <a href="Faq/index.html">Bantuan & FAQ</a>
+            <div id="mobile-auth-actions" class="mobile-auth-actions">
+                <a href="Login/login.html" class="btn-mobile-outline">Masuk Portal</a>
+                <a href="Registrasi/registrasi.html" class="btn-mobile-solid">Daftar Akun</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="beranda" class="hero">
+        <div class="hero-container">
+            <div class="badge">
+                <i class="fas fa-circle"></i>
+                <span>Semester Genap 2025/2026</span>
+            </div>
+
+            <h1 class="hero-title">
+                Portal Akademik <span class="highlight">KRRS UNTAR</span>
+            </h1>
+
+            <p class="hero-description">
+                Sistem Kartu Rencana Studi Elektronik Universitas Tarumanagara. Akses pengisian KRRS, jadwal perkuliahan, nilai KHS, transkrip, dan layanan akademik mahasiswa secara praktis dan ringkas.
+            </p>
+
+            <div class="hero-actions">
+                <a href="Login/login.html" class="btn-hero-primary">
+                    <span>Masuk Portal KRRS</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="Registrasi/registrasi.html" class="btn-hero-secondary">
+                    Daftar Akun Baru
+                </a>
+            </div>
+
+            <div class="info-bar">
+                <div class="info-item">
+                    <span class="info-number">8 Fakultas</span>
+                    <span class="info-label">Universitas</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-number">Pengisian Online</span>
+                    <span class="info-label">Status Aktif</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-number">Responsif</span>
+                    <span class="info-label">Semua Perangkat</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-number">Aman & Terpadu</span>
+                    <span class="info-label">Sistem Terenkripsi</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="modul" class="modul-section">
+        <div class="modul-container">
+            <div class="section-header">
+                <h2>Layanan Akademik Mahasiswa</h2>
+                <p>Pilih menu modul di bawah ini sesuai dengan kebutuhan Anda</p>
+            </div>
+
+            <div class="card-grid">
+                <div class="modul-card">
+                    <div class="card-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Autentikasi & Akun Mahasiswa</h3>
+                        <p>Akses masuk portal mahasiswa, pendaftaran akun baru, dan pemulihan password.</p>
+                        <div class="card-links">
+                            <a href="Login/login.html" class="link-primary">Masuk Login &rarr;</a>
+                            <a href="Registrasi/registrasi.html" class="link-secondary">Daftar Akun &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modul-card">
+                    <div class="card-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Dashboard & Profil Mahasiswa</h3>
+                        <p>Lihat ringkasan IPK, semester berjalan, biodata mahasiswa, dan edit profil.</p>
+                        <div class="card-links">
+                            <a href="Dashboard/index.html" class="link-primary">Dashboard &rarr;</a>
+                            <a href="profile/index.html" class="link-secondary">Profil Mahasiswa &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modul-card">
+                    <div class="card-icon">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Pengisian & Cetak KRRS</h3>
+                        <p>Isi rencana studi semester baru, cek rincian mata kuliah, dan cetak draf KRRS.</p>
+                        <div class="card-links">
+                            <a href="KRRS/pengisian-krrs.html" class="link-primary">Form Pengisian &rarr;</a>
+                            <a href="KRRS/rincian-krrs.html" class="link-secondary">Rincian KRRS &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modul-card">
+                    <div class="card-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Jadwal Kuliah & Nilai KHS</h3>
+                        <p>Cek jadwal perkuliahan mingguan, Kartu Hasil Studi (KHS), dan transkrip nilai.</p>
+                        <div class="card-links">
+                            <a href="Jadwal/index.html" class="link-primary">Jadwal & KHS &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modul-card full-width">
+                    <div class="card-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Informasi & Bantuan Akademik</h3>
+                        <p>Berita pengumuman kampus, jadwal kegiatan kalender akademik, dan layanan pertanyaan FAQ.</p>
+                        <div class="card-links">
+                            <a href="Hal_pengumuman/index.html" class="link-primary">Berita Pengumuman &rarr;</a>
+                            <a href="Kalender_akademik/index.html" class="link-secondary">Kalender Akademik &rarr;</a>
+                            <a href="Faq/index.html" class="link-secondary">FAQ & Bantuan &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">U</div>
+                <span>Universitas Tarumanagara &copy; 2026</span>
+            </div>
+            <div class="footer-links">
+                <a href="Login/login.html">Login</a>
+                <a href="Registrasi/registrasi.html">Registrasi</a>
+                <a href="Faq/index.html">Bantuan</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
