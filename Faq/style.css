@@ -1,375 +1,208 @@
-/* =========================================
-   RESET
-========================================= */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
-/* =========================================
-   BODY
-========================================= */
-
 body {
     min-height: 100vh;
-
     background-color: #f9fafb;
-
     font-family: "Poppins", sans-serif;
-
     color: #1f2936;
 }
-
-
-/* =========================================
-   CONTAINER
-========================================= */
 
 .container {
     display: flex;
-
     width: 100%;
-
     min-height: 100vh;
 }
 
-
-/* =========================================
-   MAIN CONTENT
-========================================= */
-
 .container .main-content {
     flex: 1;
-
     min-width: 0;
-
     padding: 0;
-
     color: #1f2936;
 }
 
-
-/* =========================================
-   PAGE HEADER
-========================================= */
-
 .borderhead {
     display: flex;
-
     align-items: center;
-
     gap: 12px;
-
     height: 87px;
-
     padding: 0 30px;
-
     background-color: #a31313;
-
     color: white;
 }
-
 
 .borderhead i {
     font-size: 20px;
 }
 
-
 .main-content .page-title {
     margin: 0;
-
     font-size: 1.5rem;
-
     font-weight: 600;
 }
-
-
-/* =========================================
-   CARD
-========================================= */
 
 .main-content > .card {
     margin: 30px;
-
     padding: 25px;
-
     background-color: #ffffff;
-
     border-radius: 8px;
-
-    box-shadow:
-        0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
-
-
-/* =========================================
-   SECTION
-========================================= */
 
 .information h2 {
     margin-bottom: 8px;
-
     font-size: 1.35rem;
-
     font-weight: 600;
-
     color: #1f2936;
 }
 
-
 .section-description {
     margin-bottom: 22px;
-
     color: #798eae;
-
     font-size: 14px;
 }
 
-
-/* =========================================
-   FAQ
-========================================= */
-
 .faq-container {
     display: flex;
-
     flex-direction: column;
-
     gap: 12px;
-
     margin-top: 20px;
 }
 
-
 .faq-item {
     overflow: hidden;
-
     border: 1px solid #e2e8f0;
-
     border-radius: 8px;
-
     background-color: #ffffff;
-
     transition: 0.2s ease;
 }
-
 
 .faq-item:hover {
     border-color: #a31313;
 }
 
-
-/* =========================================
-   FAQ QUESTION
-========================================= */
-
 .faq-question {
     width: 100%;
-
     padding: 18px 20px;
-
     border: none;
-
     background-color: #ffffff;
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
     gap: 20px;
-
     text-align: left;
-
     font-family: "Poppins", sans-serif;
-
     font-size: 14px;
-
     font-weight: 600;
-
     color: #1f2936;
-
     cursor: pointer;
 }
 
-
 .faq-question:hover {
     background-color: #fff7f7;
-
     color: #a31313;
 }
 
 
 .faq-question i {
     flex-shrink: 0;
-
     color: #a31313;
-
     transition: transform 0.3s ease;
 }
 
-
-/* =========================================
-   FAQ ACTIVE
-========================================= */
-
 .faq-item.active .faq-question {
     color: #a31313;
-
     background-color: #fff7f7;
 }
-
 
 .faq-item.active .faq-question i {
     transform: rotate(180deg);
 }
 
-
-/* =========================================
-   FAQ ANSWER
-========================================= */
-
 .faq-answer {
     max-height: 0;
-
     overflow: hidden;
-
     background-color: #ffffff;
-
     transition: max-height 0.3s ease;
 }
 
-
 .faq-answer p {
     padding: 0 20px 18px;
-
     color: #667085;
-
     font-size: 14px;
-
     line-height: 1.7;
 }
 
-
-/* =========================================
-   DOSEN WALI
-========================================= */
-
 .lecturer-card {
     display: flex;
-
     align-items: center;
-
     gap: 25px;
-
     padding: 25px;
-
     border: 1px solid #f1dede;
-
     border-radius: 10px;
-
     background-color: #fdf7f7;
 }
 
 
 .lecturer-photo {
     width: 90px;
-
     height: 90px;
-
     min-width: 90px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     border-radius: 50%;
-
     background-color: #a31313;
-
     color: white;
-
     font-size: 42px;
 }
-
 
 .lecturer-info {
     flex: 1;
 }
 
-
 .lecturer-info h3 {
     margin-bottom: 5px;
-
     font-size: 18px;
 }
-
 
 .lecturer-role {
     margin-bottom: 20px;
-
     color: #a31313;
-
     font-size: 14px;
 }
 
-
-/* =========================================
-   CONTACT
-========================================= */
-
 .contact-list {
     display: flex;
-
     flex-wrap: wrap;
-
     gap: 30px;
 }
 
-
 .contact-item {
     display: flex;
-
     align-items: center;
-
     gap: 10px;
 }
 
-
 .contact-item > i {
     color: #a31313;
-
     font-size: 18px;
 }
 
-
 .contact-item span {
     display: block;
-
     margin-bottom: 3px;
-
     color: #798eae;
-
     font-size: 11px;
 }
 
-
 .contact-item strong {
     color: #333;
-
     font-size: 13px;
 }
-
-
-/* =========================================
-   RESPONSIVE
-========================================= */
 
 @media (max-width: 768px) {
 
@@ -380,14 +213,12 @@ body {
 
     .lecturer-card {
         flex-direction: column;
-
         align-items: flex-start;
     }
 
 
     .contact-list {
         flex-direction: column;
-
         gap: 15px;
     }
 

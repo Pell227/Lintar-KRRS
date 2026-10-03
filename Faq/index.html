@@ -176,50 +176,39 @@
 
     </div>
 
+    <script src="../data.js"></script>
     <script src="script.js"></script>
-
     <script src="../sidebar/app.js"></script>
 
     <script>
 
-      fetch("../sidebar/index.html")
-  .then((response) => response.text())
-  .then((data) => {
+      fetch("../sidebar/index.html").then((response) => response.text()).then((data) => {
 
-    document.getElementById("sidebar-container").innerHTML = data;
+        document.getElementById("sidebar-container").innerHTML = data;
 
-    const menuLinks =
-      document.querySelectorAll("#sidebar-container .menu-link");
+        const menuLinks = document.querySelectorAll("#sidebar-container .menu-link");
 
-    menuLinks.forEach((link) => {
+        menuLinks.forEach((link) => {
 
-      link.classList.remove("active");
+          link.classList.remove("active");
 
-      const label =
-        link.querySelector(".menu-label");
+          const label = link.querySelector(".menu-label");
 
-      if (
-        label &&
-        label.textContent.trim().toLowerCase() === "faq"
-      ) {
-        link.classList.add("active");
-      }
+          if (label &&label.textContent.trim().toLowerCase() === "faq") 
+          {
+            link.classList.add("active");
+          }
+        });
 
-    });
+        if (typeof initside === "function") {
+          initside();
+        }
 
-    if (typeof initside === "function") {
-      initside();
-    }
+      }).catch((error) => 
+      {
+        console.error("Gagal memuat sidebar:",error);
 
-  })
-  .catch((error) => {
-
-    console.error(
-      "Gagal memuat sidebar:",
-      error
-    );
-
-  });
+      });
 
     </script>
   </body>
