@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data KRRS - Lintar KRRS</title>
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../../sidebar/style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+      integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <nav class="site-nav">
+      <button class="sidebar-toggle">
+        <span class="matsym"><i class="fa-solid fa-bars"></i></span>
+      </button>
+    </nav>
+
+    <div class="container">
+      <div id="sidebar-container"></div>
+
+      <main class="main-content">
+        <div class="page-heading">
+          <span><i class="fa-solid fa-house"></i> / KRRS / Data</span>
+          <h1>Data KRRS</h1>
+          <p>Periksa mata kuliah yang tersimpan sebelum mencetak KRRS.</p>
+        </div>
+
+        <section class="card">
+          <h2>Ringkasan Pengisian</h2>
+
+          <div class="detail-grid">
+            <span>
+              <small>Status</small>
+              <strong id="status">-</strong>
+            </span>
+            <span>
+              <small>Jumlah Mata Kuliah</small>
+              <strong id="count">0</strong>
+            </span>
+            <span>
+              <small>Total SKS</small>
+              <strong id="sks">0 / 24</strong>
+            </span>
+          </div>
+
+          <div id="message" class="notice"></div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Kode</th>
+                  <th>Mata Kuliah</th>
+                  <th>SKS</th>
+                  <th>Kelas</th>
+                  <th>Jadwal</th>
+                  <th>Ruang</th>
+                </tr>
+              </thead>
+              <tbody id="dataRows"></tbody>
+            </table>
+          </div>
+
+          <div class="actions">
+            <a class="button secondary" href="../Pengisian/index.html">
+              Ubah Pengisian
+            </a>
+            <a id="printLink" class="button primary" href="../Cetak/index.html">
+              <i class="fa-solid fa-print"></i> Lanjut Cetak
+            </a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../../sidebar/app.js"></script>
+    <script src="app.js"></script>
+    <script>
+      fetch("../../sidebar/index.html")
+        .then((response) => response.text())
+        .then((sidebar) => {
+          document.getElementById("sidebar-container").innerHTML = sidebar;
+
+          document.querySelectorAll(".menu-link").forEach((link) => {
+            const href = link.getAttribute("href").replace("../", "../../");
+            link.setAttribute("href", href);
+            link.classList.toggle("active", href.includes("KRRS"));
+          });
+
+          initside();
+        });
+    </script>
+  </body>
+</html>

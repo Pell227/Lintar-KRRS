@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pengisian KRRS - Lintar KRRS</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../../sidebar/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css" integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body><nav class="site-nav"><button class="sidebar-toggle"><span class="matsym"><i class="fa-solid fa-bars"></i></span></button></nav>
+<div class="container"><div id="sidebar-container"></div><main class="main-content">
+  <div class="page-heading"><span><i class="fa-solid fa-house"></i> / KRRS / Pengisian</span><h1>Pengisian KRRS</h1><p>Pilih mata kuliah untuk semester berjalan.</p></div>
+  <section class="card student"><h2>Informasi Mahasiswa</h2><div class="student-grid"><div><small>Nama</small><strong>Windriew Aeron Siaury</strong></div><div><small>NIM</small><strong>535250168</strong></div><div><small>Program Studi</small><strong>Teknik Informatika</strong></div><div><small>Semester</small><strong>3</strong></div><div><small>Tahun Akademik</small><strong>2026/2027</strong></div></div></section>
+  <section class="card"><div class="section-heading"><div><h2>Daftar Mata Kuliah</h2><p>Pilih total 20 sampai 24 SKS untuk menyimpan KRRS.</p></div><label class="search"><i class="fa-solid fa-magnifying-glass"></i><input id="search" placeholder="Cari mata kuliah..."></label></div>
+  <div id="message" class="notice" role="status">Batas pengambilan KRRS adalah minimal 20 dan maksimal 24 SKS.</div>
+  <div class="table-wrap"><table><thead><tr><th>Pilih</th><th>Kode</th><th>Mata Kuliah</th><th>SKS</th><th>Kelas</th><th>Jadwal</th><th>Ruang</th></tr></thead><tbody id="courses"></tbody></table></div>
+  <div class="summary"><span><small>Mata kuliah</small><strong id="count">0</strong></span><span><small>Total SKS</small><strong><b id="sks">0</b> / 24</strong></span></div>
+  <div class="actions"><a class="button secondary" href="../Data/index.html">Lihat Data KRRS</a><button id="save" class="button primary"><i class="fa-solid fa-floppy-disk"></i> Simpan KRRS</button></div>
+  </section>
+</main></div>
+    <script src="../../sidebar/app.js"></script>
+    <script src="app.js"></script>
+    <script>
+      fetch("../../sidebar/index.html")
+        .then((response) => response.text())
+        .then((sidebar) => {
+          document.getElementById("sidebar-container").innerHTML = sidebar;
+
+          document.querySelectorAll(".menu-link").forEach((link) => {
+            const href = link.getAttribute("href").replace("../", "../../");
+            link.setAttribute("href", href);
+            link.classList.toggle("active", href.includes("KRRS"));
+          });
+
+          initside();
+        });
+    </script>
+</body></html>
