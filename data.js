@@ -1,3 +1,7 @@
+const datamahasiswa = JSON.parse(`{
+  "datamahasiswa" : [
+  ]
+}`);
 const dummyUsers = [
     {
         "id": "535250171",
