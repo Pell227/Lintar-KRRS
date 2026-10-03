@@ -1,5 +1,23 @@
 const datamahasiswa = JSON.parse(`{
-  "datamahasiswa": []
+  "dataprofile": [
+    {
+      "nama": "Felisia",
+      "nim": "535250166",
+      "ttl": "Denpasar, 27/02/2007",
+      "Fakultas": "Fakultas Teknologi Informasi",
+      "jurusan": "Teknik Informatika",
+      "jk": "Perempuan",
+      "agama": "Buddha",
+      "hp": "08889998888",
+      "email": "felisia.535250166@stu.untar.ac.id",
+      "sekolah": "SMAK Santo Yoseph Denpasar",
+      "ijazah": "131202509852305",
+      "tglijazah": "28/05/2025",
+      "namaortu": "namaortu",
+      "alamat": "jl raya sesetan",
+      "hpo": "0888899999"
+    }
+  ]
 }`);
 
 const dummyUsers = JSON.parse(`{
@@ -50,7 +68,7 @@ const krrsCourses = [
     sks: 4,
     kelas: "A",
     jadwal: "Senin, 08:00 - 11:20",
-    ruang: "R.401"
+    ruang: "R.401",
   },
   {
     code: "IF102",
@@ -58,7 +76,7 @@ const krrsCourses = [
     sks: 4,
     kelas: "A",
     jadwal: "Selasa, 08:00 - 11:20",
-    ruang: "Lab. Komputer 1"
+    ruang: "Lab. Komputer 1",
   },
   {
     code: "IF103",
@@ -66,7 +84,7 @@ const krrsCourses = [
     sks: 2,
     kelas: "B",
     jadwal: "Rabu, 10:00 - 11:40",
-    ruang: "R.402"
+    ruang: "R.402",
   },
   {
     code: "IF104",
@@ -74,7 +92,7 @@ const krrsCourses = [
     sks: 2,
     kelas: "A",
     jadwal: "Rabu, 13:00 - 14:40",
-    ruang: "Lab. Komputer 2"
+    ruang: "Lab. Komputer 2",
   },
   {
     code: "IF105",
@@ -82,7 +100,7 @@ const krrsCourses = [
     sks: 2,
     kelas: "A",
     jadwal: "Kamis, 08:00 - 09:40",
-    ruang: "R.403"
+    ruang: "R.403",
   },
   {
     code: "IF106",
@@ -90,7 +108,7 @@ const krrsCourses = [
     sks: 2,
     kelas: "B",
     jadwal: "Kamis, 13:00 - 14:40",
-    ruang: "R.404"
+    ruang: "R.404",
   },
   {
     code: "IF107",
@@ -98,7 +116,7 @@ const krrsCourses = [
     sks: 2,
     kelas: "A",
     jadwal: "Jumat, 08:00 - 09:40",
-    ruang: "R.405"
+    ruang: "R.405",
   },
   {
     code: "IF108",
@@ -106,7 +124,7 @@ const krrsCourses = [
     sks: 2,
     kelas: "A",
     jadwal: "Jumat, 13:00 - 14:40",
-    ruang: "Lab. AI"
+    ruang: "Lab. AI",
   },
   {
     code: "IF109",
@@ -114,7 +132,7 @@ const krrsCourses = [
     sks: 2,
     kelas: "A",
     jadwal: "Senin, 13:00 - 14:40",
-    ruang: "R.406"
+    ruang: "R.406",
   },
   {
     code: "IF110",
@@ -122,6 +140,6 @@ const krrsCourses = [
     sks: 2,
     kelas: "B",
     jadwal: "Selasa, 13:00 - 14:40",
-    ruang: "R.407"
-  }
+    ruang: "R.407",
+  },
 ];

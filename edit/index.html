@@ -67,7 +67,7 @@
                 </div>
                 <div class="formk">
                   <label for="nim">Nim</label>
-                  input type="text" id="nim" name="nim" placeholder="cth:535250166" />
+                  <input type="text" id="nim" name="nim" placeholder="cth:535250166" />
                 </div>
                 <div class="formk">
                   <label for="ttl">Tempat,Tanggal Lahir</label>
@@ -129,10 +129,44 @@
 
               <div class="card">
                 <h3 class="card-title">Data Orang Tua/Wali</h3>
+
+                <div class="formk">
+                  <label for="namaortu">Nama Orang Tua/Wali</label>
+                  <input type="text" id="namaortu" name="namaortu" required />
+                </div>
+                <div class="formk">
+                  <label for="alamat">Alamat</label>
+                  <input type="text" id="alamat" name="alamat" required />
+                </div>
+                <div class="formk">
+                  <label for="hpo">Hp Orang Tua/Wali</label>
+                  <input type="tel" id="tgli" name="tgli" required />
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">
+                  <i class="fa-solid fa-floppy-disk"></i>Save
+                </button>
+                <a href="../profile/index.html" class="btn btn-outline">Cancel</a>
               </div>
             </form>
           </div>
         </div>
     </div>
+
+    <script src="../edit/edit.js"></script>
+    <script src="../sidebar/app.js"></script>
+    <script src="../data.js"></script>
+    <script src="../profile/profiled.js"></script>
+
+    <script>
+      fetch("../sidebar/index.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("sidebar-container").innerHTML = data;
+          initside();
+        });
+    </script>
   </body>
 </html>
