@@ -15,7 +15,12 @@ body {
 }
 
 .borderhead i {
-  font-size: 18px;
+  font-size: 20px;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 1.5rem;
 }
 
 body img {
@@ -28,7 +33,7 @@ body img {
   align-items: flex-start;
   gap: 30px;
   margin-top: 30px;
-  padding: 0 30px 30px 20px;
+  padding-left: 20px;
 }
 
 .photo-column {
@@ -36,6 +41,8 @@ body img {
   justify-items: center;
   gap: 15px;
   cursor: pointer;
+  position: sticky;
+  top: 20px;
 }
 
 .foto-wrapper {
@@ -48,6 +55,12 @@ body img {
   width: 220px;
   height: 220px;
   object-fit: cover;
+}
+
+.photosign {
+  margin: 0;
+  font-size: 12px;
+  color: #777777;
 }
 
 .upload-btn {
@@ -72,42 +85,105 @@ body img {
   background-color: #7a0f0f;
 }
 
-#editbtn {
+.upload-btn i {
+  width: 40px;
+  height: 40px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  font-family: "poppins";
+  font-size: 14px;
+  text-decoration: none;
+  border: 1px solid #a31313;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-primary {
   background-color: #a31313;
   color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  text-decoration: none;
 }
 
-#editbtn:hover {
+.btn-primary:hover {
   background-color: #7a0f0f;
+  border-color: #7a0f0f;
 }
 
-#delbtn {
+.btn-outline {
+  background-color: transparent;
+  color: #a31313;
+}
+
+.btn-outline:hover {
   background-color: #a31313;
   color: #ffffff;
-  border: none;
-  border-radius: 5px;
+}
+
+.photo-column .btn {
+  width: 100%;
+}
+
+.edit-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+  max-width: 760px;
+}
+
+.formk {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
   padding: 10px 20px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.formk:last-child {
+  border-bottom: none;
+}
+
+.formk label {
   font-size: 14px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.2s;
+  font-weight: 600;
+  color: #444444;
 }
 
-#delbtn:hover {
-  background-color: #7a0f0f;
+.formk input,
+.formk select,
+.formk textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 9px 12px;
+  font-family: "poppins";
+  font-size: 14px;
+  color: #1f291f;
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
 }
 
-.editval.editing {
-  background-color: #ecc4a3;
-  outline: 2px solid #a31313;
-  outline-offset: -2px;
+.formk input:focus,
+.formk select:focus,
+.formk textarea:focus {
+  outline: 2px solid rgba(163, 19, 19, 0.2);
+  border-color: #a31313;
+}
+
+.formk input:user-invalid,
+.formk select:user-invalid {
+  border-color: #c62828;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
 }
 
 .tablesection {
@@ -167,10 +243,44 @@ body img {
   border-bottom: none;
 }
 
-.card tr:hover {
+.card tr:hver {
   background: #fafafa;
 }
 
+.btn-outline:hover {
+  background-color: #a31313;
+  color: #ffffff;
+}
+
+.photo-column .btn {
+  width: 100%;
+}
+
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 30;
+  padding: 12px 20px;
+  font-size: 14px;
+  color: #ffffff;
+  background: #1f2936;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition:
+    opacity 0.25s,
+    transform 0.25s;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Responsif ===== */
 @media (max-width: 1100px) {
   .tablesection {
     grid-template-columns: 1fr;
@@ -185,5 +295,9 @@ body img {
   .container {
     grid-template-columns: 1fr;
     padding: 0 16px 24px;
+  }
+
+  .photo-column--sticky {
+    position: static;
   }
 }

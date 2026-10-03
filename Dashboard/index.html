@@ -22,6 +22,7 @@
       rel="stylesheet"
     />
   </head>
+
   <body>
     <nav class="site-nav">
       <button class="sidebar-toggle">
@@ -39,15 +40,16 @@
         <div class="card">
           <div class="information">
             <h2>Informasi Akademik</h2>
-            <div class="card">
+            <div class="card card-khs">
               <h3>Kartu Hasil Studi (KHS)</h3>
             </div>
 
-            <div class="card">
+            <div class="card card-peng">
               <h3>Pengumuman</h3>
+              <ul id="listpengumuman" class="listpengumuman"></ul>
             </div>
 
-            <div class="card">
+            <div class="card card-schedule">
               <h3>Today Schedule</h3>
             </div>
           </div>
@@ -63,6 +65,7 @@
       </div>
     </div>
 
+    <script src="../data.js"></script>
     <script src="app.js"></script>
     <script src="../sidebar/app.js"></script>
     <script>

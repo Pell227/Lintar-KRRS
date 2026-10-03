@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Data</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../sidebar/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+      integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav class="site-nav">
+      <button class="sidebar-toggle">
+        <span class="matsym"><i class="fa-solid fa-bars"></i></span>
+      </button>
+    </nav>
+
+    <div style="display: flex">
+      <div id="sidebar-container"></div>
+
+      <div class="main-content" style="flex: 1; overflow: hidden">
+        <header>
+          <div class="borderhead">
+            <i class="fa-solid fa-pen"></i>
+            <h1 class="page-title">Edit Data</h1>
+          </div>
+        </header>
+
+        <div class="container">
+          <div class="photo-column">
+            <div class="foto-wrapper">
+              <img id="profileImg" src="../profile/assets/profile.jpg" />
+
+              <label for="fotoInput" class="uploadbtn">
+                <i class="fa-solid fa-camera"></i>
+              </label>
+              <input type="file" id="fotoInput" accept="image/*" hidden />
+            </div>
+            <p class="photosign">Maksimal 2mb</p>
+          </div>
+
+          <form id="editForm" class="edit-form" autocomplete="off">
+            <div class="card">
+              <h3 class="card-title">Data Mahasiswa</h3>
+
+              <div class="formk">
+                <label for="nama">Nama</label>
+                <input type="text" id="nama" name="nama" required />
+              </div>
+              <div class="formk">
+                <label for="nim">Nim</label>
+                <input
+                  type="text"
+                  id="nim"
+                  name="nim"
+                  placeholder="cth:535250166"
+                />
+              </div>
+              <div class="formk">
+                <label for="ttl">Tempat,Tanggal Lahir</label>
+                <input
+                  type="text"
+                  id="ttl"
+                  name="ttl"
+                  placeholder="Kota, dd/mm/yyyy"
+                  required
+                />
+              </div>
+              <div class="formk">
+                <label for="fakultas">Fakultas</label>
+                <select id="fakultas" name="fakultas" required>
+                  <option value="Fakultas Ekonomi dan Bisnis">
+                    Fakultas Ekonomi dan Bisnis
+                  </option>
+                  <option value="Fakultas Hukum">Fakultas Hukum</option>
+                  <option value="Fakultas Teknik">Fakultas Teknik</option>
+                  <option value="Fakultas Kedokteran">
+                    Fakultas Kedokteran
+                  </option>
+                  <option value="Fakultas Psikologi">Fakultas Psikologi</option>
+                  <option value="Fakultas Seni Rupa dan Design">
+                    Fakultas Seni Rupa dan Design
+                  </option>
+                  <option value="Fakultas Teknologi Informasi">
+                    Fakultas Teknologi Informasi
+                  </option>
+                </select>
+              </div>
+              <div class="formk">
+                <label for="jurusan">Jurusan</label>
+                <input type="text" id="jurusan" name="jurusan" required />
+              </div>
+              <div class="formk">
+                <label for="jk">Jenis Kelamin</label>
+                <select id="jk" name="jk" required>
+                  <option value="Perempuan">Perempuan</option>
+                  <option value="Laki-Laki">Laki-Laki</option>
+                </select>
+              </div>
+              <div class="formk">
+                <label for="agama">Agama</label>
+                <input type="text" id="agama" name="agama" required />
+              </div>
+              <div class="formk">
+                <label for="hp">No Hp</label>
+                <input type="tel" id="hp" name="hp" required />
+              </div>
+              <div class="formk">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+            </div>
+
+            <div class="card">
+              <h3 class="card-title">Data Sekolah</h3>
+
+              <div class="formk">
+                <label for="sekolah">Asal Sekolah</label>
+                <input type="text" id="sekolah" name="sekolah" required />
+              </div>
+              <div class="formk">
+                <label for="ijazah">Ijazah</label>
+                <input type="text" id="ijazah" name="ijazah" required />
+              </div>
+              <div class="formk">
+                <label for="tglijazah">Tanggal Ijazah</label>
+                <input
+                  type="text"
+                  id="tglijazah"
+                  name="tglijazah"
+                  placeholder="dd/mm/yyyy"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="card">
+              <h3 class="card-title">Data Orang Tua/Wali</h3>
+
+              <div class="formk">
+                <label for="namaortu">Nama Orang Tua/Wali</label>
+                <input type="text" id="namaortu" name="namaortu" required />
+              </div>
+              <div class="formk">
+                <label for="alamat">Alamat</label>
+                <input type="text" id="alamat" name="alamat" required />
+              </div>
+              <div class="formk">
+                <label for="hportu">Hp Orang Tua/Wali</label>
+                <input type="tel" id="hportu" name="hportu" required />
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                <i class="fa-solid fa-floppy-disk"></i>Save
+              </button>
+              <a
+                href="../profile/index.html"
+                class="btn btn-outline"
+                id="cancelBtn"
+                >Cancel</a
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="../data.js"></script>
+    <script src="../profile/profiled.js"></script>
+    <script src="../edit/edit.js"></script>
+    <script src="../sidebar/app.js"></script>
+
+    <script>
+      fetch("../sidebar/index.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("sidebar-container").innerHTML = data;
+          initside();
+        });
+    </script>
+  </body>
+</html>
