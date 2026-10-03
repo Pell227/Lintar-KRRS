@@ -163,7 +163,7 @@ td.low {
   position: relative;
   display: flex;
   justify-content: space-between;
-  min-width: 720px;
+  min-width: 560px;
   padding-right: 30px;
 }
 

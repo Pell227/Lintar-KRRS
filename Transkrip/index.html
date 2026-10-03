@@ -28,7 +28,7 @@
             <header class="topbar">
                 <div class="brand">
                     <div class="brand-logo">
-                        
+                        <i class="fa-solid fa-clipboard"></i>
                     </div>
                     <div><div class="brand-title">Transkrip Akademik</div></div>
                 </div>
@@ -36,6 +36,16 @@
 
             <main class="layout">
                 <div class="table-head"></div>
+                <div class="student-info">
+                    <div class="studentphoto"><img id="photo" alt=" "></div>
+                    <div class="studentdetail">
+                        <table class="info-table">
+                            <tr><td class="info">Nama</td><td class="info-sep">:</td><td class="info-value" id="name"></td></tr>
+                            <tr><td class="info">NIM</td><td class="info-sep">:</td><td class="info-value" id="nim"></td></tr>
+                            <tr><td class="info">Fakultas</td><td class="info-sep">:</td><td class="info-value" id="fakultas"></td></tr>
+                        </table>
+                    </div>
+                </div>
                     <div class="table-box">
                         <table>
                             <thead>
@@ -66,6 +76,8 @@
                                 <td id="kreditDiambil"></td>
                                 <td id="kreditDiperoleh"></td>
                                 <td id="ipk"></td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </section>
@@ -75,13 +87,6 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="script.js"></script>
   <script src="../sidebar/app.js"></script>
-  <script>
-    fetch("../sidebar/index.html")
-      .then((response) => response.text())
-      .then((data) => {
-        document.getElementById("sidebar-container").innerHTML = data;
-        initside();
-      });
-    </script>
+  <script>fetch("../sidebar/index.html").then((response) => response.text()).then((data) => {document.getElementById("sidebar-container").innerHTML = data;initside();});</script>
 </body>
 </html>
