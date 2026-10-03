@@ -17,7 +17,7 @@ function togglePasswordVisibility(inputId, iconId) {
 
 function checkPasswordStrength(password) {
     const bar = document.getElementById('strength-bar');
-    text = document.getElementById('strength-text');
+    const text = document.getElementById('strength-text');
     
     if (!bar || !text) return;
 
@@ -76,20 +76,20 @@ function handleRegister(e) {
     let existingUsers = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
     const allUsers = [...initialUsers, ...existingUsers];
 
-    const isExist = allUsers.some(u => u.id === nim);
+    const isExist = allUsers.some(u => u.id === nim || u.email.toLowerCase() === email.toLowerCase());
     if (isExist) {
-        showToast('NIM ini sudah terdaftar!', 'error');
+        showToast('NIM atau Email ini sudah terdaftar!', 'error');
         return;
     }
 
     existingUsers.push(newUser);
     localStorage.setItem('registeredUsers', JSON.stringify(existingUsers));
 
-    showToast('Pendaftaran akun mahasiswa berhasil! Mengalihkan ke login...', 'success');
+    showToast('Pendaftaran akun mahasiswa berhasil! Mengalihkan ke halaman login...', 'success');
     
     setTimeout(() => {
         window.location.href = "../Login/login.html";
-    }, 1200);
+    }, 1000);
 }
 
 function showToast(message, type = 'info') {

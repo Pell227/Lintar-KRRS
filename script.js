@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     checkUserSession();
+    setupProtectedLinks();
 });
 
 function checkUserSession() {
@@ -32,6 +33,35 @@ function checkUserSession() {
             `;
         }
     }
+}
+
+function setupProtectedLinks() {
+    const protectedRoutes = [
+        'Hal_pengumuman/index.html',
+        'Kalender_akademik/index.html',
+        'Faq/index.html',
+        'Dashboard/index.html',
+        'profile/index.html',
+        'KRRS/pengisian-krrs.html',
+        'KRRS/rincian-krrs.html',
+        'Jadwal/index.html'
+    ];
+
+    document.querySelectorAll('a').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && protectedRoutes.some(route => href.includes(route))) {
+            link.addEventListener('click', (e) => {
+                const sessionUser = localStorage.getItem('sessionUser');
+                if (!sessionUser) {
+                    e.preventDefault();
+                    showToast('Silakan login terlebih dahulu untuk mengakses halaman ini.', 'error');
+                    setTimeout(() => {
+                        window.location.href = 'Login/login.html';
+                    }, 800);
+                }
+            });
+        }
+    });
 }
 
 function logoutSession() {

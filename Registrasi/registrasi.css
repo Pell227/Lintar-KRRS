@@ -264,7 +264,7 @@ a {
 }
 
 .strength-good {
-    background-color: #ffffff;
+    background-color: #3b82f6;
 }
 
 .strength-strong {
@@ -287,7 +287,7 @@ a {
 }
 
 .text-good {
-    color: #ffffff;
+    color: #3b82f6;
     font-weight: 500;
 }
 
@@ -331,9 +331,16 @@ a {
     text-decoration: underline;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
+    .auth-card {
+        max-width: 850px;
+    }
+}
+
+@media (max-width: 800px) {
     .auth-card {
         grid-template-columns: 1fr;
+        min-height: auto;
     }
 
     .form-grid {

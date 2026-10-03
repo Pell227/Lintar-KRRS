@@ -41,15 +41,15 @@
             <div id="view-login">
                 <div class="form-header">
                     <h2>Login Mahasiswa</h2>
-                    <p>Masukkan NIM dan kata sandi akun mahasiswa Anda.</p>
+                    <p>Masukkan email student UNTAR dan kata sandi akun Anda.</p>
                 </div>
 
                 <form onsubmit="handleLogin(event)" class="auth-form">
                     <div class="form-group">
-                        <label>NIM / Username</label>
+                        <label>Email Student UNTAR</label>
                         <div class="input-icon-wrapper">
-                            <i class="fas fa-id-card input-icon"></i>
-                            <input type="text" id="login-id" required placeholder="Masukkan NIM Anda" />
+                            <i class="fas fa-envelope input-icon"></i>
+                            <input type="email" id="login-email" required placeholder="nama@stu.untar.ac.id" />
                         </div>
                     </div>
 
@@ -89,15 +89,15 @@
             <div id="view-reset" class="hidden">
                 <div class="form-header">
                     <h2>Lupa Kata Sandi</h2>
-                    <p>Masukkan NIM atau Email mahasiswa terdaftar untuk menyetel ulang kata sandi.</p>
+                    <p>Masukkan email student UNTAR terdaftar untuk menyetel ulang kata sandi.</p>
                 </div>
 
                 <form onsubmit="handleResetPassword(event)" class="auth-form">
                     <div class="form-group">
-                        <label>NIM atau Email Mahasiswa</label>
+                        <label>Email Student UNTAR</label>
                         <div class="input-icon-wrapper">
                             <i class="fas fa-envelope input-icon"></i>
-                            <input type="text" id="reset-id" required placeholder="Contoh: 535250178 / email@stu.untar.ac.id" />
+                            <input type="email" id="reset-email" required placeholder="email@stu.untar.ac.id" />
                         </div>
                     </div>
 

@@ -250,7 +250,7 @@ a {
     color: #4b5563;
 }
 
-.input-simple, .select-simple {
+.input-simple {
     width: 100%;
     padding: 10px 14px;
     font-size: 14px;
@@ -262,7 +262,7 @@ a {
     font-family: inherit;
 }
 
-.input-simple:focus, .select-simple:focus {
+.input-simple:focus {
     border-color: #a31313;
 }
 
@@ -333,9 +333,16 @@ a {
     display: none !important;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
+    .auth-card {
+        max-width: 850px;
+    }
+}
+
+@media (max-width: 800px) {
     .auth-card {
         grid-template-columns: 1fr;
+        min-height: auto;
     }
 
     .auth-banner {

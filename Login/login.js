@@ -36,7 +36,7 @@ function toggleResetView(showReset) {
 
 function handleLogin(e) {
     e.preventDefault();
-    const inputId = document.getElementById('login-id').value.trim();
+    const inputEmail = document.getElementById('login-email').value.trim();
     const inputPass = document.getElementById('login-password').value.trim();
 
     showToast('Memeriksa kredensial akun mahasiswa...', 'info');
@@ -44,8 +44,7 @@ function handleLogin(e) {
     const allUsers = getAllUsers();
 
     const foundUser = allUsers.find(u => 
-        (u.id.toLowerCase() === inputId.toLowerCase() || u.email.toLowerCase() === inputId.toLowerCase()) &&
-        u.password === inputPass
+        u.email.toLowerCase() === inputEmail.toLowerCase() && u.password === inputPass
     );
 
     if (foundUser) {
@@ -56,17 +55,17 @@ function handleLogin(e) {
             window.location.href = "../index.html";
         }, 1200);
     } else {
-        showToast('NIM atau Kata Sandi salah!', 'error');
+        showToast('Email atau Kata Sandi salah!', 'error');
     }
 }
 
 function handleResetPassword(e) {
     e.preventDefault();
-    const resetId = document.getElementById('reset-id').value.trim();
+    const resetEmail = document.getElementById('reset-email').value.trim();
     const newPass = document.getElementById('reset-new-password').value.trim();
 
     const allUsers = getAllUsers();
-    const userIndex = allUsers.findIndex(u => u.id.toLowerCase() === resetId.toLowerCase() || u.email.toLowerCase() === resetId.toLowerCase());
+    const userIndex = allUsers.findIndex(u => u.email.toLowerCase() === resetEmail.toLowerCase());
 
     if (userIndex !== -1) {
         allUsers[userIndex].password = newPass;
@@ -77,7 +76,7 @@ function handleResetPassword(e) {
             toggleResetView(false);
         }, 1200);
     } else {
-        showToast('NIM atau Email tidak terdaftar dalam sistem.', 'error');
+        showToast('Email tidak terdaftar dalam sistem.', 'error');
     }
 }
 
