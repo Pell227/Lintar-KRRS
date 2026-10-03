@@ -21,8 +21,14 @@
   );
   const isValid = totalSks >= MIN_SKS && totalSks <= MAX_SKS;
 
-  document.getElementById("count").textContent = courses.length;
   document.getElementById("sks").textContent = totalSks;
+  const formattedDate = new Intl.DateTimeFormat("id-ID", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "Asia/Jakarta",
+  }).format(new Date());
+  document.getElementById("printDate").textContent = `Jakarta, ${formattedDate}`;
 
   const message = document.getElementById("message");
   message.textContent = isValid
@@ -33,22 +39,19 @@
   document.getElementById("printRows").innerHTML = courses.length
     ? courses
         .map(
-          (course, index) => `
+          (course) => `
             <tr>
-              <td>${index + 1}</td>
               <td>${course.code}</td>
               <td>${course.name}</td>
               <td>${course.sks}</td>
               <td>${course.kelas || course.class || "-"}</td>
-              <td>${
-                course.jadwal || `${course.day || ""}, ${course.time || ""}`
-              }</td>
               <td>${course.ruang || course.room || "-"}</td>
+              <td>${course.jadwal || `${course.day || ""}, ${course.time || ""}`}</td>
             </tr>
           `,
         )
         .join("")
-    : '<tr><td colspan="7" class="empty">Data mata kuliah belum tersedia.</td></tr>';
+    : '<tr><td colspan="6" class="empty">Data mata kuliah belum tersedia.</td></tr>';
 
   document.getElementById("printButton").addEventListener("click", () => {
     if (!isValid) {
