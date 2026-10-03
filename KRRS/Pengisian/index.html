@@ -13,7 +13,11 @@
 </head>
 <body><nav class="site-nav"><button class="sidebar-toggle"><span class="matsym"><i class="fa-solid fa-bars"></i></span></button></nav>
 <div class="container"><div id="sidebar-container"></div><main class="main-content">
-  <div class="page-heading"><span><i class="fa-solid fa-house"></i> / KRRS / Pengisian</span><h1>Pengisian KRRS</h1><p>Pilih mata kuliah untuk semester berjalan.</p></div>
+  <header class="krrs-page-header">
+    <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+    <h1>Pengisian KRRS</h1>
+  </header>
+  <div class="page-heading"><span><i class="fa-solid fa-house"></i> / KRRS / Pengisian</span><p>Pilih mata kuliah untuk semester berjalan.</p></div>
   <section class="card student"><h2>Informasi Mahasiswa</h2><div class="student-grid"><div><small>Nama</small><strong>Windriew Aeron Siaury</strong></div><div><small>NIM</small><strong>535250168</strong></div><div><small>Program Studi</small><strong>Teknik Informatika</strong></div><div><small>Semester</small><strong>3</strong></div><div><small>Tahun Akademik</small><strong>2026/2027</strong></div></div></section>
   <section class="card"><div class="section-heading"><div><h2>Daftar Mata Kuliah</h2><p>Pilih total 20 sampai 24 SKS untuk menyimpan KRRS.</p></div><label class="search"><i class="fa-solid fa-magnifying-glass"></i><input id="search" placeholder="Cari mata kuliah..."></label></div>
   <div id="message" class="notice" role="status">Batas pengambilan KRRS adalah minimal 20 dan maksimal 24 SKS.</div>
@@ -23,6 +27,7 @@
   </section>
 </main></div>
     <script src="../../sidebar/app.js"></script>
+    <script src="../../data.js"></script>
     <script src="app.js"></script>
     <script>
       fetch("../../sidebar/index.html")
