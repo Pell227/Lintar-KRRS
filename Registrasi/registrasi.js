@@ -60,6 +60,7 @@ function handleRegister(e) {
     const fakultas = document.getElementById('reg-fakultas').value;
     const prodi = document.getElementById('reg-prodi').value.trim();
     const password = document.getElementById('reg-password').value.trim();
+
     const newUser = {
         id: nim,
         password: password,
@@ -71,6 +72,7 @@ function handleRegister(e) {
     };
 
     let existingUsers = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
+
     const isExist = existingUsers.some(u => u.id === nim);
     if (isExist) {
         showToast('NIM ini sudah terdaftar!', 'error');
@@ -80,10 +82,10 @@ function handleRegister(e) {
     existingUsers.push(newUser);
     localStorage.setItem('registeredUsers', JSON.stringify(existingUsers));
 
-    showToast('Pendaftaran akun berhasil! Mengalihkan ke halaman login...', 'success');
+    showToast('Pendaftaran akun mahasiswa berhasil! Mengalihkan ke login...', 'success');
     
     setTimeout(() => {
-        window.location.href = "../Login/login.html";
+        window.location.href = "../Login/index.html";
     }, 1200);
 }
 
@@ -92,10 +94,10 @@ function showToast(message, type = 'info') {
     if (!container) return;
 
     const toast = document.createElement('div');
-    let bgColor = type === 'success' ? 'bg-green-600' : (type === 'error' ? 'bg-red-600' : 'bg-gray-800');
+    let bgColor = type === 'success' ? 'bg-green-600' : (type === 'error' ? 'bg-[#a31313]' : 'bg-gray-800');
     let icon = type === 'success' ? 'fa-check-circle' : (type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle');
 
-    toast.className = `${bgColor} text-white px-4 py-3 rounded-xl shadow-lg text-xs flex items-center gap-2 toast-enter`;
+    toast.className = `${bgColor} text-[#ffffff] px-4 py-3 rounded-xl shadow-lg text-xs flex items-center gap-2 toast-enter`;
     toast.innerHTML = `<i class="fas ${icon}"></i> <span>${message}</span>`;
 
     container.appendChild(toast);

@@ -1,4 +1,3 @@
-let currentRole = 'mahasiswa';
 const dummyUsers = [
     {
         "id": "535250178",
@@ -43,38 +42,6 @@ function getAllUsers() {
     return [...dummyUsers, ...localUsers];
 }
 
-function selectRole(role) {
-    currentRole = role;
-    const roles = ['mahasiswa', 'dosen', 'staf'];
-    
-    roles.forEach(r => {
-        const btn = document.getElementById(`role-${r}`);
-        if (btn) {
-            if (r === role) {
-                btn.className = 'role-btn flex-1 py-2 text-xs font-semibold rounded-lg transition-all bg-white text-[#9E0000] shadow-sm';
-            } else {
-                btn.className = 'role-btn flex-1 py-2 text-xs font-semibold text-gray-500 rounded-lg transition-all hover:text-gray-700';
-            }
-        }
-    });
-
-    const idLabel = document.getElementById('id-label');
-    const loginInput = document.getElementById('login-id');
-
-    if (idLabel && loginInput) {
-        if (role === 'mahasiswa') {
-            idLabel.textContent = 'NIM / Username';
-            loginInput.placeholder = 'Masukkan NIM atau Username';
-        } else if (role === 'dosen') {
-            idLabel.textContent = 'NIDN / Username';
-            loginInput.placeholder = 'Masukkan NIDN Dosen';
-        } else {
-            idLabel.textContent = 'ID Staf / Username';
-            loginInput.placeholder = 'Masukkan ID Staf';
-        }
-    }
-}
-
 function togglePasswordVisibility(inputId, iconId) {
     const input = document.getElementById(inputId);
     const icon = document.getElementById(iconId);
@@ -110,13 +77,13 @@ function handleLogin(e) {
     const inputId = document.getElementById('login-id').value.trim();
     const inputPass = document.getElementById('login-password').value.trim();
 
-    showToast('Memeriksa kredensial akun...', 'info');
+    showToast('Memeriksa kredensial akun mahasiswa...', 'info');
 
     const allUsers = getAllUsers();
+
     const foundUser = allUsers.find(u => 
         (u.id.toLowerCase() === inputId.toLowerCase() || u.email.toLowerCase() === inputId.toLowerCase()) &&
-        u.password === inputPass &&
-        u.role.toLowerCase() === currentRole.toLowerCase()
+        u.password === inputPass
     );
 
     if (foundUser) {
@@ -124,10 +91,10 @@ function handleLogin(e) {
         showToast(`Login Berhasil! Selamat datang, ${foundUser.nama}.`, 'success');
 
         setTimeout(() => {
-            window.location.href = "../index.html";
+            window.location.href = "../landingpage/index.html";
         }, 1200);
     } else {
-        showToast('NIM/ID, Password, atau Peran tidak cocok!', 'error');
+        showToast('NIM atau Kata Sandi salah!', 'error');
     }
 }
 
@@ -157,10 +124,10 @@ function showToast(message, type = 'info') {
     if (!container) return;
 
     const toast = document.createElement('div');
-    let bgColor = type === 'success' ? 'bg-green-600' : (type === 'error' ? 'bg-red-600' : 'bg-gray-800');
+    let bgColor = type === 'success' ? 'bg-green-600' : (type === 'error' ? 'bg-[#a31313]' : 'bg-gray-800');
     let icon = type === 'success' ? 'fa-check-circle' : (type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle');
 
-    toast.className = `${bgColor} text-white px-4 py-3 rounded-xl shadow-lg text-xs flex items-center gap-2 toast-enter`;
+    toast.className = `${bgColor} text-[#ffffff] px-4 py-3 rounded-xl shadow-lg text-xs flex items-center gap-2 toast-enter`;
     toast.innerHTML = `<i class="fas ${icon}"></i> <span>${message}</span>`;
 
     container.appendChild(toast);
