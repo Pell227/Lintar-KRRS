@@ -57,7 +57,7 @@ body img {
   object-fit: cover;
 }
 
-.fphotosign {
+.photosign {
   margin: 0;
   font-size: 12px;
   color: #777777;
@@ -83,6 +83,11 @@ body img {
 
 .upload-btn:hover {
   background-color: #7a0f0f;
+}
+
+.upload-btn i {
+  width: 40px;
+  height: 40px;
 }
 
 .btn {
@@ -124,40 +129,61 @@ body img {
   width: 100%;
 }
 
-#editBtn {
-  background-color: #a31313;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
+.edit-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+  max-width: 760px;
+}
+
+.formk {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
   padding: 10px 20px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.formk:last-child {
+  border-bottom: none;
+}
+
+.formk label {
   font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.2s;
+  font-weight: 600;
+  color: #444444;
 }
 
-#editBtn:hover {
-  background-color: #7a0f0f;
-}
-
-#delbtn {
-  background-color: #a31313;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
+.formk input,
+.formk select,
+.formk textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 9px 12px;
+  font-family: "poppins";
   font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.2s;
+  color: #1f291f;
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
 }
 
-#delbtn:hover {
-  background-color: #7a0f0f;
+.formk input:focus,
+.formk select:focus,
+.formk textarea:focus {
+  outline: 2px solid rgba(163, 19, 19, 0.2);
+  border-color: #a31313;
 }
 
-.editval.editing {
-  background-color: #ecc4a3;
-  outline: 2px solid #a31313;
-  outline-offset: -2px;
+.formk input:user-invalid,
+.formk select:user-invalid {
+  border-color: #c62828;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
 }
 
 .tablesection {

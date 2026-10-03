@@ -1,10 +1,11 @@
-const data = "profileData";
-const foto = "profileFoto";
-const default_foto = "assets/profile.jpg";
+const data_key = "profileData";
+const foto_key = "profileFoto";
+const default_foto = new URL("assets/profile.jpg", document.currentScript.src)
+  .href;
 
 const sumber = datamahasiswa.dataprofile[0];
 
-const defaukt_profile = {
+const default_profile = {
   nama: sumber.nama,
   nim: sumber.nim,
   ttl: sumber.ttl,
@@ -24,29 +25,29 @@ const defaukt_profile = {
 
 function getProfileData() {
   try {
-    const saved = JSON.parse(localStorage.getItem(data));
+    const saved = JSON.parse(localStorage.getItem(data_key));
     return { ...default_profile, ...(saved || {}) };
   } catch (err) {
     return { ...default_profile };
   }
 }
 
-function saveProfileData(data) {
-  localStorage.setItem(DATA_KEY, JSON.stringify(data));
+function saveProfileData(profile) {
+  localStorage.setItem(data_key, JSON.stringify(profile));
 }
 
 function getProfileFoto() {
   try {
-    return localStorage.getItem(FOTO_KEY);
+    return localStorage.getItem(foto_key);
   } catch (err) {
     return null;
   }
 }
 
 function saveProfileFoto(dataUrl) {
-  localStorage.setItem(FOTO_KEY, dataUrl);
+  localStorage.setItem(foto_key, dataUrl);
 }
 
 function removeProfileFoto() {
-  localStorage.removeItem(FOTO_KEY);
+  localStorage.removeItem(foto_key);
 }
