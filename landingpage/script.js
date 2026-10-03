@@ -9,7 +9,7 @@ function checkUserSession() {
 
     if (sessionUser && authActions) {
         const user = JSON.parse(sessionUser);
-
+        
         authActions.innerHTML = `
             <div class="flex items-center gap-3">
                 <div class="text-right hidden sm:block">

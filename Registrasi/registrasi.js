@@ -17,7 +17,7 @@ function togglePasswordVisibility(inputId, iconId) {
 
 function checkPasswordStrength(password) {
     const bar = document.getElementById('strength-bar');
-    const text = document.getElementById('strength-text');
+    text = document.getElementById('strength-text');
     
     if (!bar || !text) return;
 
@@ -30,24 +30,25 @@ function checkPasswordStrength(password) {
     bar.style.width = strength + '%';
 
     if (strength === 0) {
-        bar.className = 'h-full w-0 transition-all duration-300 bg-gray-200';
+        bar.className = 'strength-bar-fill strength-empty';
         text.textContent = 'Kekuatan password: -';
+        text.className = 'strength-text';
     } else if (strength <= 25) {
-        bar.className = 'h-full transition-all duration-300 bg-red-500';
+        bar.className = 'strength-bar-fill strength-weak';
         text.textContent = 'Kekuatan password: Lemah';
-        text.className = 'text-[10px] text-red-500 font-medium';
+        text.className = 'strength-text text-weak';
     } else if (strength <= 50) {
-        bar.className = 'h-full transition-all duration-300 bg-yellow-500';
+        bar.className = 'strength-bar-fill strength-medium';
         text.textContent = 'Kekuatan password: Sederhana';
-        text.className = 'text-[10px] text-yellow-600 font-medium';
+        text.className = 'strength-text text-medium';
     } else if (strength <= 75) {
-        bar.className = 'h-full transition-all duration-300 bg-blue-500';
+        bar.className = 'strength-bar-fill strength-good';
         text.textContent = 'Kekuatan password: Baik';
-        text.className = 'text-[10px] text-blue-500 font-medium';
+        text.className = 'strength-text text-good';
     } else {
-        bar.className = 'h-full transition-all duration-300 bg-green-500';
+        bar.className = 'strength-bar-fill strength-strong';
         text.textContent = 'Kekuatan password: Sangat Kuat';
-        text.className = 'text-[10px] text-green-600 font-medium';
+        text.className = 'strength-text text-strong';
     }
 }
 
@@ -71,9 +72,11 @@ function handleRegister(e) {
         prodi: prodi
     };
 
+    const initialUsers = typeof dummyUsers !== 'undefined' ? dummyUsers : [];
     let existingUsers = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
+    const allUsers = [...initialUsers, ...existingUsers];
 
-    const isExist = existingUsers.some(u => u.id === nim);
+    const isExist = allUsers.some(u => u.id === nim);
     if (isExist) {
         showToast('NIM ini sudah terdaftar!', 'error');
         return;
@@ -85,7 +88,7 @@ function handleRegister(e) {
     showToast('Pendaftaran akun mahasiswa berhasil! Mengalihkan ke login...', 'success');
     
     setTimeout(() => {
-        window.location.href = "../Login/index.html";
+        window.location.href = "../Login/login.html";
     }, 1200);
 }
 
@@ -94,12 +97,13 @@ function showToast(message, type = 'info') {
     if (!container) return;
 
     const toast = document.createElement('div');
-    let bgColor = type === 'success' ? 'bg-green-600' : (type === 'error' ? 'bg-[#a31313]' : 'bg-gray-800');
-    let icon = type === 'success' ? 'fa-check-circle' : (type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle');
+    toast.className = `toast toast-${type} toast-enter`;
+    
+    let iconClass = 'fa-info-circle';
+    if (type === 'success') iconClass = 'fa-check-circle';
+    if (type === 'error') iconClass = 'fa-exclamation-circle';
 
-    toast.className = `${bgColor} text-[#ffffff] px-4 py-3 rounded-xl shadow-lg text-xs flex items-center gap-2 toast-enter`;
-    toast.innerHTML = `<i class="fas ${icon}"></i> <span>${message}</span>`;
-
+    toast.innerHTML = `<i class="fas ${iconClass}"></i> <span>${message}</span>`;
     container.appendChild(toast);
 
     setTimeout(() => {
