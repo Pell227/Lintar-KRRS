@@ -5,7 +5,12 @@
   let courses = [];
 
   try {
-    courses = JSON.parse(localStorage.getItem(KEY) || "[]");
+    const savedCourses = JSON.parse(localStorage.getItem(KEY) || "[]");
+    courses = savedCourses
+      .map((savedCourse) =>
+        krrsCourses.find((course) => course.code === savedCourse.code),
+      )
+      .filter(Boolean);
   } catch {
     courses = [];
   }
