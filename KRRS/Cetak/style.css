@@ -1,0 +1,81 @@
+.print-title {
+  margin: 5px 0 20px;
+  padding-bottom: 18px;
+  border-bottom: 2px solid #a31313;
+  text-align: center;
+}
+
+.print-title > strong {
+  color: #a31313;
+  font-size: 20px;
+}
+
+.print-title h2 {
+  margin: 8px 0 4px;
+  font-size: 19px;
+}
+
+.print-title p {
+  margin: 0;
+  color: #798eae;
+  font-size: 13px;
+}
+
+.print-student {
+  margin: 15px 0;
+}
+
+.footer-note {
+  margin-top: 20px;
+  color: #798eae;
+  font-size: 11px;
+  text-align: center;
+}
+
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 14mm;
+  }
+
+  body {
+    background: white;
+  }
+
+  .no-print,
+  #sidebar-container,
+  .site-nav {
+    display: none !important;
+  }
+
+  .container {
+    display: block;
+  }
+
+  .main-content {
+    padding: 0;
+  }
+
+  .page-heading {
+    display: none;
+  }
+
+  .print-card {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .print-title {
+    margin-top: 0;
+  }
+
+  .actions {
+    display: none;
+  }
+
+  .signature {
+    margin-top: 30px;
+  }
+}

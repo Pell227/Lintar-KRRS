@@ -4,114 +4,163 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile Mahasiswa</title>
+
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../sidebar/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+      integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <header>
-      <div class="boxx">
-        <h1>Profile Mahasiswa</h1>
-      </div>
-    </header>
+    <nav class="site-nav">
+      <button class="sidebar-toggle">
+        <span class="matsym"><i class="fa-solid fa-bars"></i></span>
+      </button>
+    </nav>
 
-    <div class="container">
-      <div class="photo-column">
-        <div class="foto-wrapper">
-          <img id="profileImg" src="assets/profile.jpg"/>
-          <label for="fotoInput" class="upload-btn" title="Ganti Foto">&#128247;</label>
-          <input type="file" id="fotoInput" accept="image/*" hidden />
+    <div style="display: flex">
+      <div id="sidebar-container"></div>
+
+      <div class="main-content" style="flex: 1; overflow: hidden">
+        <header>
+          <div class="borderhead">
+            <i class="fa-regular fa-circle-user"></i>
+            <h1 class="page-title">Profile</h1>
+          </div>
+        </header>
+
+        <div class="container">
+          <div class="photo-column">
+            <div class="foto-wrapper">
+              <img id="profileImg" src="assets/profile.jpg" />
+              <label for="fotoInput" class="upload-btn" title="Ganti Foto"
+                >&#128247;</label
+              >
+              <input type="file" id="fotoInput" accept="image/*" hidden />
+            </div>
+
+            <button id="editBtn" type="button">Edit Profile</button>
+            <button id="delbtn" type="button">Delete Profile</button>
+          </div>
+
+          <div class="tablesection">
+            <div class="card">
+              <h3 class="card-title">Data Mahasiswa</h3>
+              <table>
+                <tbody class="datam">
+                  <tr>
+                    <th>Nama</th>
+                    <td class="editval" data-field="nama">pell</td>
+                  </tr>
+                  <tr>
+                    <th>NIM</th>
+                    <td class="editval" data-field="nim">535250166</td>
+                  </tr>
+                  <tr>
+                    <th>Tempat Tanggal Lahir</th>
+                    <td class="editval" data-field="ttl">
+                      Denpasar, 27/02/2007
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Fakultas</th>
+                    <td class="editval" data-field="fakultas">
+                      Teknologi Informasi
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Jurusan</th>
+                    <td class="editval" data-field="jurusan">
+                      Teknik Informatika
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Jenis Kelamin</th>
+                    <td class="editval" data-field="jk">Perempuan</td>
+                  </tr>
+                  <tr>
+                    <th>Agama</th>
+                    <td class="editval" data-field="agama">Buddha</td>
+                  </tr>
+                  <tr>
+                    <th>No Hp</th>
+                    <td class="editval" data-field="hp">08889998888</td>
+                  </tr>
+                  <tr>
+                    <th>Email</th>
+                    <td class="editval" data-field="email">your@gmail.com</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="card">
+              <h3 class="card-title">Data Sekolah</h3>
+              <table>
+                <tbody class="datas">
+                  <tr>
+                    <th>Asal Sekolah</th>
+                    <td class="editval" data-field="sekolah">
+                      SMAK Santo Yoseph Denpasar
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>No Ijazah</th>
+                    <td class="editval" data-field="ijazah">131202509852305</td>
+                  </tr>
+                  <tr>
+                    <th>Tanggal Ijazah</th>
+                    <td class="editval" data-field="tglijazah">28/05/2025</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="card">
+              <h3 class="card-title">Data Orang Tua/Wali</h3>
+              <table>
+                <tbody class="datao">
+                  <tr>
+                    <th>Nama Orang Tua/Wali</th>
+                    <td class="editval" data-field="namaortu">namaortu</td>
+                  </tr>
+                  <tr>
+                    <th>Alamat</th>
+                    <td class="editval" data-field="alamat">jl raya sesetan</td>
+                  </tr>
+                  <tr>
+                    <th>No Hp</th>
+                    <td class="editval" data-field="hportu">0888899999</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
-
-        <button id="editBtn" type="button">Edit Profile</button>
-        <button id="delbtn" type="button">Delete Profile</button>
       </div>
-
-     <div class="tablesection">
-      <table>
-        <tbody class="datam">
-          <tr>
-            <td style="border: none">DATA MAHASISWA</td>
-          </tr>
-          <tr>
-            <th>Nama</th>
-            <td class="editval" data-field="nama">pell</td>
-          </tr>
-          <tr>
-            <th>NIM</th>
-            <td class="editval" data-field="nim">535250166</td>
-          </tr>
-          <tr>
-            <th>Tempat Tanggal Lahir</th>
-            <td class="editval" data-field="ttl">Denpasar, 27/02/2007</td>
-          </tr>
-          <tr>
-            <th>Fakultas</th>
-            <td class="editval" data-field="fakultas">Teknologi Informasi</td>
-          </tr>
-          <tr>
-            <th>Jurusan</th>
-            <td class="editval" data-field="jurusan">Teknik Informatika</td>
-          </tr>
-          <tr>
-            <th>Jenis Kelamin</th>
-            <td class="editval" data-field="jk">Perempuan</td>
-          </tr>
-          <tr>
-            <th>Agama</th>
-            <td class="editval" data-field="agama">Buddha</td>
-          </tr>
-          <tr>
-            <th>No Hp</th>
-            <td class="editval" data-field="hp">08889998888</td>
-          </tr>
-          <tr>
-            <th>Email</th>
-            <td class="editval" data-field="email">your@gmail.com</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <table>
-        <tbody class="datas">
-          <tr>
-            <td style="border:none">DATA SEKOLAH</td>
-          </tr>
-          <tr>
-            <th>Asal Sekolah</th>
-            <td class="editval" data-field="sekolah">SMAK Santo Yoseph Denpasar</td>
-          </tr>
-          <tr>
-            <th>No Ijazah</th>
-            <td class="editval" data-field="ijazah">131202509852305</td>
-          </tr>
-          <tr>
-            <th>Tanggal Ijazah</th>
-            <td class="editval" data-field="tglijazah">28/05/2025</td>
-          </Tr>
-        </tbody>
-      </table>
-
-      <table>
-        <tbody class="datao">
-          <tr>
-            <td style="border:none">DATA ORANG TUA/WALI</td>
-          </tr>
-          <tr>
-            <th>Nama Orang Tua/Wali</th>
-            <td class="editval" data-field="namaortu">namaortu</td>
-          </tr>
-          <tr>
-            <th>Alamat</th>
-            <td class="editval" data-field="alamat">jl raya sesetan</td>
-          </tr>
-          <tr>
-            <th>No Hp</th>
-            <td class="editval" data-field="hportu">0888899999</td>
-          </tr>
-        </tbody>
-      </table>
-     </div>
     </div>
 
     <script src="app.js"></script>
+    <script src="../sidebar/app.js"></script>
+
+    <script>
+      fetch("../sidebar/index.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("sidebar-container").innerHTML = data;
+          initside();
+        });
+    </script>
   </body>
 </html>

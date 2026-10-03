@@ -6,6 +6,7 @@
     <title>Dashboard</title>
 
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../sidebar/style.css" />
 
     <link
       rel="stylesheet"
@@ -29,76 +30,11 @@
     </nav>
 
     <div class="container">
-      <aside class="sidebar">
-        <div class="sidebar-header">
-          <div class="mainlogo">
-            <span class="matsym" id="iconlin"
-              ><i class="fa-solid fa-graduation-cap header-logo"></i
-            ></span>
-            <span class="lintext">Lintar KRRS</span>
-          </div>
-          <button class="sidebar-toggle">
-            <span class="matsym"
-              ><i class="fa-solid fa-circle-chevron-left"></i
-            ></span>
-          </button>
-        </div>
-
-        <div class="sidebar-content">
-          <form action="#" class="search-form">
-            <span class="matsym"
-              ><i class="fa-solid fa-magnifying-glass"></i
-            ></span>
-            <input type="search" placeholder="search..." required />
-          </form>
-
-          <ul class="menu-list">
-            <li class="menu-item">
-              <a href="../profile/index.html" class="menu-link">
-                <span class="matsym"
-                  ><i class="fa-regular fa-circle-user"></i
-                ></span>
-                <span class="menu-label">Profile</span>
-              </a>
-            </li>
-
-            <li class="menu-item">
-              <a href="../Dashboard/index.html" class="menu-link active">
-                <span class="matsym"
-                  ><i class="fa-solid fa-tachograph-digital"></i
-                ></span>
-                <span class="menu-label">Dashboard</span>
-              </a>
-            </li>
-
-            <li class="menu-item">
-              <a href="../KRRS/pengisian-krrs.html" class="menu-link">
-                <span class="matsym"><i class="fa-solid fa-book"></i></span>
-                <span class="menu-label">KRRS</span>
-              </a>
-            </li>
-
-            <li class="menu-item">
-              <a href="../Jadwal/index.html" class="menu-link">
-                <span class="matsym"><i class="fa-solid fa-calendar"></i></span>
-                <span class="menu-label">Jadwal Akademik</span>
-              </a>
-            </li>
-
-            <li class="menu-item">
-              <a href="../Faq/index.html" class="menu-link">
-                <span class="matsym"><i class="fa-solid fa-question"></i></span>
-                <span class="menu-label">FAQ</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </aside>
-
+      <div id="sidebar-container"></div>
       <div class="main-content">
         <div class="borderhead">
-          <i class="fa-solid fa-house"></i>
-          <h1 class="page-title">Home</h1>
+          <i class="fa-solid fa-tachograph-digital"></i>
+          <h1 class="page-title">Dashboard</h1>
         </div>
         <div class="card">
           <div class="information">
@@ -114,17 +50,6 @@
             <div class="card">
               <h3>Today Schedule</h3>
             </div>
-
-            <div class="card">
-              <div class="men">
-                <h3>Access</h3>
-                <button><i class="fa-solid fa-user"></i>Profile</button>
-                <button><i class="fa-solid fa-pencil"></i>Isi KRRS</button>
-                <button>
-                  <i class="fa-regular fa-file-lines"></i>Transkrip Nilai
-                </button>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -139,5 +64,14 @@
     </div>
 
     <script src="app.js"></script>
+    <script src="../sidebar/app.js"></script>
+    <script>
+      fetch("../sidebar/index.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("sidebar-container").innerHTML = data;
+          initside();
+        });
+    </script>
   </body>
 </html>
