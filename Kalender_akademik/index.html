@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kalender Akademik - Lintar KRRS</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"
+    >
+
+    <!-- CSS Sidebar -->
+    <link rel="stylesheet" href="../sidebar/style.css">
+
+    <!-- CSS Kalender Akademik -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div id="sidebar"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Header -->
+        <header class="page-header">
+            <div class="header-title">
+                <i class="fa-solid fa-calendar-days"></i>
+
+                <div>
+                    <h1>Kalender Akademik</h1>
+                    <p>Informasi jadwal dan kegiatan akademik</p>
+                </div>
+            </div>
+        </header>
+
+
+        <!-- Content -->
+        <section class="content">
+
+            <!-- Intro -->
+            <div class="intro-card">
+
+                <div class="intro-icon">
+                    <i class="fa-solid fa-calendar-check"></i>
+                </div>
+
+                <div>
+                    <h2>Kalender Akademik</h2>
+
+                    <p>
+                        Berikut merupakan informasi mengenai jadwal kegiatan
+                        akademik pada semester berjalan.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Filter -->
+            <div class="filter-section">
+
+                <label for="filterKategori">
+                    <i class="fa-solid fa-filter"></i>
+                    Filter Kegiatan
+                </label>
+
+                <select id="filterKategori">
+                    <option value="Semua">Semua Kegiatan</option>
+                    <option value="Akademik">Akademik</option>
+                    <option value="Perkuliahan">Perkuliahan</option>
+                    <option value="Ujian">Ujian</option>
+                    <option value="Libur">Libur</option>
+                </select>
+
+            </div>
+
+
+            <!-- Calendar List -->
+            <div id="calendarContainer" class="calendar-container"></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Shared Data -->
+    <script src="../data.js"></script>
+
+    <!-- Sidebar -->
+    <script src="../sidebar/app.js"></script>
+
+    <!-- Page Script -->
+    <script src="script.js"></script>
+
+</body>
+</html>
