@@ -5,11 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pendaftaran Akun Mahasiswa - Portal KRRS UNTAR</title>
     <link rel="stylesheet" href="registrasi.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+      integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
 </head>
+
 <body class="registrasi-body">
 
     <div id="toast-container" class="toast-container"></div>
@@ -18,49 +25,27 @@
         <div class="auth-banner">
             <div class="banner-top">
                 <div class="banner-logo">
-                    <img src="image/pngwing.com.png" alt="UNTAR" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/a31313/FFFFFF?text=UNTAR';" />
-                </div>
-                <div class="banner-brand">
-                    <h2>UNIVERSITAS TARUMANAGARA</h2>
-                    <p>PORTAL AKADEMIK KRRS</p>
-                </div>
+                    <img src="image/pngwing.com.png" alt="UNTAR" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/a31313/FFFFFF?text=UNTAR';" /></div>
+                <div class="banner-brand"><h2>UNIVERSITAS TARUMANAGARA</h2><p>PORTAL AKADEMIK KRRS</p></div>
             </div>
 
-            <div class="banner-content">
-                <h1>Bergabunglah!</h1>
-                <p>Buat akun mahasiswa baru Anda untuk mulai mengelola Kartu Rencana Studi Elektronik (KRRS) semester ini.</p>
-            </div>
-
-            <div class="banner-footer">
-                <span>&copy; 2026 Universitas Tarumanagara</span>
-                <a href="../index.html"><i class="fas fa-home"></i> Beranda Utama</a>
-            </div>
+            <div class="banner-content"><h1>Bergabunglah!</h1><p>Buat akun mahasiswa baru Anda untuk mulai mengelola Kartu Rencana Studi Elektronik (KRRS) semester ini.</p></div>
+            <div class="banner-footer"><span>&copy; 2026 Universitas Tarumanagara</span><a href="../index.html"><i class="fas fa-home"></i> Beranda</a></div>
         </div>
+        
 
         <div class="auth-form-wrapper">
-            <div class="form-header">
-                <h2>Pendaftaran Akun Mahasiswa</h2>
-                <p>Khusus Mahasiswa Baru / Aktif Universitas Tarumanagara</p>
-            </div>
+            <div class="form-header"><h2>Pendaftaran Akun Mahasiswa</h2><p>Khusus Mahasiswa Baru / Aktif Universitas Tarumanagara</p></div>
 
             <form onsubmit="handleRegister(event)" class="auth-form">
                 <div class="form-grid">
-                    <div class="form-group">
-                        <label>Nama Lengkap</label>
-                        <input type="text" id="reg-nama" required placeholder="Nama Lengkap" class="input-simple" />
-                    </div>
-                    <div class="form-group">
-                        <label>NIM</label>
-                        <input type="text" id="reg-nim" required placeholder="Contoh: 535250178" class="input-simple" />
-                    </div>
+                    <div class="form-group"><label>Nama Lengkap</label><input type="text" id="reg-nama" required placeholder="Nama Lengkap" class="input-simple" /></div>
+                    <div class="form-group"><label>NIM</label><input type="text" id="reg-nim" required placeholder="Contoh: 535250178" class="input-simple" /></div>
                 </div>
 
-                <div class="form-group">
-                    <label>Email Student UNTAR</label>
-                    <input type="email" id="reg-email" required placeholder="nama@stu.untar.ac.id" class="input-simple" />
-                </div>
+                <div class="form-group"><label>Email UNTAR</label><input type="email" id="reg-email" required placeholder="nama@stu.untar.ac.id" class="input-simple" /></div>
 
-                <div class="form-grid">ww
+                <div class="form-grid">
                     <div class="form-group">
                         <label>Fakultas</label>
                         <select id="reg-fakultas" required class="select-simple">
@@ -75,37 +60,21 @@
                             <option value="Seni Rupa & Desain">Seni Rupa & Desain</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label>Program Studi</label>
-                        <input type="text" id="reg-prodi" required placeholder="Teknik Informatika" class="input-simple" />
-                    </div>
+                    <div class="form-group"><label>Program Studi</label><input type="text" id="reg-prodi" required placeholder="Teknik Informatika" class="input-simple" /></div>
                 </div>
 
                 <div class="form-group">
                     <label>Kata Sandi Baru</label>
                     <div class="input-icon-wrapper">
-                        <input type="password" id="reg-password" oninput="checkPasswordStrength(this.value)" required placeholder="••••••••" class="input-simple" />
+                        <input type="password" id="reg-password" required placeholder="••••••••" class="input-simple" />
                         <button type="button" onclick="togglePasswordVisibility('reg-password', 'eye-icon-reg')" class="btn-toggle-password">
                             <i class="fas fa-eye" id="eye-icon-reg"></i>
                         </button>
                     </div>
-                    <div class="strength-meter">
-                        <div class="strength-bar-track">
-                            <div id="strength-bar" class="strength-bar-fill"></div>
-                        </div>
-                        <span id="strength-text" class="strength-text">Kekuatan password: -</span>
-                    </div>
                 </div>
-
-                <button type="submit" class="btn-submit">
-                    Buat Akun Mahasiswa
-                </button>
+                <button type="submit" class="btn-submit">Buat Akun Mahasiswa</button>
             </form>
-
-            <div class="form-footer">
-                <span>Sudah memiliki akun? </span>
-                <a href="../Login/login.html">Kembali ke Login</a>
-            </div>
+            <div class="form-footer"><span>Sudah memiliki akun? </span><a href="../Login/login.html">Kembali ke Login</a></div>
         </div>
     </div>
 

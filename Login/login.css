@@ -146,7 +146,16 @@ a {
     align-items: center;
 }
 
+.banner-footer a {
+    color: #fecaca;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+}
+
 .banner-footer a:hover {
+    color: #ffffff;
     text-decoration: underline;
 }
 
@@ -250,7 +259,7 @@ a {
     color: #4b5563;
 }
 
-.input-simple, .select-simple {
+.input-simple {
     width: 100%;
     padding: 10px 14px;
     font-size: 14px;
@@ -262,7 +271,7 @@ a {
     font-family: inherit;
 }
 
-.input-simple:focus, .select-simple:focus {
+.input-simple:focus {
     border-color: #a31313;
 }
 
@@ -304,7 +313,7 @@ a {
 }
 
 .btn-submit:hover {
-    background-color: #820f0f;
+    background-color: #a31313;
 }
 
 .form-footer {
@@ -333,9 +342,16 @@ a {
     display: none !important;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
+    .auth-card {
+        max-width: 850px;
+    }
+}
+
+@media (max-width: 800px) {
     .auth-card {
         grid-template-columns: 1fr;
+        min-height: auto;
     }
 
     .auth-banner {
