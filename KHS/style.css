@@ -1,0 +1,247 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "poppins";
+}
+
+.app {
+  display: flex;
+}
+
+.page {
+  flex: 1;
+  min-width: 0;
+}
+
+body {
+  background-color: #f7f8fa;
+  color: #101828;
+  font-size: 15px;
+  min-height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: balance;
+  gap: 10px;
+  padding: 10px 30px 10px 30px;
+  height: 87px;
+  background-color: #a31313;
+  border-bottom: 1px solid #a31313;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.brand-title {
+  color: white;
+  font-size: 22px;
+  font-weight: 600;
+}
+ 
+.brand-logo img {
+  width: 50px;
+  height: 50px;
+}
+ 
+.fa-folder-open {
+  filter: brightness(0) invert(1);
+  font-size: 24px;  
+}
+ 
+.layout {
+  max-width: 1000px;
+  margin: 40px auto 24px auto;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+ 
+.table-head {
+  height: 70px;
+  background-color: #a31313;
+  background-image: url("image/batik.jpg");
+  background-size: cover;
+  background-position: center;
+}
+ 
+.table-box {
+  padding: 24px 24px 0 24px;
+  overflow-x: auto;
+}
+ 
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+ 
+th, td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid #e7eaf0;
+}
+ 
+th {
+  font-size: 13px;
+  color: #a31313;
+  background-color: #fdf2f2;
+}
+ 
+tbody tr:hover {
+  background-color: #f7f8fa;
+}
+ 
+td.low {
+  color: #d92d20;
+  font-weight: 600;
+}
+ 
+.table-foot {
+  display: flex;
+  justify-content: flex-end;
+  gap: 40px;
+  padding: 16px 38px 24px 24px;
+  font-size: 14px;
+}
+ 
+.table-foot b {
+  color: #a31313;
+}
+ 
+.stats {
+  max-width: 1000px;
+  margin: 0 auto 40px auto;
+}
+ 
+.stat {
+  padding: 16px 24px;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+ 
+.stat th, .stat td {
+  text-align: center;
+}
+ 
+.stat td {
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: none;
+}
+ 
+.progress {
+  padding: 24px 24px 0 24px;
+  overflow-x: auto;
+}
+ 
+.steps {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  min-width: 720px;
+  padding-right: 30px;
+}
+ 
+.steps::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 10px;
+  top: 9px;
+  height: 3px;
+  background-color: #e7eaf0;
+}
+ 
+.steps::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 3px;
+  border-left: 12px solid #e7eaf0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+ 
+.dots {
+  display: flex;
+  gap: 14px;
+}
+ 
+.dot {
+  position: relative;
+  z-index: 1;
+  width: 21px;
+  height: 21px;
+  padding: 0;
+  border: 3px solid #d0d5dd;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+}
+ 
+.dot:hover {
+  border-color: #a31313;
+}
+ 
+.dot.done {
+  border-color: #e8a0a0;
+}
+ 
+.dot.active {
+  border-color: #a31313;
+  background-color: #a31313;
+}
+ 
+.dot:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+ 
+.pair-label {
+  display: block;
+  margin-top: 8px;
+  text-align: center;
+  font-size: 12px;
+  color: #667085;
+}
+ 
+.pair.active .pair-label {
+  color: #a31313;
+  font-weight: 600;
+}
+ 
+.view-label {
+  padding: 14px 24px 0 24px;
+  font-weight: 600;
+  color: #a31313;
+}
+
+@media (max-width: 800px) {
+  .layout, .stats {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+ 
+  .table-foot {
+    flex-direction: column;
+    gap: 6px;
+  }
+}

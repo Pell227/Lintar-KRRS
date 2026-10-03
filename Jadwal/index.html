@@ -5,46 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jadwal</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../sidebar/style.css" />
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+      integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">
-      <div class="brand-logo"> <img src="image/calendar.png"> </div>
-      <div><div class="brand-title">Schedule</div><div class="brand-sub">Jadwal Kegiatan</div></div>
-    </div>
-    <div class="actions">
-      <label class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="search" type="search" placeholder="Search activities" autocomplete="off"></label>
-      <button class="btn" id="viewBtn" type="button"><svg viewBox="0 0 24 24"><path d="M3 10h18M8 2v4M16 2v4M5 4h14a2 2 0 0 1 2 2v14H3V6a2 2 0 0 1 2-2z"/></svg><span>Month view</span></button>
-    </div>
-  </header>
-
-  <main class="layout">
-    <section class="panel side">
-      <div class="panel-head">
-        <div><h2 id="listTitle">Today's activities</h2><p>Upcoming events and important reminders</p></div>
-        <div class="menu-wrap">
-          <button class="btn small" id="filterBtn" type="button"><svg viewBox="0 0 24 24"><path d="M3 5h18l-7 8v6l-4 2v-8z"/></svg><span id="filterLabel">Filter</span></button>
-          <ul class="menu" id="filterMenu" hidden></ul>
-        </div>
+  <div class="app">
+    <div id="sidebar-container"></div>
+    <div class="page">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-logo"> 
+            <img src="image/calendar.png" alt="" class="icolor"> 
+          </div>
+        <div><div class="brand-title">Jadwal Perkuliahan</div></div>
       </div>
-      <div class="list" id="list"></div>
-    </section>
-
-    <section class="panel cal">
-      <div class="panel-head">
-        <h2 id="calTitle"></h2>
-        <div class="cal-nav">
-          <button class="btn small" id="todayBtn" type="button">Today</button>
-          <button class="icon-btn" id="prev" type="button" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
-          <button class="icon-btn" id="next" type="button" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
-        </div>
+      <div class="actions">
+        <label class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="search" type="search" placeholder="Search activities" autocomplete="off"></label>
+        <button class="btn" id="viewBtn" type="button"><svg viewBox="0 0 24 24"><path d="M3 10h18M8 2v4M16 2v4M5 4h14a2 2 0 0 1 2 2v14H3V6a2 2 0 0 1 2-2z"/></svg><span>Month view</span></button>
       </div>
-      <div class="dow" id="dow"></div>
-      <div class="grid" id="grid"></div>
-    </section>
+    </header>
+
+    <main class="layout">
+      <section class="panel side">
+        <div class="panel-head">
+          <div><h2 id="listTitle">Jadwal Mata Kuliah</h2></div>
+        </div>
+        <div class="timetable" id="timetable"></div>
+      </section>
+
+      <section class="panel cal">
+        <div class="panel-head">
+          <h2 id="calTitle"></h2>
+          <div class="cal-nav">
+            <button class="btn small" id="todayBtn" type="button">Today</button>
+            <button class="icon-btn" id="prev" type="button" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+            <button class="icon-btn" id="next" type="button" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+          </div>
+        </div>
+        <div class="dow" id="dow"></div>
+        <div class="grid" id="grid"></div>
+      </section>
+      </div>
+      </div>
   </main>
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="script.js"></script>
+  <script src="../sidebar/app.js"></script>
+  <script>
+    fetch("../sidebar/index.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("sidebar-container").innerHTML = data;
+        initside();
+      });
+    </script>
 </body>
 </html>
