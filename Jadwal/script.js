@@ -8,6 +8,7 @@ $(function () {
     del: '<svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>'
   };
   const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const DOWC = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
   const pad = n => String(n).padStart(2, '0');
   const iso = d => d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
@@ -39,7 +40,7 @@ $(function () {
     let list = events.filter(matches);
     const searching = !!query;
     list = searching ? sorted(list) : sorted(list.filter(e => e.date === selected));
-    $('#listTitle').text(searching ? 'Search results' : selected === TODAY ? "Today's activities" : fmtDate(selected));
+    $('#listTitle').text(searching ? 'Search results' : selected === TODAY ? "Jadwal" : fmtDate(selected));
     if (!list.length) {
       $('#list').html('<div class="empty">' + (searching ? 'No activities match your search.' : 'Nothing scheduled for this day') + '</div>');
       return;
@@ -88,6 +89,49 @@ $(function () {
     $('#grid').toggleClass('week', mode === 'week').html(cells.join(''));
   }
 
+const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
+const FIRST = 7;    
+const LAST = 17;    
+
+const COURSES = [
+  { name: 'Data Structures', day: 1, start: 8,  end: 10, room: 'Lab 2',    color: 'blue' },
+  { name: 'Calculus',        day: 1, start: 13, end: 15, room: 'Room 301', color: 'amber' },
+  { name: 'Database Systems',day: 2, start: 10, end: 12, room: 'Room 204', color: 'purple' },
+  { name: 'Discrete Math',   day: 2, start: 13, end: 15, room: 'Room 105', color: 'teal' },
+  { name: 'Discrete Math',   day: 3, start: 8,  end: 10, room: 'Room 105', color: 'teal' },
+  { name: 'Calculus',        day: 3, start: 13, end: 15, room: 'Room 301', color: 'amber' },
+  { name: 'Data Structures', day: 4, start: 8,  end: 10, room: 'Lab 2',    color: 'blue' },
+  { name: 'Database Systems',day: 5, start: 10, end: 12, room: 'Room 204', color: 'purple' }
+];
+
+function renderTimetable() {
+  let html = '';
+
+  DAYS.forEach((d, i) => {
+    html += `<div class="tt-day" style="grid-column:${i + 2}; grid-row:1">${d}</div>`;
+  });
+
+  for (let h = FIRST; h <= LAST; h++) {
+    const row = h - FIRST + 2;
+    html += `<div class="tt-hour" style="grid-column:1; grid-row:${row}">${pad(h)}:00</div>`;
+    DAYS.forEach((d, i) => {
+      html += `<div class="tt-cell" style="grid-column:${i + 2}; grid-row:${row}"></div>`;
+    });
+  }
+
+  COURSES.forEach(c => {
+    const rowStart = c.start - FIRST + 2;
+    const rowEnd = c.end - FIRST + 2;
+    html += `<div class="tt-course" style="grid-column:${c.day + 1}; grid-row:${rowStart} / ${rowEnd}; background:${COLORS[c.color]}">
+      <b>${esc(c.name)}</b>
+      <span>${pad(c.start)}:00 - ${pad(c.end)}:00</span>
+      <span>${esc(c.room)}</span>
+    </div>`;
+  });
+
+  $('#timetable').html(html);
+}
+
   const render = () => { renderList(); renderCalendar(); };
 
   function move(dir) {
@@ -96,6 +140,7 @@ $(function () {
     renderCalendar();
   }
   $('#dow').html(DOW.map(d => `<div>${d}</div>`).join(''));
+  $('#dowc').html(DOWC.map(d => `<div>${d}</div>`).join(''));
   $('#prev').on('click', () => move(-1));
   $('#next').on('click', () => move(1));
   $('#todayBtn').on('click', () => { anchor = new Date(); selected = TODAY; render(); });
@@ -141,6 +186,7 @@ $(function () {
   });
 
   renderMenu();
+  renderTimetable();
   render();
 });
 

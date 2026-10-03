@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../sidebar/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+      integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="site-nav">
+      <button class="sidebar-toggle">
+        <span class="matsym"><i class="fa-solid fa-bars"></i></span>
+      </button>
+    </nav>
+
+    <div class="container">
+      <div id="sidebar-container"></div>
+      <div class="main-content">
+        <div class="borderhead">
+          <i class="fa-solid fa-house"></i>
+          <h1 class="page-title">Home</h1>
+        </div>
+        <div class="card">
+          <div class="information">
+            <h2>Informasi Akademik</h2>
+            <div class="card">
+              <h3>Kartu Hasil Studi (KHS)</h3>
+            </div>
+
+            <div class="card">
+              <h3>Pengumuman</h3>
+            </div>
+
+            <div class="card">
+              <h3>Today Schedule</h3>
+            </div>
+
+            <div class="card">
+              <div class="men">
+                <h3>Access</h3>
+                <button><i class="fa-solid fa-user"></i>Profile</button>
+                <button><i class="fa-solid fa-pencil"></i>Isi KRRS</button>
+                <button>
+                  <i class="fa-regular fa-file-lines"></i>Transkrip Nilai
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <p>
+            Welcome to your dashboard! Use the menu to navigate, toggle the
+            sidebar, or switch between light and dark themes to personalize your
+            experience.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="../sidebar/app.js"></script>
+    <script>
+      fetch("../sidebar/index.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("sidebar-container").innerHTML = data;
+          initside();
+        });
+    </script>
+  </body>
+</html>
