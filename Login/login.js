@@ -1,45 +1,7 @@
-const dummyUsers = [
-    {
-        "id": "535250178",
-        "password": "password123",
-        "role": "mahasiswa",
-        "nama": "Chrisento Salim",
-        "email": "chrisento.535250178@stu.untar.ac.id",
-        "fakultas": "Teknologi Informasi",
-        "prodi": "Teknik Informatika"
-    },
-    {
-        "id": "535250161",
-        "password": "password123",
-        "role": "mahasiswa",
-        "nama": "Azzarqy Fizran M Nasrun",
-        "email": "azzarqy.535250161@stu.untar.ac.id",
-        "fakultas": "Teknologi Informasi",
-        "prodi": "Teknik Informatika"
-    },
-    {
-        "id": "535250166",
-        "password": "password123",
-        "role": "mahasiswa",
-        "nama": "Felisia",
-        "email": "felisia.535250166@stu.untar.ac.id",
-        "fakultas": "Teknologi Informasi",
-        "prodi": "Teknik Informatika"
-    },
-    {
-        "id": "535250168",
-        "password": "password123",
-        "role": "mahasiswa",
-        "nama": "Windriew Aeron Siaury",
-        "email": "windriew.535250168@stu.untar.ac.id",
-        "fakultas": "Teknologi Informasi",
-        "prodi": "Teknik Informatika"
-    }
-];
-
 function getAllUsers() {
+    const initialUsers = typeof dummyUsers !== 'undefined' ? dummyUsers : [];
     const localUsers = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
-    return [...dummyUsers, ...localUsers];
+    return [...initialUsers, ...localUsers];
 }
 
 function togglePasswordVisibility(inputId, iconId) {
@@ -91,7 +53,7 @@ function handleLogin(e) {
         showToast(`Login Berhasil! Selamat datang, ${foundUser.nama}.`, 'success');
 
         setTimeout(() => {
-            window.location.href = "../landingpage/index.html";
+            window.location.href = "../index.html";
         }, 1200);
     } else {
         showToast('NIM atau Kata Sandi salah!', 'error');
@@ -124,12 +86,13 @@ function showToast(message, type = 'info') {
     if (!container) return;
 
     const toast = document.createElement('div');
-    let bgColor = type === 'success' ? 'bg-green-600' : (type === 'error' ? 'bg-[#a31313]' : 'bg-gray-800');
-    let icon = type === 'success' ? 'fa-check-circle' : (type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle');
+    toast.className = `toast toast-${type} toast-enter`;
+    
+    let iconClass = 'fa-info-circle';
+    if (type === 'success') iconClass = 'fa-check-circle';
+    if (type === 'error') iconClass = 'fa-exclamation-circle';
 
-    toast.className = `${bgColor} text-[#ffffff] px-4 py-3 rounded-xl shadow-lg text-xs flex items-center gap-2 toast-enter`;
-    toast.innerHTML = `<i class="fas ${icon}"></i> <span>${message}</span>`;
-
+    toast.innerHTML = `<i class="fas ${iconClass}"></i> <span>${message}</span>`;
     container.appendChild(toast);
 
     setTimeout(() => {

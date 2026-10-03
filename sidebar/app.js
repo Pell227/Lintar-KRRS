@@ -1,3 +1,19 @@
+function setActiveMenu() {
+  const normalize = (path) =>
+    path
+      .toLowerCase()
+      .replace(/index\.html$/, "")
+      .replace(/\/$/, "");
+
+  const current = normalize(location.pathname);
+
+  document.querySelectorAll(".menu-link").forEach((link) => {
+    const target = normalize(new URL(link.href, location.href).pathname);
+    const isActive = current === target || current.startsWith(target + "/");
+    link.classList.toggle("active", isActive);
+  });
+}
+
 function initside() {
   const sidebarToggleBtns = document.querySelectorAll(".sidebar-toggle");
   const sidebar = document.querySelector(".sidebar");
@@ -23,6 +39,8 @@ function initside() {
       link.classList.add("active");
     });
   });
+
+  setActiveMenu();
 
   if (window.innerWidth > 768) sidebar.classList.remove("collapsed");
 }
