@@ -1,45 +1,232 @@
-.print-title {
-  margin: 5px 0 20px;
-  padding-bottom: 18px;
-  border-bottom: 2px solid #a31313;
+.print-card {
+  overflow: hidden;
+}
+
+.print-document {
+  position: relative;
+  width: min(100%, 830px);
+  margin: 0 auto;
+  padding: 8px 0 14px;
+  color: #111;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+}
+
+.print-watermark {
+  position: absolute;
+  z-index: 0;
+  top: 45%;
+  left: 50%;
+  width: min(48%, 390px);
+  opacity: 0.13;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.institution-header,
+.print-document > :not(.print-watermark) {
+  position: relative;
+  z-index: 1;
+}
+
+.institution-header {
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+  align-items: center;
+  min-height: 68px;
   text-align: center;
 }
 
-.print-title > strong {
-  color: #a31313;
-  font-size: 20px;
+.institution-logo {
+  grid-column: 1;
+  grid-row: 1;
+  width: 54px;
+  height: 60px;
+  object-fit: contain;
 }
 
-.print-title h2 {
-  margin: 8px 0 4px;
-  font-size: 19px;
+.institution-name {
+  grid-column: 2;
+  grid-row: 1;
 }
 
-.print-title p {
-  margin: 0;
-  color: #798eae;
-  font-size: 13px;
+.institution-name h2 {
+  margin: 0 0 5px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  letter-spacing: 0.3px;
 }
 
-.print-student {
-  margin: 15px 0;
-}
-
-.footer-note {
-  margin-top: 20px;
-  color: #798eae;
+.institution-name p {
+  margin: 2px 0;
   font-size: 11px;
+}
+
+.print-red-rule {
+  height: 2px;
+  margin: 4px 0 10px;
+  background: #a31313;
+}
+
+.official-title {
+  margin: 0 0 18px;
   text-align: center;
+}
+
+.official-title h3 {
+  margin: 0 0 4px;
+  font-size: 14px;
+}
+
+.official-title p {
+  margin: 0;
+  font-size: 11px;
+}
+
+.official-student-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 34px;
+  margin: 0 2px 14px;
+}
+
+.official-student-info p {
+  display: grid;
+  grid-template-columns: 112px 12px 1fr;
+  margin: 4px 0;
+  line-height: 1.3;
+}
+
+.official-student-info strong {
+  font-weight: 400;
+}
+
+.official-table-wrap {
+  position: relative;
+  overflow: visible;
+}
+
+.official-table {
+  width: 100%;
+  min-width: 0;
+  border-collapse: collapse;
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+}
+
+.official-table th,
+.official-table td {
+  padding: 4px 5px;
+  border: 1px solid #444;
+  background: transparent;
+  color: #111;
+  vertical-align: top;
+}
+
+.official-table thead th,
+.official-table tfoot th {
+  font-weight: 700;
+  text-align: center;
+}
+
+.official-table tbody td:nth-child(3),
+.official-table tbody td:nth-child(4) {
+  text-align: center;
+}
+
+.official-table tbody td:nth-child(1) {
+  white-space: nowrap;
+}
+
+.official-table tfoot th:first-child {
+  text-align: right;
+}
+
+.official-table tfoot th:nth-child(2) {
+  text-align: center;
+}
+
+.print-issue-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  margin: 14px 0 16px;
+  text-align: right;
+}
+
+.print-issue-info strong {
+  margin-top: 12px;
+}
+
+.tear-line {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 17px 0 20px;
+  border-top: 1px dashed #222;
+  line-height: 0;
+}
+
+.tear-line span {
+  padding: 0 8px;
+  background: #fff;
+}
+
+.print-notes h3 {
+  margin: 0 0 12px;
+  font-size: 12px;
+}
+
+.print-notes ul {
+  margin: 0;
+  padding-left: 30px;
+}
+
+.print-notes li {
+  margin: 4px 0;
+}
+
+.print-red-rule-bottom {
+  margin: 14px 0 0;
+}
+
+@media (max-width: 700px) {
+  .print-document {
+    font-size: 10px;
+  }
+
+  .institution-header {
+    grid-template-columns: 64px 1fr 0;
+  }
+
+  .institution-name h2 {
+    font-size: 16px;
+  }
+
+  .institution-name p {
+    font-size: 9px;
+  }
+
+  .official-student-info {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .official-student-info p {
+    grid-template-columns: 100px 12px 1fr;
+  }
 }
 
 @media print {
   @page {
-    size: A4 landscape;
+    size: A4 portrait;
     margin: 14mm;
   }
 
   body {
-    background: white;
+    background: #fff;
   }
 
   .no-print,
@@ -61,21 +248,35 @@
   }
 
   .print-card {
+    overflow: visible;
     margin: 0;
     padding: 0;
     border: 0;
     box-shadow: none;
   }
 
-  .print-title {
-    margin-top: 0;
+  .print-document {
+    width: 100%;
+    padding: 0;
+    font-size: 10px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .institution-name h2 {
+    font-size: 18px;
+  }
+
+  .official-table {
+    font-size: 9px;
+  }
+
+  .official-table th,
+  .official-table td {
+    padding: 3px 4px;
   }
 
   .actions {
     display: none;
-  }
-
-  .signature {
-    margin-top: 30px;
   }
 }
