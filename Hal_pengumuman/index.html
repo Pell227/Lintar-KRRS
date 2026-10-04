@@ -6,36 +6,16 @@
 
     <title>Pengumuman - Lintar KRRS</title>
 
-    <!-- Sidebar CSS -->
     <link rel="stylesheet" href="../sidebar/style.css" />
-
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
-      integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-
-    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Quicksand:wght@300..700&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- CSS Pengumuman -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
+    
   </head>
 
   <body>
-
-    <!-- ==========================================
-         NAVBAR / SIDEBAR TOGGLE
-    =========================================== -->
 
     <nav class="site-nav">
 
@@ -49,31 +29,11 @@
 
     </nav>
 
-
-    <!-- ==========================================
-         MAIN CONTAINER
-    =========================================== -->
-
     <div class="container">
-
-
-      <!-- ========================================
-           SIDEBAR
-      ========================================= -->
 
       <div id="sidebar-container"></div>
 
-
-      <!-- ========================================
-           MAIN CONTENT
-      ========================================= -->
-
       <div class="main-content">
-
-
-        <!-- ======================================
-             PAGE HEADER
-        ======================================= -->
 
         <div class="borderhead">
 
@@ -84,11 +44,6 @@
           </h1>
 
         </div>
-
-
-        <!-- ======================================
-             INTRODUCTION
-        ======================================= -->
 
         <div class="card">
 
@@ -107,43 +62,79 @@
 
         </div>
 
-
-        <!-- ======================================
-             ANNOUNCEMENT LIST
-        ======================================= -->
-
-        <div class="announcement-container" id="announcementContainer">
-
-          <!--
-            Data pengumuman akan dimasukkan
-            melalui JavaScript.
-          -->
+        <div
+          class="announcement-container"
+          id="announcementContainer"
+        >
 
         </div>
 
+        <div
+          class="announcement-modal"
+          id="announcementModal"
+        >
+
+          <div class="announcement-detail">
+
+            <button
+              class="close-modal"
+              onclick="closeAnnouncement()"
+              aria-label="Tutup"
+            >
+
+              <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+            <div class="detail-icon">
+
+              <i class="fa-solid fa-bullhorn"></i>
+
+            </div>
+
+            <div class="detail-content">
+
+              <div class="detail-top">
+
+                <span
+                  class="announcement-category"
+                  id="detailCategory"
+                ></span>
+
+                <span
+                  class="announcement-date"
+                  id="detailDate"
+                ></span>
+
+              </div>
+
+
+              <h2 id="detailTitle"></h2>
+
+
+              <p id="detailContent"></p>
+
+
+              <button
+                class="close-button"
+                onclick="closeAnnouncement()"
+              >
+                Tutup
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
 
       </div>
 
     </div>
 
-
-    <!-- ==========================================
-         JAVASCRIPT PENGUMUMAN
-    =========================================== -->
-
+    <script src="../data.js"></script>
     <script src="script.js"></script>
-
-
-    <!-- ==========================================
-         JAVASCRIPT SIDEBAR
-    =========================================== -->
-
     <script src="../sidebar/app.js"></script>
-
-
-    <!-- ==========================================
-         LOAD SIDEBAR
-    =========================================== -->
 
     <script>
 
@@ -156,11 +147,6 @@
           document.getElementById(
             "sidebar-container"
           ).innerHTML = data;
-
-
-          // ======================================
-          // ACTIVE MENU PENGUMUMAN
-          // ======================================
 
           const menuLinks =
             document.querySelectorAll(
@@ -189,11 +175,6 @@
             }
 
           });
-
-
-          // ======================================
-          // INISIALISASI SIDEBAR
-          // ======================================
 
           if (typeof initside === "function") {
 

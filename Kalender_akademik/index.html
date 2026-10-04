@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kalender Akademik - Lintar KRRS</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../sidebar/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="sidebar"></div>
+
+    <main class="main-content">
+
+        <header class="page-header">
+            <div class="header-title">
+                <i class="fa-solid fa-calendar-days"></i>
+
+                <div>
+                    <h1>Kalender Akademik</h1>
+                    <p>Informasi jadwal dan kegiatan akademik</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="content">
+
+            <div class="intro-card">
+
+                <div class="intro-icon">
+                    <i class="fa-solid fa-calendar-check"></i>
+                </div>
+
+                <div>
+                    <h2>Kalender Akademik</h2>
+
+                    <p>
+                        Berikut merupakan informasi mengenai jadwal kegiatan
+                        akademik pada semester berjalan.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="filter-section">
+
+                <label for="filterKategori">
+                    <i class="fa-solid fa-filter"></i>
+                    Filter Kegiatan
+                </label>
+
+                <select id="filterKategori">
+                    <option value="Semua">Semua Kegiatan</option>
+                    <option value="Akademik">Akademik</option>
+                    <option value="Perkuliahan">Perkuliahan</option>
+                    <option value="Ujian">Ujian</option>
+                    <option value="Libur">Libur</option>
+                </select>
+
+            </div>
+
+            <div id="calendarContainer" class="calendar-container"></div>
+
+        </section>
+
+    </main>
+
+    <script src="../data.js"></script>
+    <script src="../sidebar/app.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

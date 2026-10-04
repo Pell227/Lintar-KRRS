@@ -34,81 +34,107 @@
       <div id="sidebar-container" class="no-print"></div>
 
       <main class="main-content">
+        <header class="krrs-page-header no-print">
+          <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+          <h1>Cetak KRRS</h1>
+        </header>
+
         <div class="page-heading no-print">
           <span><i class="fa-solid fa-house"></i> / KRRS / Cetak</span>
-          <h1>Cetak KRRS</h1>
           <p>Pratinjau kartu rencana studi yang sudah tersimpan.</p>
         </div>
 
         <section class="card print-card">
-          <div class="print-title">
-            <strong>UNIVERSITAS LINTAR</strong>
-            <h2>KARTU RENCANA STUDI (KRRS)</h2>
-            <p>Semester Ganjil Tahun Akademik 2026/2027</p>
-          </div>
+          <article class="print-document">
+            <img
+              class="print-watermark"
+              src="../../Login/image/pngwing.com.png"
+              alt=""
+              aria-hidden="true"
+            >
 
-          <div id="message" class="notice no-print"></div>
+            <header class="institution-header">
+              <img
+                class="institution-logo"
+                src="../../Login/image/pngwing.com.png"
+                alt="Logo Universitas Tarumanagara"
+              >
+              <div class="institution-name">
+                <h2>UNIVERSITAS TARUMANAGARA</h2>
+                <p>Jl. Letjen S. Parman No. 1 Jakarta Barat, 11440</p>
+                <p>www.untar.ac.id</p>
+              </div>
+            </header>
 
-          <div class="student-grid print-student">
-            <div>
-              <small>Nama</small>
-              <strong>Windriew Aeron Siaury</strong>
-            </div>
-            <div>
-              <small>NIM</small>
-              <strong>535250168</strong>
-            </div>
-            <div>
-              <small>Program Studi</small>
-              <strong>Teknik Informatika</strong>
-            </div>
-            <div>
-              <small>Semester</small>
-              <strong>3</strong>
-            </div>
-          </div>
+            <div class="print-red-rule"></div>
 
-          <div class="detail-grid">
-            <span>
-              <small>Jumlah Mata Kuliah</small>
-              <strong id="count">0</strong>
-            </span>
-            <span>
-              <small>Total SKS</small>
-              <strong id="sks">0</strong>
-            </span>
-          </div>
-
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>No.</th>
-                  <th>Kode</th>
-                  <th>Mata Kuliah</th>
-                  <th>SKS</th>
-                  <th>Kelas</th>
-                  <th>Jadwal</th>
-                  <th>Ruang</th>
-                </tr>
-              </thead>
-              <tbody id="printRows"></tbody>
-            </table>
-          </div>
-
-          <div class="signature">
-            <div>
-              <p>Mengetahui,<br>Dosen Pembimbing Akademik</p>
-              <strong>(________________________)</strong>
+            <div class="official-title">
+              <h3>KARTU STUDI SEMESTER</h3>
+              <p>TAHUN AJARAN 2026/2027 SEMESTER GANJIL</p>
             </div>
-            <div>
-              <p>Mahasiswa</p>
-              <strong>Windriew Aeron Siaury</strong><br>
-              <small>535250168</small>
-            </div>
-          </div>
 
-          <p class="footer-note">Dokumen ini dicetak melalui Lintar KRRS.</p>
+            <div class="official-student-info">
+              <div>
+                <p><strong>NIM</strong><span>:</span><span>535250168</span></p>
+                <p><strong>Nama</strong><span>:</span><span>Azzarqy Fizran M Nasrun</span></p>
+                <p><strong>IPS Terakhir</strong><span>:</span><span>4.0</span></p>
+              </div>
+              <div>
+                <p><strong>SKS Kumulatif</strong><span>:</span><span>40</span></p>
+                <p><strong>IPK</strong><span>:</span><span>4.0</span></p>
+              </div>
+            </div>
+
+            <div id="message" class="notice no-print"></div>
+
+            <div class="official-table-wrap">
+              <table class="official-table">
+                <thead>
+                  <tr>
+                    <th>Kode</th>
+                    <th>Mata Kuliah</th>
+                    <th>SKS</th>
+                    <th>Kls</th>
+                    <th>Ruang</th>
+                    <th>Waktu Kuliah</th>
+                  </tr>
+                </thead>
+                <tbody id="printRows"></tbody>
+                <tfoot>
+                  <tr>
+                    <th colspan="2">Total SKS</th>
+                    <th id="sks">0</th>
+                    <th colspan="3"></th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+
+            <div class="print-issue-info">
+              <p>Cetakan Perubahan ke - 1</p>
+              <p id="printDate"></p>
+              <strong>BIRO ADAK</strong>
+            </div>
+
+            <div class="tear-line"><span>Sobek Disini</span></div>
+
+            <section class="print-notes">
+              <h3>PERHATIAN</h3>
+              <ul>
+                <li>
+                  Nomor Registrasi Anda adalah
+                  <strong>53525016893565</strong>
+                </li>
+                <li>
+                  Harap catat dan ingat nomor ini dan jangan diperlihatkan ke
+                  orang lain.
+                </li>
+                <li>KRRS ini sebagai bukti pengambilan KSM (Kartu Studi Mahasiswa).</li>
+              </ul>
+            </section>
+
+            <div class="print-red-rule print-red-rule-bottom"></div>
+          </article>
 
           <div class="actions no-print">
             <a class="button secondary" href="../Data/index.html">
@@ -123,6 +149,7 @@
     </div>
 
     <script src="../../sidebar/app.js"></script>
+    <script src="../../data.js"></script>
     <script src="app.js"></script>
     <script>
       fetch("../../sidebar/index.html")
