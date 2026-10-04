@@ -64,7 +64,7 @@ body {
 .information {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-areas: "judul judul" "pengumuman khs" "pengumuman jadwal";
+  grid-template-areas: "judul judul" "pengumuman khs" "pengumuman jadwal" "pengumuman dosenwali";
   align-items: start;
   gap: 20px;
 }
@@ -83,6 +83,10 @@ body {
 
 .information .card-schedule {
   grid-area: jadwal;
+}
+
+.information .card-dosenwali {
+  grid-area: dosenwali;
 }
 
 .main-content .information .card {
@@ -172,16 +176,148 @@ body {
   text-decoration: underline;
 }
 
+.card-sub {
+  margin-left: 6px;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-text-placeholder);
+}
+
+.card-link {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-hover-primary);
+  text-decoration: none;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
+.listjadwal {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.jadwal-item {
+  display: flex;
+  gap: 12px;
+  padding: 10px 12px;
+  background: var(--color-bg-primary);
+  border-left: 4px solid var(--color-hover-primary);
+}
+
+.jadwal-jam {
+  flex: none;
+  width: 108px;
+  font-size: 12px;
+  color: var(--color-text-placeholder);
+}
+
+.jadwal-nama {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.jadwal-ruang {
+  display: block;
+  font-size: 12px;
+  color: var(--color-text-placeholder);
+}
+
+.jadwal-kosong {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-text-placeholder);
+}
+
+.khs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.khs-stat {
+  padding: 10px 12px;
+  background: var(--color-bg-primary);
+  border-radius: 6px;
+}
+
+.khs-stat {
+  padding: 10px 12px;
+  background: var(--color-bg-primary);
+  border-radius: 6px;
+}
+
+.khs-stat strong {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.khs-stat strong {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.khs-stat span {
+  font-size: 12px;
+  color: var(--color-text-placeholder);
+}
+
+.dosen-info {
+  display: grid;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.dosen-nama {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.dosen-jabatan {
+  margin-bottom: 4px;
+  font-size: 12px;
+  color: var(--color-text-placeholder);
+}
+
+.dosen-kontak {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--color-text-primary);
+  text-decoration: none;
+}
+
+.dosen-kontak i {
+  width: 16px;
+  text-align: center;
+  color: var(--color-hover-primary);
+}
+
+a.dosen-kontak:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 1100px) {
   .information {
     grid-template-columns: 1fr;
-    grid-template-areas: "judul" "khs" "pengumuman" "jadwal";
+    grid-template-areas: "judul" "khs" "pengumuman" "jadwal" "dosenwali";
   }
 }
 
 @media (max-width: 800px) {
   .borderhead {
-    padding: 0 2px;
+    padding: 0 20px;
   }
 
   .main-content .card {
