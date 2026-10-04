@@ -146,7 +146,16 @@ a {
     align-items: center;
 }
 
+.banner-footer a {
+    color: #fecaca;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+}
+
 .banner-footer a:hover {
+    color: #ffffff;
     text-decoration: underline;
 }
 
@@ -229,73 +238,6 @@ a {
     border-color: #a31313;
 }
 
-.strength-meter {
-    margin-top: 4px;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.strength-bar-track {
-    height: 4px;
-    width: 100%;
-    background-color: #e5e7eb;
-    border-radius: 9999px;
-    overflow: hidden;
-}
-
-.strength-bar-fill {
-    height: 100%;
-    width: 0%;
-    transition: all 0.3s ease;
-}
-
-.strength-empty {
-    width: 0%;
-    background-color: #e5e7eb;
-}
-
-.strength-weak {
-    background-color: #ef4444;
-}
-
-.strength-medium {
-    background-color: #eab308;
-}
-
-.strength-good {
-    background-color: #ffffff;
-}
-
-.strength-strong {
-    background-color: #22c55e;
-}
-
-.strength-text {
-    font-size: 10px;
-    color: #6b7280;
-}
-
-.text-weak {
-    color: #ef4444;
-    font-weight: 500;
-}
-
-.text-medium {
-    color: #ca8a04;
-    font-weight: 500;
-}
-
-.text-good {
-    color: #ffffff;
-    font-weight: 500;
-}
-
-.text-strong {
-    color: #16a34a;
-    font-weight: 500;
-}
-
 .btn-submit {
     width: 100%;
     padding: 10px;
@@ -331,9 +273,16 @@ a {
     text-decoration: underline;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
+    .auth-card {
+        max-width: 850px;
+    }
+}
+
+@media (max-width: 800px) {
     .auth-card {
         grid-template-columns: 1fr;
+        min-height: auto;
     }
 
     .form-grid {

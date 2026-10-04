@@ -22,6 +22,7 @@
       rel="stylesheet"
     />
   </head>
+
   <body>
     <nav class="site-nav">
       <button class="sidebar-toggle">
@@ -44,14 +45,14 @@
           <div class="photo-column">
             <div class="foto-wrapper">
               <img id="profileImg" src="assets/profile.jpg" />
-              <label for="fotoInput" class="upload-btn" title="Ganti Foto"
-                >&#128247;</label
-              >
-              <input type="file" id="fotoInput" accept="image/*" hidden />
             </div>
 
-            <button id="editBtn" type="button">Edit Profile</button>
-            <button id="delbtn" type="button">Delete Profile</button>
+            <a href="../edit/index.html" id="editbtn">
+              <i class="fa-solid fa-pen"></i>Edit Data
+            </a>
+            <button id="delbtn" type="button">
+              <i class="fa-solid fa-trash"></i>Delete Profile
+            </button>
           </div>
 
           <div class="tablesection">
@@ -68,7 +69,7 @@
                     <td class="editval" data-field="nim">535250166</td>
                   </tr>
                   <tr>
-                    <th>Tempat Tanggal Lahir</th>
+                    <th>Tempat,Tanggal Lahir</th>
                     <td class="editval" data-field="ttl">
                       Denpasar, 27/02/2007
                     </td>
@@ -151,6 +152,10 @@
       </div>
     </div>
 
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="../data.js"></script>
+    <script src="profiled.js"></script>
     <script src="app.js"></script>
     <script src="../sidebar/app.js"></script>
 
