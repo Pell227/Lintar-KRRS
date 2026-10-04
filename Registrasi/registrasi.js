@@ -24,14 +24,27 @@ function handleRegister(e) {
     const fakultas = document.getElementById('reg-fakultas').value;
     const prodi = document.getElementById('reg-prodi').value.trim();
     const password = document.getElementById('reg-password').value.trim();
-
+    
     const newUser = {id: nim,password: password,role: "mahasiswa",nama: nama,email: email,fakultas: fakultas,prodi: prodi};
 
-    const initialUsers = typeof dummyUsers !== 'undefined' ? dummyUsers : [];
-    let existingUsers = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
-    const allUsers = [...initialUsers, ...existingUsers];
+    let initialUsers = [];
+    if (typeof dummyUsers !== 'undefined') {
+        initialUsers = dummyUsers.users || dummyUsers.user || (Array.isArray(dummyUsers) ? dummyUsers : []);
+    }
 
-    const isExist = allUsers.some(u => u.id === nim || u.email.toLowerCase() === email.toLowerCase());
+    let existingUsers = [];
+    try {
+        existingUsers = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
+    } catch (err) {
+        existingUsers = [];
+    }
+
+    const allUsers = [...initialUsers, ...existingUsers];
+    const isExist = allUsers.some(u => 
+        (u.id || '').toLowerCase() === nim.toLowerCase() || 
+        (u.email || '').toLowerCase() === email.toLowerCase()
+    );
+
     if (isExist) {
         showToast('NIM atau Email ini sudah terdaftar!', 'error');
         return;

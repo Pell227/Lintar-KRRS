@@ -50,7 +50,7 @@ svg {
   align-items: center;
   flex-wrap: balance;
   gap: 10px;
-  padding: 10px 30px 10px 30px;
+  padding: 0px 30px;
   height: 87px;
   background-color: #a31313;
   border-bottom: 1px solid #a31313;
@@ -59,7 +59,7 @@ svg {
 .brand {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
 }
 
 .brand-logo {
@@ -83,7 +83,7 @@ svg {
 }
 
 .brand-title {
-  font-size: 1.5rem;
+  font-size: 2em;
   font-weight: bold;
   color: white;
 }
@@ -381,8 +381,8 @@ svg {
 .gridc {
   display: grid;
   grid-template-columns: 56px repeat(5, 1fr);
-  grid-template-rows: 36px;      /* the row with the day names */
-  grid-auto-rows: 52px;          /* every hour row */
+  grid-template-rows: 36px;
+  grid-auto-rows: 52px;
   border-top: 1px solid #e7eaf0;
   border-left: 1px solid #e7eaf0;
 }
@@ -451,8 +451,8 @@ svg {
 .timetable {
   display: grid;
   grid-template-columns: 56px repeat(5, 1fr);
-  grid-template-rows: 36px;      /* the row with the day names */
-  grid-auto-rows: 52px;          /* every hour row */
+  grid-template-rows: 36px;
+  grid-auto-rows: 52px;
   border-top: 1px solid #e7eaf0;
   border-left: 1px solid #e7eaf0;
 }
@@ -510,7 +510,7 @@ svg {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 800px) {
   .topbar, .layout {
     padding-left: 16px;
     padding-right: 16px;
@@ -523,4 +523,87 @@ svg {
   .day {
     min-height: 60px;
   }
+}
+
+.item.hl {
+  background-color: white;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.item .badge {
+  font-size: 12px;
+}
+
+.room {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #667085;
+}
+
+.room svg {
+  width: 16px;
+  height: 16px;
+}
+
+.chip i {
+  flex-shrink: 0;
+}
+
+.chip span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chip small {
+  display: block;
+  font-weight: 500;
+  color: #667085;
+}
+
+.tile i {
+  font-size: 12px;
+}
+
+.item.course {
+  background-color: var(--c);
+  border-color: var(--c);
+  color: white;
+}
+
+.item.course .item-title {
+  color: white;
+}
+
+.item.course .item-time,
+.item.course .room {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.item.course .tile,
+.item.course .badge {
+  background-color: rgba(255, 255, 255, 0.22);
+  color: white;
+}
+
+.item.course.hl {
+  background-color: var(--c);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.list.filtering .item.course:not(.hl) {
+  opacity: 0.5;
+}
+
+.chip {
+  color: white;
+}
+
+.chip i {
+  background-color: white;
+}
+
+.chip small {
+  color: rgba(255, 255, 255, 0.85);
 }
