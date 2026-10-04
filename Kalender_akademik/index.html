@@ -6,28 +6,17 @@
 
     <title>Kalender Akademik - Lintar KRRS</title>
 
-    <!-- Font Awesome -->
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"
-    >
-
-    <!-- CSS Sidebar -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css">
     <link rel="stylesheet" href="../sidebar/style.css">
-
-    <!-- CSS Kalender Akademik -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Sidebar -->
     <div id="sidebar"></div>
 
-    <!-- Main Content -->
     <main class="main-content">
 
-        <!-- Header -->
         <header class="page-header">
             <div class="header-title">
                 <i class="fa-solid fa-calendar-days"></i>
@@ -39,11 +28,8 @@
             </div>
         </header>
 
-
-        <!-- Content -->
         <section class="content">
 
-            <!-- Intro -->
             <div class="intro-card">
 
                 <div class="intro-icon">
@@ -61,8 +47,6 @@
 
             </div>
 
-
-            <!-- Filter -->
             <div class="filter-section">
 
                 <label for="filterKategori">
@@ -80,22 +64,14 @@
 
             </div>
 
-
-            <!-- Calendar List -->
             <div id="calendarContainer" class="calendar-container"></div>
 
         </section>
 
     </main>
 
-
-    <!-- Shared Data -->
     <script src="../data.js"></script>
-
-    <!-- Sidebar -->
     <script src="../sidebar/app.js"></script>
-
-    <!-- Page Script -->
     <script src="script.js"></script>
 
 </body>

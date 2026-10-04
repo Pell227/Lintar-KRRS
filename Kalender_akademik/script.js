@@ -1,23 +1,12 @@
-// =========================
-// LOAD SIDEBAR
-// =========================
-
-fetch("../sidebar/index.html")
-    .then(response => response.text())
-    .then(data => {
+fetch("../sidebar/index.html").then(response => response.text()).then(data => {
         document.getElementById("sidebar").innerHTML = data;
 
-        // Jalankan fungsi sidebar setelah HTML sidebar masuk
         initside();
     })
     .catch(error => {
         console.error("Gagal memuat sidebar:", error);
     });
 
-
-// =========================
-// RENDER CALENDAR
-// =========================
 
 const calendarContainer = document.getElementById("calendarContainer");
 const filterKategori = document.getElementById("filterKategori");
@@ -83,20 +72,10 @@ function tampilkanKalender(kategori = "Semua") {
     });
 }
 
-
-// =========================
-// FILTER
-// =========================
-
 filterKategori.addEventListener("change", function () {
 
     tampilkanKalender(this.value);
 
 });
-
-
-// =========================
-// INITIAL LOAD
-// =========================
 
 tampilkanKalender();

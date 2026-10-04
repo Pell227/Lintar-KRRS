@@ -10,21 +10,12 @@ body {
     color: #333;
 }
 
-
-/* =========================
-   MAIN CONTENT
-========================= */
-
 .main-content {
     margin-left: 250px;
     min-height: 100vh;
     width: calc(100% - 250px);
 }
 
-
-/* =========================
-   HEADER
-========================= */
 
 .page-header {
     background-color: #a31313;
@@ -52,47 +43,30 @@ body {
     opacity: 0.9;
 }
 
-
-/* =========================
-   CONTENT
-========================= */
-
 .content {
     padding: 30px 35px;
 }
-
-
-/* =========================
-   INTRO CARD
-========================= */
 
 .intro-card {
     background-color: white;
     border-radius: 12px;
     padding: 25px;
-
     display: flex;
     align-items: center;
     gap: 20px;
-
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-
     margin-bottom: 25px;
 }
 
 .intro-icon {
     width: 55px;
     height: 55px;
-
     background-color: #fbeaea;
     color: #a31313;
-
     border-radius: 10px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     font-size: 25px;
 }
 
@@ -106,30 +80,20 @@ body {
     font-size: 14px;
 }
 
-
-/* =========================
-   FILTER
-========================= */
-
 .filter-section {
     background-color: white;
     padding: 18px 20px;
-
     border-radius: 10px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     margin-bottom: 25px;
-
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .filter-section label {
     font-weight: bold;
     color: #444;
-
     display: flex;
     align-items: center;
     gap: 8px;
@@ -141,21 +105,12 @@ body {
 
 .filter-section select {
     padding: 9px 35px 9px 12px;
-
     border: 1px solid #ddd;
     border-radius: 7px;
-
     background-color: white;
-
     font-size: 14px;
-
     cursor: pointer;
 }
-
-
-/* =========================
-   CALENDAR
-========================= */
 
 .calendar-container {
     display: flex;
@@ -163,56 +118,32 @@ body {
     gap: 18px;
 }
 
-
-/* =========================
-   CALENDAR ITEM
-========================= */
-
 .calendar-item {
     background-color: white;
-
     border-radius: 12px;
-
     padding: 20px;
-
     display: flex;
     align-items: stretch;
-
     gap: 20px;
-
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-
     transition: 0.2s;
 }
 
 .calendar-item:hover {
     transform: translateY(-2px);
-
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.10);
 }
 
-
-/* =========================
-   DATE
-========================= */
-
 .calendar-date {
     min-width: 190px;
-
     background-color: #fbeaea;
-
     border-radius: 10px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     text-align: center;
-
     padding: 15px;
-
     color: #a31313;
-
     font-weight: bold;
 }
 
@@ -220,69 +151,43 @@ body {
     margin-right: 8px;
 }
 
-
-/* =========================
-   INFO
-========================= */
-
 .calendar-info {
     flex: 1;
 }
 
 .calendar-category {
     display: inline-block;
-
     font-size: 12px;
-
     padding: 5px 10px;
-
     border-radius: 20px;
-
     background-color: #fbeaea;
-
     color: #a31313;
-
     margin-bottom: 8px;
 }
 
 .calendar-info h3 {
     font-size: 18px;
-
     margin-bottom: 7px;
-
     color: #333;
 }
 
 .calendar-info p {
     font-size: 14px;
-
     color: #666;
-
     line-height: 1.6;
 }
 
-
-/* =========================
-   EMPTY STATE
-========================= */
-
 .empty-calendar {
     background-color: white;
-
     padding: 50px;
-
     border-radius: 12px;
-
     text-align: center;
-
     color: #777;
 }
 
 .empty-calendar i {
     font-size: 40px;
-
     margin-bottom: 15px;
-
     color: #aaa;
 }
 
@@ -290,12 +195,7 @@ body {
     font-size: 15px;
 }
 
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
 
     .main-content {
         margin-left: 0;
@@ -313,7 +213,7 @@ body {
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
 
     .page-header {
         padding: 20px;
@@ -342,9 +242,6 @@ body {
     }
 
 }
-/* =========================
-   SIDEBAR FIX
-========================= */
 
 #sidebar {
     display: block;
@@ -356,11 +253,6 @@ body {
     left: 0;
     z-index: 1000;
 }
-
-
-/* =========================
-   MAIN CONTENT FIX
-========================= */
 
 .main-content {
     display: block;
