@@ -1,11 +1,34 @@
 $(function () {
 
   function findCourse(code) {
-  return COURSES.find(function (c) { return c.code === code; });
+  return krrsCourses.find(function (c) { return c.code === code; });
 }
 
-const course = findCourse(g.code);
-if (!course) return;
+  function getSemester(si) {
+    const list = [];
+    $.each(GRADES, function (i, g) {
+      if (g.semester !== si + 1) {
+        return;
+      }
+      if (g.nim && g.nim !== STUDENT.nim) {
+        return;
+      }
+      const course = findCourse(g.code);
+      if (!course) {
+        return;
+      }
+      list.push({ code: course.code, name: course.name, sks: course.sks, midterm: g.midterm, final: g.final });
+    });
+    return list;
+  }
+ 
+  function gradeOf(c, ri) {
+    return ri === 0 ? c.midterm : c.final;
+  }
+ 
+  function average(total, credits) {
+    return credits > 0 ? (total / credits).toFixed(2) : '-';
+  }
 
   function summary(courses, ri) {
     let credits = 0;
@@ -13,11 +36,11 @@ if (!course) return;
     let earned = 0;
 
     $.each(courses, function (i, c) {
-      const grade = c[3 + ri];
-      credits += c[2];
-      bobot += SCALE[grade] * c[2];
+      const grade = gradeOf[c + ri];
+      credits += c.sks;
+      bobot += SCALE[grade] * c.sks;
       if (grade !== 'E') {
-        earned += c[2];
+        earned += c.sks;
       }
     });
 
@@ -27,25 +50,27 @@ if (!course) return;
   const lastSem = CURRENT.semester - 1;
 
   function showSemester(si) {
-    const courses = SEMESTERS[si];
+    const courses = getSemester(si);
 
     const ri = (si === lastSem) ? CURRENT.report : 1;
     let rows = '';
 
     $.each(courses, function (i, c) {
-      const grade = c[3 + ri];
+      const grade = gradeOf(c, ri);
       const number = SCALE[grade];
 
       rows += '<tr>' +
         '<td>' + (i + 1) + '</td>' +
-        '<td>' + c[0] + '</td>' +
-        '<td>' + c[1] + '</td>' +
-        '<td>' + c[2] + '</td>' +
+        '<td>' + c.code + '</td>' +
+        '<td>' + c.name + '</td>' +
+        '<td>' + c.sks + '</td>' +
         '<td class="' + (number <= 1 ? 'low' : '') + '">' + grade + '</td>' +
         '<td>' + number.toFixed(2) + '</td>' +
-        '<td>' + (number * c[2]).toFixed(2) + '</td>' +
+        '<td>' + (number * c.sks).toFixed(2) + '</td>' +
         '</tr>';
     });
+
+    $('#row').html(rows);
 
     const now = summary(courses, ri);
 
@@ -57,17 +82,16 @@ if (!course) return;
       before.earned += p.earned;
     }
 
-    $('#row').html(rows);
     $('.table-foot').html(
       '<span>Total Kredit: <b>' + now.credits + '</b></span>' +
       '<span>Total Bobot Kualitas: <b>' + now.bobot.toFixed(2) + '</b></span>'
     );
 
     $('#totalSks').text(now.credits);
-    $('#ips').text((now.bobot / now.credits).toFixed(2));
+    $('#ips').text(average(now.bobot, now.credits));
     $('#kreditDiambil').text(before.credits + now.credits);
     $('#kreditDiperoleh').text(before.earned + now.earned);
-    $('#ipk').text(((before.bobot + now.bobot) / (before.credits + now.credits)).toFixed(2));
+    $('#ipk').text(average(before.bobot + now.bobot, before.credits + now.credits));
 
     $('.pair').removeClass('active');
     $('.dot').each(function () {

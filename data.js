@@ -125,3 +125,34 @@ const krrsCourses = [
     ruang: "R.407"
   }
 ];
+
+const STUDENT = {
+  nim: ""
+};
+
+const CURRENT = {
+  semester: 1,
+  report: 1
+};
+
+const SCALE = {
+  'A':  4.00,
+  'B':  3.00,
+  'C':  2.00,
+  'D':  1.00,
+  'E':  0.00
+};
+
+const GRADES = [
+  { semester: 1, code: "IF101", midterm: "B",  final: "A"  },
+  { semester: 1, code: "IF102", midterm: "AB", final: "B"  },
+  { semester: 1, code: "IF103", midterm: "B",  final: "AB" },
+  { semester: 1, code: "IF104", midterm: "A",  final: "A"  },
+  { semester: 1, code: "IF105", midterm: "BC", final: "B"  },
+  { semester: 1, code: "IF106", midterm: "B",  final: "B"  },
+  { semester: 1, code: "IF107", midterm: "AB", final: "AB" },
+  { semester: 1, code: "IF108", midterm: "C",  final: "B"  },
+  { semester: 1, code: "IF109", midterm: "A",  final: "A"  },
+  { semester: 1, code: "IF110", midterm: "B",  final: "AB" },
+];
+const SEMESTERS = [];
