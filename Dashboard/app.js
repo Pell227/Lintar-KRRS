@@ -58,7 +58,18 @@ function pecahJadwal(course) {
 }
 
 function kuliahhari(namaHari) {
-  return krrsCourses
+  let jadwalLengkap = [];
+
+  krrsCourses.forEach((course) => {
+    if (course.pertemuan) {
+      course.pertemuan.forEach((p) => {
+        jadwalLengkap.push({ ...course, jadwal: p.jadwal, ruang: p.ruang });
+      });
+    } else if (course.jadwal) {
+      jadwalLengkap.push(course);
+    }
+  });
+  return jadwalLengkap
     .map((course) => ({ ...course, ...pecahJadwal(course) }))
     .filter((course) => course.hari.toLowerCase() === namaHari.toLowerCase())
     .sort((a, b) => a.mulai.localeCompare(b.mulai));
