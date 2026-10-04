@@ -234,3 +234,76 @@
     width: 270px;
   }
 }
+
+/* Shared page-title bars */
+html body .main-content .borderhead,
+html body .main-content > .page-header,
+html body .main-content > .krrs-page-header {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 87px;
+  height: 87px;
+  padding: 0 30px;
+  background: #a31313;
+  color: #fff;
+}
+
+html body .main-content .borderhead .page-title,
+html body .main-content .page-header h1,
+html body .main-content .krrs-page-header h1 {
+  margin: 0;
+  font-family: Poppins, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+html body .main-content .borderhead > i,
+html body .main-content .page-header .header-title > i,
+html body .main-content .krrs-page-header > i {
+  flex: 0 0 auto;
+  font-size: 22px;
+}
+
+html body .main-content .page-header .header-title {
+  gap: 12px;
+  padding-left: 18px;
+}
+
+html body .main-content .page-header .header-title p {
+  display: none;
+}
+
+html body .topbar {
+  box-sizing: border-box;
+  min-height: 87px;
+  height: 87px;
+  padding: 0 30px;
+}
+
+html body .topbar .brand {
+  gap: 12px;
+}
+
+html body .topbar .brand-logo {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+}
+
+html body .topbar .brand-logo i,
+html body .topbar .brand-logo img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  font-size: 22px;
+}
+
+html body .topbar .brand-title {
+  font-family: Poppins, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+}
