@@ -1,18 +1,18 @@
 const datamahasiswa = JSON.parse(`{
   "dataprofile": [
     {
-      "nama": "Jane doe",
+      "nama": "Felisia",
       "nim": "535250166",
       "ttl": "Denpasar, 27/02/2007",
       "Fakultas": "Fakultas Teknologi Informasi",
-      "jurusan": "Teknik ",
+      "jurusan": "Teknik Informatika",
       "jk": "Perempuan",
-      "agama": "Kristen",
+      "agama": "Buddha",
       "hp": "08889998888",
-      "email": "Jane@gmail.com",
-      "sekolah": "SMAK Santo",
+      "email": "felisia.535250166@stu.untar.ac.id",
+      "sekolah": "SMAK Santo Yoseph Denpasar",
       "ijazah": "131202509852305",
-      "tglijazah": "28/05/2030",
+      "tglijazah": "28/05/2025",
       "namaortu": "namaortu",
       "alamat": "jl raya sesetan",
       "hpo": "0888899999"
@@ -23,11 +23,11 @@ const datamahasiswa = JSON.parse(`{
 const dummyUsers = JSON.parse(`{
   "users": [
     {
-      "id": "535250000",
+      "id": "535250171",
       "password": "password123",
       "role": "mahasiswa",
-      "nama": "John doe",
-      "email": "John@gmail.com",
+      "nama": "Chrisento Salim",
+      "email": "chrisento.535250178@stu.untar.ac.id",
       "fakultas": "Teknologi Informasi",
       "prodi": "Teknik Informatika"
     },
@@ -35,8 +35,8 @@ const dummyUsers = JSON.parse(`{
       "id": "535250001",
       "password": "password123",
       "role": "mahasiswa",
-      "nama": "John Smith",
-      "email": "Smith@gmail.com",
+      "nama": "Azzarqy Fizran M Nasrun",
+      "email": "azzarqy.535250161@stu.untar.ac.id",
       "fakultas": "Teknologi Informasi",
       "prodi": "Teknik Informatika"
     },
@@ -44,8 +44,8 @@ const dummyUsers = JSON.parse(`{
       "id": "535250002",
       "password": "password123",
       "role": "mahasiswa",
-      "nama": "Jane doe",
-      "email": "Jane@gmail.com",
+      "nama": "Felisia",
+      "email": "felisia.535250166@stu.untar.ac.id",
       "fakultas": "Teknologi Informasi",
       "prodi": "Teknik Informatika"
     },
@@ -53,8 +53,8 @@ const dummyUsers = JSON.parse(`{
       "id": "535250003",
       "password": "password123",
       "role": "mahasiswa",
-      "nama": "John Stuff",
-      "email": "stuff@gmail.com",
+      "nama": "Windriew Aeron Siaury",
+      "email": "windriew.535250168@stu.untar.ac.id",
       "fakultas": "Teknologi Informasi",
       "prodi": "Teknik Informatika"
     }
@@ -357,7 +357,6 @@ const dataKalenderAkademik = JSON.parse(`{
     }
   ]
 }`);
-
 
 const dataNilai = JSON.parse(`{
   "skalaNilai": {
