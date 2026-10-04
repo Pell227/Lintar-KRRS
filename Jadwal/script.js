@@ -12,6 +12,19 @@ $(function () {
     room: '<svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>'
   };
 
+  const COURSE_ICON = {
+  IF101: 'fa-code',
+  IF102: 'fa-sitemap',
+  IF103: 'fa-database',
+  IF104: 'fa-globe',
+  IF105: 'fa-computer',
+  IF106: 'fa-brands fa-windows',
+  IF107: 'fa-brands fa-google-play',
+  IF108: 'fa-brain',
+  IF109: 'fa-scale-balanced',
+  IF110: 'fa-language'
+};
+
   const pad = n => String(n).padStart(2, '0');
   const iso = d => d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
   const parse = s => { const [y, m, d] = s.split('-').map(Number); return new Date(y, m - 1, d); };
@@ -29,7 +42,8 @@ $(function () {
     return {
       code: c.code, name: c.name, sks: c.sks, kelas: c.kelas, ruang: c.ruang, jadwal: c.jadwal,
       day: j.day, time: j.time, start: j.start,
-      color: PALETTE[i % PALETTE.length]
+      color: PALETTE[i % PALETTE.length],
+      icon: COURSE_ICON[c.code] || 'fa-book'
     };
   });
 
@@ -75,21 +89,21 @@ $(function () {
     $('#listNote').text('Kuliah pada ' + fmtDate(selected) + ': ' +
       (onDay.length ? onDay.length + ' mata kuliah (ditandai)' : 'tidak ada'));
 
+    $('#list').toggleClass('filtering', onDay.length > 0);
     if (!list.length) {
       $('#list').html('<div class="empty">Tidak ada mata kuliah yang cocok.</div>');
       return;
     }
 
     $('#list').html(list.map(c => `
-      <article class="item${onDay.includes(c.code) ? ' hl' : ''}" style="border-left:5px solid ${c.color}">
-        <div class="item-top">
+          <article class="item course${onDay.includes(c.code) ? ' hl' : ''}" style="--c:${c.color}"><div class="item-top">
           <div class="item-main">
-            <div class="tile" style="background:${c.color}">${ICON.cal}</div>
+            <div class="tile""><i class="fa-solid ${c.icon}"></i></div>
             <div><div class="item-title">${esc(c.name)}</div>
             <div class="item-time">${esc(c.jadwal)}</div></div>
           </div>
           <div class="item-side">
-            <span class="badge" style="background:${c.color}22; color:${c.color}">${esc(c.code)}</span>
+            <span class="badge"">${esc(c.code)}</span>
           </div>
         </div>
         <div class="room">${ICON.room}${esc(c.ruang)} · ${c.sks} SKS · Kelas ${esc(c.kelas)}</div>
@@ -116,7 +130,7 @@ $(function () {
       const evs = coursesOn(d);
       const max = mode === 'week' ? 12 : 3;
 
-      const chips = evs.slice(0, max).map(c => `<div class="chip" style="background:${c.color}22" title="${esc(c.name)} · ${esc(c.time)} · ${esc(c.ruang)}">
+      const chips = evs.slice(0, max).map(c => `<div class="chip" style="background:${c.color}" title="${esc(c.name)} · ${esc(c.time)} · ${esc(c.ruang)}">
           <i style="background:${c.color}"></i>
           <span>${esc(c.name)}${mode === 'week' ? `<small>${esc(c.time)} · ${esc(c.ruang)}</small>` : ''}</span></div>`).join('');
 

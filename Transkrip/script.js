@@ -24,7 +24,7 @@ $(function () {
     nim: myNim,
     fakultas: profile.Fakultas || user.fakultas || '-',
     prodi: profile.jurusan || user.prodi || '-',
-    photo: '../image/' + myNim + '.jpg'
+    photo: 'image/profile.jpg'
   };
 
   function findCourse(code) {

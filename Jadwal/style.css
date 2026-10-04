@@ -50,7 +50,7 @@ svg {
   align-items: center;
   flex-wrap: balance;
   gap: 10px;
-  padding: 10px 30px 10px 30px;
+  padding: 0px 30px;
   height: 87px;
   background-color: #a31313;
   border-bottom: 1px solid #a31313;
@@ -59,7 +59,7 @@ svg {
 .brand {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
 }
 
 .brand-logo {
@@ -83,7 +83,7 @@ svg {
 }
 
 .brand-title {
-  font-size: 1.5rem;
+  font-size: 2em;
   font-weight: bold;
   color: white;
 }
@@ -560,4 +560,50 @@ svg {
   display: block;
   font-weight: 500;
   color: #667085;
+}
+
+.tile i {
+  font-size: 12px;
+}
+
+.item.course {
+  background-color: var(--c);
+  border-color: var(--c);
+  color: white;
+}
+
+.item.course .item-title {
+  color: white;
+}
+
+.item.course .item-time,
+.item.course .room {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.item.course .tile,
+.item.course .badge {
+  background-color: rgba(255, 255, 255, 0.22);
+  color: white;
+}
+
+.item.course.hl {
+  background-color: var(--c);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.list.filtering .item.course:not(.hl) {
+  opacity: 0.5;
+}
+
+.chip {
+  color: white;
+}
+
+.chip i {
+  background-color: white;
+}
+
+.chip small {
+  color: rgba(255, 255, 255, 0.85);
 }

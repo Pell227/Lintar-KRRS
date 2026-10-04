@@ -36,13 +36,13 @@ body {
 .brand {
   display: flex;
   align-items: center;
+  gap: 10px
 }
 
 .brand-logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 70px;
   height: 70px;
   border-radius: 12px;
   cursor: pointer;
@@ -55,7 +55,7 @@ body {
 
 .brand-title {
   color: white;
-  font-size: 22px;
+  font-size: 2em;
   font-weight: 600;
 }
 
