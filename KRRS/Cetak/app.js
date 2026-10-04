@@ -22,6 +22,14 @@
   const isValid = totalSks >= MIN_SKS && totalSks <= MAX_SKS;
 
   document.getElementById("sks").textContent = totalSks;
+  const renderMeetings = (course, field) => {
+    const meetings = course.pertemuan || [
+      { jadwal: course.jadwal || `${course.day || ""}, ${course.time || ""}`, ruang: course.ruang || course.room || "-" },
+    ];
+    return meetings
+      .map((meeting) => `<div class="course-meeting">${meeting[field] || "-"}</div>`)
+      .join("");
+  };
   const formattedDate = new Intl.DateTimeFormat("id-ID", {
     day: "numeric",
     month: "long",
@@ -45,8 +53,8 @@
               <td>${course.name}</td>
               <td>${course.sks}</td>
               <td>${course.kelas || course.class || "-"}</td>
-              <td>${course.ruang || course.room || "-"}</td>
-              <td>${course.jadwal || `${course.day || ""}, ${course.time || ""}`}</td>
+              <td class="meeting-cell">${renderMeetings(course, "ruang")}</td>
+              <td class="meeting-cell">${renderMeetings(course, "jadwal")}</td>
             </tr>
           `,
         )
