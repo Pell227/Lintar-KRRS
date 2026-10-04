@@ -35,14 +35,13 @@ body {
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .brand-logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 70px;
   height: 70px;
   border-radius: 12px;
   cursor: pointer;
