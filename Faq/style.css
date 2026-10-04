@@ -204,7 +204,32 @@ body {
     font-size: 13px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
+
+    .main-content > .card {
+        margin: 25px;
+    }
+
+    .faq-container {
+        gap: 10px;
+    }
+
+    .faq-question {
+        padding: 17px 18px;
+    }
+
+    .lecturer-card {
+        gap: 20px;
+        padding: 22px;
+    }
+
+    .contact-list {
+        gap: 20px;
+    }
+
+}
+
+@media (max-width: 800px) {
 
     .main-content > .card {
         margin: 20px;

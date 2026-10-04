@@ -83,8 +83,7 @@ function showAnnouncement(id) {
 
   document.getElementById(
     "detailCategory"
-  ).textContent =
-    announcement.kategori;
+  ).textContent = announcement.kategori;
 
   document.getElementById(
     "detailDate"
@@ -98,14 +97,11 @@ function showAnnouncement(id) {
 
   document.getElementById(
     "detailTitle"
-  ).textContent =
-    announcement.judul;
+  ).textContent = announcement.judul;
 
   document.getElementById(
     "detailContent"
-  ).textContent =
-    announcement.isi;
-
+  ).textContent = announcement.isi;
 
   document.getElementById(
     "announcementModal"
@@ -117,36 +113,25 @@ function showAnnouncement(id) {
 
 function closeAnnouncement() {
 
-  // Sembunyikan modal
-
   document.getElementById(
     "announcementModal"
   ).style.display = "none";
-
-
-  // Kembalikan scroll halaman
 
   document.body.style.overflow = "";
 
 }
 
-document.getElementById(
-  "announcementModal"
-).addEventListener(
-  "click",
-  function (event) {
+document.getElementById("announcementModal").
+  addEventListener(
+    "click",
+    function (event) {
 
-    // Jika yang diklik adalah
-    // background modal
-
-    if (
-      event.target === this
-    ) {
+    if (event.target === this) 
+    {
 
       closeAnnouncement();
 
     }
-
   }
 );
 
@@ -154,13 +139,11 @@ document.addEventListener(
   "keydown",
   function (event) {
 
-    if (
-      event.key === "Escape"
-    ) {
+    if (event.key === "Escape") 
+    {
 
       closeAnnouncement();
 
     }
-
   }
 );
