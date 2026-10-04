@@ -1,64 +1,98 @@
 $(function () {
-  const COLORS = { blue: '#2563eb', amber: '#f79009', purple: '#7c3aed', teal: '#0f766e' };
-  const STATUSES = ['All', 'Confirmed', 'High priority', 'Draft', 'Weekly'];
+
+  const PALETTE = ['#2563eb', '#f79009', '#7c3aed', '#0f766e', '#d92d20',
+                   '#0891b2', '#c11574', '#4d7c0f', '#a16207', '#475467'];
+
+  const DAY_NUMBER = { Minggu: 0, Senin: 1, Selasa: 2, Rabu: 3, Kamis: 4, Jumat: 5, Sabtu: 6 };
+  const MONTHS = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11 };
+  const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
   const ICON = {
     cal: '<svg viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14H3V6a2 2 0 0 1 2-2z"/></svg>',
-    user: '<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>',
-    edit: '<svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>',
-    del: '<svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>'
+    room: '<svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>'
   };
-  const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  const DOWC = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
   const pad = n => String(n).padStart(2, '0');
   const iso = d => d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
   const parse = s => { const [y, m, d] = s.split('-').map(Number); return new Date(y, m - 1, d); };
-  const shift = n => { const d = new Date(); d.setDate(d.getDate() + n); return iso(d); };
-  const fmtTime = t => { const [h, m] = t.split(':').map(Number); return ((h % 12) || 12) + ':' + pad(m) + ' ' + (h < 12 ? 'AM' : 'PM'); };
   const fmtDate = s => parse(s).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
   const esc = s => $('<div>').text(s == null ? '' : s).html();
 
-  const TODAY = iso(new Date());
-  let events = [
-    { id: 1, title: 'Client onboarding', date: TODAY, time: '09:00', status: 'Confirmed', color: 'blue', owner: 'Ava Carter', desc: 'Review the kickoff deck, confirm the project scope, and assign the first milestone.' },
-    { id: 2, title: 'Design review', date: TODAY, time: '11:30', status: 'High priority', color: 'amber', owner: 'Marcus Lee', desc: 'Walk through the updated dashboard wireframes and finalize the navigation flow.' },
-    { id: 3, title: 'Content planning', date: TODAY, time: '14:00', status: 'Draft', color: 'purple', owner: 'Priya Shah', desc: 'Outline the next three blog posts and assign writing deadlines for the editorial team.' },
-    { id: 4, title: 'Weekly sync', date: TODAY, time: '16:30', status: 'Weekly', color: 'teal', owner: 'Team all-hands', desc: 'Review blockers, share progress, and align the team on the next sprint.' },
-    { id: 5, title: 'Launch checklist', date: shift(2), time: '10:00', status: 'High priority', color: 'amber', owner: 'Marcus Lee', desc: 'Final QA pass and sign-off before the release.' },
-    { id: 6, title: 'Weekly sync', date: shift(7), time: '16:30', status: 'Weekly', color: 'teal', owner: 'Team all-hands', desc: 'Review blockers, share progress, and align the team on the next sprint.' },
-    { id: 7, title: 'Client demo', date: shift(-3), time: '13:00', status: 'Confirmed', color: 'blue', owner: 'Ava Carter', desc: 'Walk the client through the latest build.' }
-  ];
+  function parseJadwal(text) {
+    const parts = text.split(',');
+    const time = parts[1].trim();
+    return { day: DAY_NUMBER[parts[0].trim()], time: time, start: time.split('-')[0].trim() };
+  }
 
-  let selected = TODAY, anchor = new Date(), mode = 'month', query = '', filter = 'All';
+  const courses = krrsCourses.map(function (c, i) {
+    const j = parseJadwal(c.jadwal);
+    return {
+      code: c.code, name: c.name, sks: c.sks, kelas: c.kelas, ruang: c.ruang, jadwal: c.jadwal,
+      day: j.day, time: j.time, start: j.start,
+      color: PALETTE[i % PALETTE.length]
+    };
+  });
 
-  const matches = e => (filter === 'All' || e.status === filter) &&
-    (!query || (e.title + ' ' + e.desc + ' ' + e.owner).toLowerCase().includes(query));
-  const sorted = list => list.sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
-  const badgeClass = s => 'b-' + s.split(' ')[0];
+  function parseTanggal(text) {
+    const p = text.trim().split(' ');
+    return new Date(Number(p[2]), MONTHS[p[1]], Number(p[0]));
+  }
 
-  function renderList() {
-    let list = events.filter(matches);
-    const searching = !!query;
-    list = searching ? sorted(list) : sorted(list.filter(e => e.date === selected));
-    $('#listTitle').text(searching ? 'Search results' : selected === TODAY ? "Jadwal" : fmtDate(selected));
-    if (!list.length) {
-      $('#list').html('<div class="empty">' + (searching ? 'No activities match your search.' : 'Nothing scheduled for this day') + '</div>');
+  const periods = [];
+  $.each(dataKalenderAkademik.kalenderAkademik, function (i, k) {
+    if (k.kategori !== 'Perkuliahan') {
       return;
     }
-    $('#list').html(list.map(e => `
-      <article class="item" data-id="${e.id}">
+    const range = k.tanggal.split(' s/d ');
+    periods.push({ from: parseTanggal(range[0]), to: parseTanggal(range[range.length - 1]) });
+  });
+
+  function inPeriod(d) {
+    if (periods.length === 0) {
+      return true;
+    }
+    return periods.some(function (p) { return d >= p.from && d <= p.to; });
+  }
+
+  const TODAY = iso(new Date());
+  let selected = TODAY, anchor = new Date(), mode = 'month', query = '';
+
+  const matches = c => !query || (c.name + ' ' + c.code + ' ' + c.ruang + ' ' + c.jadwal).toLowerCase().includes(query);
+  const byTime = (a, b) => ((a.day || 7) + a.start).localeCompare((b.day || 7) + b.start);
+
+  function coursesOn(d) {
+    if (!inPeriod(d)) {
+      return [];
+    }
+    return courses.filter(function (c) { return c.day === d.getDay() && matches(c); }).sort(byTime);
+  }
+
+  function renderList() {
+    const list = courses.filter(matches).sort(byTime);
+    const onDay = coursesOn(parse(selected)).map(function (c) { return c.code; });
+
+    $('#listTitle').text(query ? 'Hasil pencarian' : 'Jadwal Mata Kuliah');
+    $('#listNote').text('Kuliah pada ' + fmtDate(selected) + ': ' +
+      (onDay.length ? onDay.length + ' mata kuliah (ditandai)' : 'tidak ada'));
+
+    if (!list.length) {
+      $('#list').html('<div class="empty">Tidak ada mata kuliah yang cocok.</div>');
+      return;
+    }
+
+    $('#list').html(list.map(c => `
+      <article class="item${onDay.includes(c.code) ? ' hl' : ''}" style="border-left:5px solid ${c.color}">
         <div class="item-top">
           <div class="item-main">
-            <div class="tile" style="background:${COLORS[e.color]}">${ICON.cal}</div>
-            <div><div class="item-title">${esc(e.title)}</div>
-            <div class="item-time">${searching ? fmtDate(e.date) + ' · ' : ''}${fmtTime(e.time)}</div></div>
+            <div class="tile" style="background:${c.color}">${ICON.cal}</div>
+            <div><div class="item-title">${esc(c.name)}</div>
+            <div class="item-time">${esc(c.jadwal)}</div></div>
           </div>
           <div class="item-side">
-            <span class="badge ${badgeClass(e.status)}">${esc(e.status)}</span>
+            <span class="badge" style="background:${c.color}22; color:${c.color}">${esc(c.code)}</span>
           </div>
         </div>
-        <p class="item-desc">${esc(e.desc)}</p>
-        <div class="owner"><span class="avatar">${ICON.user}</span>${esc(e.owner || 'Unassigned')}</div>
+        <div class="room">${ICON.room}${esc(c.ruang)} · ${c.sks} SKS · Kelas ${esc(c.kelas)}</div>
       </article>`).join(''));
   }
 
@@ -79,58 +113,20 @@ $(function () {
     for (let i = 0; i < count; i++) {
       const d = new Date(start); d.setDate(start.getDate() + i);
       const key = iso(d);
-      const evs = sorted(events.filter(e => matches(e) && e.date === key));
-      const max = mode === 'week' ? 12 : 2;
+      const evs = coursesOn(d);
+      const max = mode === 'week' ? 12 : 3;
+
+      const chips = evs.slice(0, max).map(c => `<div class="chip" style="background:${c.color}22" title="${esc(c.name)} · ${esc(c.time)} · ${esc(c.ruang)}">
+          <i style="background:${c.color}"></i>
+          <span>${esc(c.name)}${mode === 'week' ? `<small>${esc(c.time)} · ${esc(c.ruang)}</small>` : ''}</span></div>`).join('');
+
       cells.push(`<div class="day${d.getMonth() !== anchor.getMonth() && mode === 'month' ? ' out' : ''}${key === TODAY ? ' today' : ''}${key === selected ? ' sel' : ''}" data-date="${key}">
         <span class="num">${d.getDate()}</span>
-        ${evs.slice(0, max).map(e => `<div class="chip" title="${esc(e.title)}"><i style="background:${COLORS[e.color]}"></i>${esc(e.title)}</div>`).join('')}
+        ${chips}
         ${evs.length > max ? `<div class="more">+${evs.length - max} more</div>` : ''}</div>`);
     }
     $('#grid').toggleClass('week', mode === 'week').html(cells.join(''));
   }
-
-const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
-const FIRST = 7;    
-const LAST = 17;    
-
-const COURSES = [
-  { name: 'Data Structures', day: 1, start: 8,  end: 10, room: 'Lab 2',    color: 'blue' },
-  { name: 'Calculus',        day: 1, start: 13, end: 15, room: 'Room 301', color: 'amber' },
-  { name: 'Database Systems',day: 2, start: 10, end: 12, room: 'Room 204', color: 'purple' },
-  { name: 'Discrete Math',   day: 2, start: 13, end: 15, room: 'Room 105', color: 'teal' },
-  { name: 'Discrete Math',   day: 3, start: 8,  end: 10, room: 'Room 105', color: 'teal' },
-  { name: 'Calculus',        day: 3, start: 13, end: 15, room: 'Room 301', color: 'amber' },
-  { name: 'Data Structures', day: 4, start: 8,  end: 10, room: 'Lab 2',    color: 'blue' },
-  { name: 'Database Systems',day: 5, start: 10, end: 12, room: 'Room 204', color: 'purple' }
-];
-
-function renderTimetable() {
-  let html = '';
-
-  DAYS.forEach((d, i) => {
-    html += `<div class="tt-day" style="grid-column:${i + 2}; grid-row:1">${d}</div>`;
-  });
-
-  for (let h = FIRST; h <= LAST; h++) {
-    const row = h - FIRST + 2;
-    html += `<div class="tt-hour" style="grid-column:1; grid-row:${row}">${pad(h)}:00</div>`;
-    DAYS.forEach((d, i) => {
-      html += `<div class="tt-cell" style="grid-column:${i + 2}; grid-row:${row}"></div>`;
-    });
-  }
-
-  COURSES.forEach(c => {
-    const rowStart = c.start - FIRST + 2;
-    const rowEnd = c.end - FIRST + 2;
-    html += `<div class="tt-course" style="grid-column:${c.day + 1}; grid-row:${rowStart} / ${rowEnd}; background:${COLORS[c.color]}">
-      <b>${esc(c.name)}</b>
-      <span>${pad(c.start)}:00 - ${pad(c.end)}:00</span>
-      <span>${esc(c.room)}</span>
-    </div>`;
-  });
-
-  $('#timetable').html(html);
-}
 
   const render = () => { renderList(); renderCalendar(); };
 
@@ -139,15 +135,15 @@ function renderTimetable() {
     else anchor.setDate(anchor.getDate() + 7 * dir);
     renderCalendar();
   }
+
   $('#dow').html(DOW.map(d => `<div>${d}</div>`).join(''));
-  $('#dowc').html(DOWC.map(d => `<div>${d}</div>`).join(''));
   $('#prev').on('click', () => move(-1));
   $('#next').on('click', () => move(1));
   $('#todayBtn').on('click', () => { anchor = new Date(); selected = TODAY; render(); });
+
   $('#grid').on('click', '.day', function () {
     selected = $(this).data('date');
     anchor = parse(selected);
-    $('#search').val(''); query = '';
     render();
   });
 
@@ -158,44 +154,17 @@ function renderTimetable() {
     renderCalendar();
   });
 
-  $('#search').on('input', function () { query = $.trim(this.value).toLowerCase(); render(); });
+  $('#search').on('input', function () { query = this.value.trim().toLowerCase(); render(); });
 
-  function renderMenu() {
-    $('#filterMenu').html(STATUSES.map(s => `<li data-s="${s}" class="${s === filter ? 'on' : ''}">${s}</li>`).join(''));
-    $('#filterLabel').text(filter === 'All' ? 'Filter' : filter);
-  }
-  $('#filterBtn').on('click', e => { e.stopPropagation(); $('#filterMenu').prop('hidden', (_, v) => !v); });
-  $('#filterMenu').on('click', 'li', function () { filter = $(this).data('s'); renderMenu(); $('#filterMenu').prop('hidden', true); render(); });
-  $(document).on('click', () => $('#filterMenu').prop('hidden', true));
+  $('.brand-logo').on('click', function () {
+    const $img = $(this).find('img');
 
-  const $form = $('#form');
+    if (!$img.data('src')) {
+      $img.data('src', $img.attr('src'));
+    }
 
-  const closeModal = () => $('#modal').prop('hidden', true);
-  $('#addBtn').on('click', () => openModal());
-  $('#cancel').on('click', closeModal);
-  $('#modal').on('click', e => { if (e.target === e.currentTarget) closeModal(); });
-  $(document).on('keydown', e => { if (e.key === 'Escape') closeModal(); });
-  $form.on('submit', function (e) {
-    e.preventDefault();
-    const data = {};
-    $.each($form.serializeArray(), (_, f) => data[f.name] = $.trim(f.value));
-    if (editingId) $.extend(events.find(x => x.id === editingId), data);
-    else events.push($.extend({ id: nextId++ }, data));
-    selected = data.date; anchor = parse(selected);
-    closeModal(); render();
+    $img.attr('src', $img.data('src') + '?t=' + Date.now());
   });
 
-  renderMenu();
-  renderTimetable();
   render();
-});
-
-$('.brand-logo').on('click', function () {
-  const $img = $(this).find('img');
-
-  if (!$img.data('src')) {
-    $img.data('src', $img.attr('src'));
-  }
-
-  $img.attr('src', $img.data('src') + '?t=' + Date.now());
 });

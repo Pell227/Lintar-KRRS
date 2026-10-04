@@ -524,3 +524,40 @@ svg {
     min-height: 60px;
   }
 }
+
+.item.hl {
+  background-color: white;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.item .badge {
+  font-size: 12px;
+}
+
+.room {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #667085;
+}
+
+.room svg {
+  width: 16px;
+  height: 16px;
+}
+
+.chip i {
+  flex-shrink: 0;
+}
+
+.chip span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chip small {
+  display: block;
+  font-weight: 500;
+  color: #667085;
+}

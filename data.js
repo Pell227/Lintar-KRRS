@@ -1,18 +1,18 @@
 const datamahasiswa = JSON.parse(`{
   "dataprofile": [
     {
-      "nama": "Felisia",
+      "nama": "Jane doe",
       "nim": "535250166",
       "ttl": "Denpasar, 27/02/2007",
       "Fakultas": "Fakultas Teknologi Informasi",
-      "jurusan": "Teknik Informatika",
+      "jurusan": "Teknik ",
       "jk": "Perempuan",
-      "agama": "Buddha",
+      "agama": "Kristen",
       "hp": "08889998888",
-      "email": "felisia.535250166@stu.untar.ac.id",
-      "sekolah": "SMAK Santo Yoseph Denpasar",
+      "email": "Jane@gmail.com",
+      "sekolah": "SMAK Santo",
       "ijazah": "131202509852305",
-      "tglijazah": "28/05/2025",
+      "tglijazah": "28/05/2030",
       "namaortu": "namaortu",
       "alamat": "jl raya sesetan",
       "hpo": "0888899999"
@@ -23,38 +23,38 @@ const datamahasiswa = JSON.parse(`{
 const dummyUsers = JSON.parse(`{
   "users": [
     {
-      "id": "535250171",
+      "id": "535250000",
       "password": "password123",
       "role": "mahasiswa",
-      "nama": "Chrisento Salim",
-      "email": "chrisento.535250178@stu.untar.ac.id",
+      "nama": "John doe",
+      "email": "John@gmail.com",
       "fakultas": "Teknologi Informasi",
       "prodi": "Teknik Informatika"
     },
     {
-      "id": "535250161",
+      "id": "535250001",
       "password": "password123",
       "role": "mahasiswa",
-      "nama": "Azzarqy Fizran M Nasrun",
-      "email": "azzarqy.535250161@stu.untar.ac.id",
+      "nama": "John Smith",
+      "email": "Smith@gmail.com",
       "fakultas": "Teknologi Informasi",
       "prodi": "Teknik Informatika"
     },
     {
-      "id": "535250166",
+      "id": "535250002",
       "password": "password123",
       "role": "mahasiswa",
-      "nama": "Felisia",
-      "email": "felisia.535250166@stu.untar.ac.id",
+      "nama": "Jane doe",
+      "email": "Jane@gmail.com",
       "fakultas": "Teknologi Informasi",
       "prodi": "Teknik Informatika"
     },
     {
-      "id": "535250168",
+      "id": "535250003",
       "password": "password123",
       "role": "mahasiswa",
-      "nama": "Windriew Aeron Siaury",
-      "email": "windriew.535250168@stu.untar.ac.id",
+      "nama": "John Stuff",
+      "email": "stuff@gmail.com",
       "fakultas": "Teknologi Informasi",
       "prodi": "Teknik Informatika"
     }
@@ -354,6 +354,256 @@ const dataKalenderAkademik = JSON.parse(`{
       "kategori": "Wisuda",
       "judul": "Pelaksanaan Wisuda",
       "deskripsi": "Pelaksanaan kegiatan wisuda."
+    }
+  ]
+}`);
+
+
+const dataNilai = JSON.parse(`{
+  "skalaNilai": {
+    "A": 4,
+    "A-": 3.75,
+    "B+": 3.25,
+    "B": 3,
+    "B-": 2.75,
+    "C+": 2.25,
+    "C": 2,
+    "D": 1,
+    "E": 0
+  },
+  "semesterAktif": {
+    "semester": 3
+  },
+  "mataKuliahLalu": [
+    {
+      "code": "UM101",
+      "name": "Pendidikan Agama",
+      "sks": 2,
+      "semester": 1
+    },
+    {
+      "code": "UM102",
+      "name": "Pendidikan Pancasila",
+      "sks": 2,
+      "semester": 1
+    },
+    {
+      "code": "UM103",
+      "name": "Bahasa Inggris",
+      "sks": 2,
+      "semester": 1
+    },
+    {
+      "code": "MA101",
+      "name": "Kalkulus I",
+      "sks": 4,
+      "semester": 1
+    },
+    {
+      "code": "IF001",
+      "name": "Pengantar Teknologi Informasi",
+      "sks": 2,
+      "semester": 1
+    },
+    {
+      "code": "IF002",
+      "name": "Logika Matematika",
+      "sks": 4,
+      "semester": 1
+    },
+    {
+      "code": "IF003",
+      "name": "Dasar Pemrograman",
+      "sks": 4,
+      "semester": 1
+    },
+    {
+      "code": "UM104",
+      "name": "Bahasa Inggris Lanjut",
+      "sks": 2,
+      "semester": 2
+    },
+    {
+      "code": "UM105",
+      "name": "Kewirausahaan",
+      "sks": 2,
+      "semester": 2
+    },
+    {
+      "code": "MA102",
+      "name": "Kalkulus II",
+      "sks": 4,
+      "semester": 2
+    },
+    {
+      "code": "MA103",
+      "name": "Aljabar Linear",
+      "sks": 4,
+      "semester": 2
+    },
+    {
+      "code": "IF004",
+      "name": "Matematika Diskrit",
+      "sks": 4,
+      "semester": 2
+    },
+    {
+      "code": "IF005",
+      "name": "Organisasi Komputer",
+      "sks": 2,
+      "semester": 2
+    },
+    {
+      "code": "IF006",
+      "name": "Pemrograman Lanjut",
+      "sks": 4,
+      "semester": 2
+    }
+  ],
+  "nilai": [
+    {
+      "nim": "535250166",
+      "code": "UM101",
+      "semester": 1,
+      "akhir": "B+"
+    },
+    {
+      "nim": "535250166",
+      "code": "UM102",
+      "semester": 1,
+      "akhir": "A"
+    },
+    {
+      "nim": "535250166",
+      "code": "UM103",
+      "semester": 1,
+      "akhir": "A-"
+    },
+    {
+      "nim": "535250166",
+      "code": "MA101",
+      "semester": 1,
+      "akhir": "B-"
+    },
+    {
+      "nim": "535250166",
+      "code": "IF001",
+      "semester": 1,
+      "akhir": "B+"
+    },
+    {
+      "nim": "535250166",
+      "code": "IF002",
+      "semester": 1,
+      "akhir": "B"
+    },
+    {
+      "nim": "535250166",
+      "code": "IF003",
+      "semester": 1,
+      "akhir": "A"
+    },
+    {
+      "nim": "535250166",
+      "code": "UM104",
+      "semester": 2,
+      "akhir": "A"
+    },
+    {
+      "nim": "535250166",
+      "code": "UM105",
+      "semester": 2,
+      "akhir": "A-"
+    },
+    {
+      "nim": "535250166",
+      "code": "MA102",
+      "semester": 2,
+      "akhir": "C+"
+    },
+    {
+      "nim": "535250166",
+      "code": "MA103",
+      "semester": 2,
+      "akhir": "B"
+    },
+    {
+      "nim": "535250166",
+      "code": "IF004",
+      "semester": 2,
+      "akhir": "B+"
+    },
+    {
+      "nim": "535250166",
+      "code": "IF005",
+      "semester": 2,
+      "akhir": "B-"
+    },
+    {
+      "nim": "535250166",
+      "code": "IF006",
+      "semester": 2,
+      "akhir": "A-"
+    },
+    {
+      "nim": "535250166",
+      "code": "IF101",
+      "semester": 3,
+      "akhir": "B+"
+    },
+    {
+      "nim": "535250166",
+      "code": "IF102",
+      "semester": 3,
+      "akhir": "A-"
+    },
+    {
+      "nim": "535250166",
+      "code": "IF103",
+      "semester": 3,
+      "akhir": "B"
+    },
+    {
+      "nim": "535250166",
+      "code": "IF104",
+      "semester": 3,
+      "akhir": "A"
+    },
+    {
+      "nim": "535250166",
+      "code": "IF105",
+      "semester": 3,
+      "akhir": "B+"
+    },
+    {
+      "nim": "535250166",
+      "code": "IF106",
+      "semester": 3,
+      "akhir": "C+"
+    },
+    {
+      "nim": "535250166",
+      "code": "IF107",
+      "semester": 3,
+      "akhir": "B"
+    },
+    {
+      "nim": "535250166",
+      "code": "IF108",
+      "semester": 3,
+      "akhir": "B+"
+    },
+    {
+      "nim": "535250166",
+      "code": "IF109",
+      "semester": 3,
+      "akhir": "A"
+    },
+    {
+      "nim": "535250166",
+      "code": "IF110",
+      "semester": 3,
+      "akhir": "A-"
     }
   ]
 }`);

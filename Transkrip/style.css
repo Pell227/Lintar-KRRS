@@ -68,14 +68,6 @@ body {
   overflow: hidden;
 }
 
-.table-head {
-  height: 70px;
-  background-color: #a31313;
-  background-image: url("image/batik.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
 .student-info {
   display: flex;
   align-items: flex-start;
@@ -297,6 +289,7 @@ tr.sem-subtotal td {
     width: 70px;
     height: 90px;
     font-size: 22px;
+    content: url("image/profile.jpg");
   }
  
   .student-info h2 {
