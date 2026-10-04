@@ -119,7 +119,7 @@ const krrsCourses = [
     ],
   },
   {
-    code: "IF105",
+    code: "IF107",
     name: "Computer Vision",
     sks: 4,
     kelas: "A",
@@ -129,7 +129,7 @@ const krrsCourses = [
     ],
   },
   {
-    code: "IF105",
+    code: "IF108",
     name: "Business Analytics",
     sks: 4,
     kelas: "A",
@@ -139,7 +139,7 @@ const krrsCourses = [
     ],
   },
   {
-    code: "IF105",
+    code: "IF109",
     name: "Decision Optimization",
     sks: 4,
     kelas: "A",
@@ -149,7 +149,7 @@ const krrsCourses = [
     ],
   },
   {
-    code: "IF105",
+    code: "IF110",
     name: "Game Development",
     sks: 4,
     kelas: "A",
@@ -159,7 +159,7 @@ const krrsCourses = [
     ],
   },
   {
-    code: "IF105",
+    code: "IF111",
     name: "Nature Language Processing",
     sks: 4,
     kelas: "A",
@@ -169,7 +169,7 @@ const krrsCourses = [
     ],
   },
   {
-    code: "IF105",
+    code: "IF112",
     name: "Deep Learning",
     sks: 4,
     kelas: "A",

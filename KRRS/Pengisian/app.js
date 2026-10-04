@@ -11,7 +11,10 @@ function getSelectedCourses() {
 }
 
 function getTotalSks() {
-  return getSelectedCourses().reduce((total, course) => total + course.sks, 0);
+  return getSelectedCourses().reduce(
+    (total, course) => total + Number(course.sks || 0),
+    0,
+  );
 }
 
 function renderMeetings(course, field) {
