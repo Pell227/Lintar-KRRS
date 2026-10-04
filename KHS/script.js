@@ -1,142 +1,147 @@
 $(function () {
 
-  const SCALE = {
-    'A': 4, 'A-': 3.75,
-    'B+': 3.25, 'B': 3, 'B-': 2.75,
-    'C+': 2.25, 'C': 2,
-    'D': 1, 'E': 0
-  };
+  const SCALE = dataNilai.skalaNilai;
+  const GRADES = dataNilai.nilai;
+  const CURRENT = dataNilai.semesterAktif;
 
-  const REPORT_NAMES = ['Ganjil', 'Genap'];
-  const CURRENT = { semester: 5, report: 1 };
-  const SEMESTERS = [
-    [
-      ['UM1101', 'Pendidikan Agama',       2, 'B',  'B+'],
-      ['MA1101', 'Kalkulus I',             3, 'C',  'B-'],
-      ['IF1101', 'Pengantar Informatika',  3, 'B+', 'A-'],
-      ['IF1102', 'Logika Matematika',      3, 'B',  'B'],
-      ['UM1102', 'Bahasa Indonesia',       2, 'A-', 'A']
-    ],
-    [
-      ['MA1201', 'Kalkulus II',            3, 'C',  'C+'],
-      ['IF1201', 'Algoritma dan Pemrograman', 4, 'B+', 'A-'],
-      ['IF1202', 'Matematika Diskrit',     3, 'B',  'B+'],
-      ['UM1201', 'Pendidikan Pancasila',   2, 'A',  'A']
-    ],
-    [
-      ['IF2101', 'Struktur Data',          3, 'B+', 'B+'],
-      ['IF2102', 'Basis Data',             3, 'A-', 'A'],
-      ['IF2103', 'Organisasi Komputer',    3, 'C+', 'B-'],
-      ['MA2101', 'Statistika',             3, 'B',  'B'],
-      ['UM2101', 'Bahasa Inggris',         2, 'A',  'A']
-    ],
-    [
-      ['IF2201', 'Pemrograman Berorientasi Objek', 4, 'B', 'B+'],
-      ['IF2202', 'Sistem Operasi',         3, 'C+', 'C+'],
-      ['IF2203', 'Jaringan Komputer',      3, 'B+', 'A-'],
-      ['IF2204', 'Rekayasa Perangkat Lunak', 3, 'A-', 'A']
-    ],
-    [
-      ['IF3101', 'Pemrograman Web',        3, 'A',  'A'],
-      ['IF3102', 'Kecerdasan Buatan',      3, 'B',  'B+'],
-      ['IF3103', 'Interaksi Manusia dan Komputer', 3, 'B+', 'A-'],
-      ['IF3104', 'Keamanan Informasi',     3, 'C+', 'B-']
-    ]
-  ];
+  const allCourses = krrsCourses.concat(dataNilai.mataKuliahLalu);
 
-  function summary(courses, ri) {
+  let myNim = null;
+  try {
+    myNim = sessionStorage.getItem('userId');
+  } catch (e) {
+    myNim = null;
+  }
+  if (!myNim) {
+    myNim = datamahasiswa.dataprofile[0].nim;
+  }
+
+  function findCourse(code) {
+    return allCourses.find(function (c) { return c.code === code; });
+  }
+
+  function getSemester(si) {
+    const list = [];
+    $.each(GRADES, function (i, g) {
+      if (g.semester !== si + 1) {
+        return;
+      }
+      if (g.nim && g.nim !== myNim) {
+        return;
+      }
+      const course = findCourse(g.code);
+      if (!course) {
+        return;
+      }
+      list.push({ code: course.code, name: course.name, sks: course.sks, akhir: g.akhir });
+    });
+    return list;
+  }
+
+  function average(total, credits) {
+    return credits > 0 ? (total / credits).toFixed(2) : '-';
+  }
+
+  function summary(courses) {
     let credits = 0;
     let bobot = 0;
     let earned = 0;
 
     $.each(courses, function (i, c) {
-      const grade = c[3 + ri];
-      credits += c[2];
-      bobot += SCALE[grade] * c[2];
+      const grade = c.akhir;
+      if (!grade) {
+        return;
+      }
+      credits += c.sks;
+      bobot += SCALE[grade] * c.sks;
       if (grade !== 'E') {
-        earned += c[2];
+        earned += c.sks;
       }
     });
 
     return { credits: credits, bobot: bobot, earned: earned };
   }
 
-  function showReport(si, ri) {
-    const courses = SEMESTERS[si];
+  const lastSem = CURRENT.semester - 1;
+
+  function showSemester(si) {
+    const courses = getSemester(si);
+
     let rows = '';
+    let no = 0;
 
     $.each(courses, function (i, c) {
-      const grade = c[3 + ri];
+      const grade = c.akhir;
+      if (!grade) {
+        return;
+      }
       const number = SCALE[grade];
+      no++;
 
       rows += '<tr>' +
-        '<td>' + (i + 1) + '</td>' +
-        '<td>' + c[0] + '</td>' +
-        '<td>' + c[1] + '</td>' +
-        '<td>' + c[2] + '</td>' +
+        '<td>' + no + '</td>' +
+        '<td>' + c.code + '</td>' +
+        '<td>' + c.name + '</td>' +
+        '<td>' + c.sks + '</td>' +
         '<td class="' + (number <= 1 ? 'low' : '') + '">' + grade + '</td>' +
         '<td>' + number.toFixed(2) + '</td>' +
-        '<td>' + (number * c[2]).toFixed(2) + '</td>' +
+        '<td>' + (number * c.sks).toFixed(2) + '</td>' +
         '</tr>';
     });
 
-    const now = summary(courses, ri);
+    $('#row').html(rows);
+
+    const now = summary(courses);
 
     const before = { credits: 0, bobot: 0, earned: 0 };
     for (let s = 0; s < si; s++) {
-      const p = summary(SEMESTERS[s], 1);
+      const p = summary(getSemester(s));
       before.credits += p.credits;
       before.bobot += p.bobot;
       before.earned += p.earned;
     }
 
-    $('#row').html(rows);
     $('.table-foot').html(
       '<span>Total Kredit: <b>' + now.credits + '</b></span>' +
       '<span>Total Bobot Kualitas: <b>' + now.bobot.toFixed(2) + '</b></span>'
     );
 
     $('#totalSks').text(now.credits);
-    $('#ips').text((now.bobot / now.credits).toFixed(2));
+    $('#ips').text(average(now.bobot, now.credits));
     $('#kreditDiambil').text(before.credits + now.credits);
     $('#kreditDiperoleh').text(before.earned + now.earned);
-    $('#ipk').text(((before.bobot + now.bobot) / (before.credits + now.credits)).toFixed(2));
+    $('#ipk').text(average(before.bobot + now.bobot, before.credits + now.credits));
 
-    const index = si * 2 + ri;
     $('.pair').removeClass('active');
     $('.dot').each(function () {
-      const i = $(this).data('i');
+      const i = $(this).data('s');
       $(this).removeClass('active done');
-      if (i === index) {
+      if (i === si) {
         $(this).addClass('active');
         $(this).closest('.pair').addClass('active');
-      } else if (i < index) {
+      } else if (i < si) {
         $(this).addClass('done');
       }
     });
-    $('.view-label').text('Semester ' + (si + 1) + ' · ' + REPORT_NAMES[ri]);
+
+    $('.view-label').text('Semester ' + (si + 1));
   }
 
-  const lastIndex = (CURRENT.semester - 1) * 2 + CURRENT.report;
   let line = '';
 
   for (let s = 0; s < 8; s++) {
-    line += '<div class="pair"><div class="dots">';
-    for (let r = 0; r < 2; r++) {
-      const i = s * 2 + r;
-      line += '<button type="button" class="dot" data-s="' + s + '" data-r="' + r + '" data-i="' + i + '"' +
-        ' title="Semester ' + (s + 1) + ' - ' + REPORT_NAMES[r] + '"' +
-        ' aria-label="Semester ' + (s + 1) + ' ' + REPORT_NAMES[r] + '"' +
-        (i > lastIndex ? ' disabled' : '') + '></button>';
-    }
-    line += '</div><span class="pair-label">Smt ' + (s + 1) + '</span></div>';
+    line += '<div class="pair"><div class="dots">' +
+      '<button type="button" class="dot" data-s="' + s + '"' +
+      ' title="Semester ' + (s + 1) + '" aria-label="Semester ' + (s + 1) + '"' +
+      (s > lastSem ? ' disabled' : '') + '></button>' +
+      '</div><span class="pair-label">Smt ' + (s + 1) + '</span></div>';
   }
 
   $('#steps').html(line);
 
   $('.steps').on('click', '.dot', function () {
-    showReport($(this).data('s'), $(this).data('r'));
+    showSemester($(this).data('s'));
   });
 
-  showReport(CURRENT.semester - 1, CURRENT.report);
+  showSemester(lastSem);
 });

@@ -381,8 +381,8 @@ svg {
 .gridc {
   display: grid;
   grid-template-columns: 56px repeat(5, 1fr);
-  grid-template-rows: 36px;      /* the row with the day names */
-  grid-auto-rows: 52px;          /* every hour row */
+  grid-template-rows: 36px;
+  grid-auto-rows: 52px;
   border-top: 1px solid #e7eaf0;
   border-left: 1px solid #e7eaf0;
 }
@@ -451,8 +451,8 @@ svg {
 .timetable {
   display: grid;
   grid-template-columns: 56px repeat(5, 1fr);
-  grid-template-rows: 36px;      /* the row with the day names */
-  grid-auto-rows: 52px;          /* every hour row */
+  grid-template-rows: 36px;
+  grid-auto-rows: 52px;
   border-top: 1px solid #e7eaf0;
   border-left: 1px solid #e7eaf0;
 }
@@ -510,7 +510,7 @@ svg {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 800px) {
   .topbar, .layout {
     padding-left: 16px;
     padding-right: 16px;
@@ -523,4 +523,41 @@ svg {
   .day {
     min-height: 60px;
   }
+}
+
+.item.hl {
+  background-color: white;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.item .badge {
+  font-size: 12px;
+}
+
+.room {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #667085;
+}
+
+.room svg {
+  width: 16px;
+  height: 16px;
+}
+
+.chip i {
+  flex-shrink: 0;
+}
+
+.chip span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chip small {
+  display: block;
+  font-weight: 500;
+  color: #667085;
 }
