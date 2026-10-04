@@ -261,3 +261,11 @@ body {
     width: calc(100% - 250px);
     min-height: 100vh;
 }
+.main-content {
+    transition: margin-left 0.3s ease, width 0.3s ease;
+}
+
+#sidebar:has(.sidebar.collapsed) + .main-content {
+    margin-left: 90px;
+    width: calc(100% - 90px);
+}
