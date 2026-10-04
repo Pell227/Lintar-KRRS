@@ -233,3 +233,127 @@ const dataFAQ = JSON.parse(`{
   }
 
 }`);
+
+const dataKalenderAkademik = JSON.parse(`{
+  "kalenderAkademik": [
+    {
+      "id": 1,
+      "tanggal": "08 Jun 2026 s/d 17 Jul 2026",
+      "kategori": "Administrasi",
+      "judul": "Pengajuan Permohonan Pindah",
+      "deskripsi": "Pengajuan permohonan pindah semester ganjil 2026/2027."
+    },
+    {
+      "id": 2,
+      "tanggal": "08 Jun 2026 s/d 17 Jul 2026",
+      "kategori": "Administrasi",
+      "judul": "Pengajuan Permohonan Aktif Kuliah Kembali",
+      "deskripsi": "Pengajuan permohonan aktif kuliah kembali semester ganjil 2026/2027."
+    },
+    {
+      "id": 3,
+      "tanggal": "08 Jun 2026 s/d 09 Jul 2026",
+      "kategori": "Keuangan",
+      "judul": "Pembayaran BPP",
+      "deskripsi": "Pembayaran BPP untuk kelas pagi semester ganjil 2026/2027."
+    },
+    {
+      "id": 4,
+      "tanggal": "09 Jun 2026 s/d 09 Jul 2026",
+      "kategori": "Keuangan",
+      "judul": "Pembayaran Uang Kuliah Tunggal / UKT",
+      "deskripsi": "Pembayaran Uang Kuliah Tunggal (UKT) untuk kelas sore semester ganjil 2026/2027."
+    },
+    {
+      "id": 5,
+      "tanggal": "20 Jul 2026 s/d 14 Aug 2026",
+      "kategori": "Administrasi",
+      "judul": "Pengajuan Permohonan Cuti Akademik",
+      "deskripsi": "Pengajuan permohonan cuti akademik semester ganjil 2026/2027."
+    },
+    {
+      "id": 6,
+      "tanggal": "20 Jul 2026 s/d 07 Aug 2026",
+      "kategori": "Registrasi",
+      "judul": "Rencana Registrasi Studi / Perbaikan (RRS)",
+      "deskripsi": "Periode rencana registrasi studi dan perbaikan (RRS) semester ganjil 2026/2027."
+    },
+    {
+      "id": 7,
+      "tanggal": "18 Aug 2026 s/d 02 Oct 2026",
+      "kategori": "Perkuliahan",
+      "judul": "Proses Pembelajaran Sebelum UTS",
+      "deskripsi": "Periode proses pembelajaran sebelum pelaksanaan Ujian Tengah Semester."
+    },
+    {
+      "id": 8,
+      "tanggal": "18 Aug 2026 s/d 02 Oct 2026",
+      "kategori": "Administrasi",
+      "judul": "Permohonan Dispensasi Cuti Akademik",
+      "deskripsi": "Periode pengajuan permohonan dispensasi cuti akademik semester ganjil 2026/2027."
+    },
+    {
+      "id": 9,
+      "tanggal": "25 Aug 2026 s/d 23 Sep 2026",
+      "kategori": "Keuangan",
+      "judul": "Pembayaran SKS",
+      "deskripsi": "Periode pembayaran SKS untuk kelas pagi semester ganjil 2026/2027."
+    },
+    {
+      "id": 10,
+      "tanggal": "28 Sep 2026 s/d 02 Oct 2026",
+      "kategori": "Akademik",
+      "judul": "Cetak Kartu Studi Mahasiswa (KSM)",
+      "deskripsi": "Periode pencetakan Kartu Studi Mahasiswa (KSM)."
+    },
+    {
+      "id": 11,
+      "tanggal": "05 Oct 2026 s/d 09 Oct 2026",
+      "kategori": "Ujian",
+      "judul": "Ujian Tengah Semester (UTS)",
+      "deskripsi": "Pelaksanaan Ujian Tengah Semester (UTS) semester ganjil 2026/2027."
+    },
+    {
+      "id": 12,
+      "tanggal": "12 Oct 2026 s/d 27 Nov 2026",
+      "kategori": "Perkuliahan",
+      "judul": "Proses Pembelajaran Setelah UTS",
+      "deskripsi": "Periode proses pembelajaran setelah pelaksanaan Ujian Tengah Semester."
+    },
+    {
+      "id": 13,
+      "tanggal": "30 Nov 2026 s/d 11 Dec 2026",
+      "kategori": "Ujian",
+      "judul": "Ujian Akhir Semester (UAS)",
+      "deskripsi": "Pelaksanaan Ujian Akhir Semester (UAS) semester ganjil 2026/2027."
+    },
+    {
+      "id": 14,
+      "tanggal": "02 Dec 2026 s/d 17 Dec 2026",
+      "kategori": "Ujian",
+      "judul": "Remedial",
+      "deskripsi": "Periode pelaksanaan ujian remedial."
+    },
+    {
+      "id": 15,
+      "tanggal": "04 Jan 2027 s/d 15 Jan 2027",
+      "kategori": "Akademik",
+      "judul": "Hasil Studi dan Yudisium",
+      "deskripsi": "Periode hasil studi dan pelaksanaan yudisium."
+    },
+    {
+      "id": 16,
+      "tanggal": "15 Mar 2027 s/d 25 Apr 2027",
+      "kategori": "Wisuda",
+      "judul": "Pendaftaran Wisuda",
+      "deskripsi": "Periode pendaftaran wisuda."
+    },
+    {
+      "id": 17,
+      "tanggal": "15 May 2027",
+      "kategori": "Wisuda",
+      "judul": "Pelaksanaan Wisuda",
+      "deskripsi": "Pelaksanaan kegiatan wisuda."
+    }
+  ]
+}`);

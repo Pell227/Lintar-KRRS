@@ -297,7 +297,7 @@ body {
   background-color: #7d0d0d;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
 
   .main-content > .card {
     margin: 20px;
@@ -329,6 +329,35 @@ body {
 
   .detail-content h2 {
     font-size: 19px;
+  }
+
+}
+
+@media (max-width: 1100px) {
+
+  .main-content > .card {
+    margin: 25px;
+  }
+
+  .announcement-container {
+    margin: 25px;
+  }
+
+  .announcement-card {
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .announcement-content h3 {
+    font-size: 16px;
+  }
+
+  .announcement-content p {
+    font-size: 13px;
+  }
+
+  .announcement-detail {
+    max-width: 600px;
   }
 
 }
