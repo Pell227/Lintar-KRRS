@@ -139,7 +139,7 @@
 }
 
 .official-table tfoot th:first-child {
-  text-align: right;
+  text-align: center;
 }
 
 .official-table tfoot th:nth-child(2) {
