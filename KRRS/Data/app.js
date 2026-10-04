@@ -27,6 +27,14 @@
   const status = document.getElementById("status");
   const message = document.getElementById("message");
   const rows = document.getElementById("dataRows");
+  const renderMeetings = (course, field) => {
+    const meetings = course.pertemuan || [
+      { jadwal: course.jadwal || `${course.day || ""}, ${course.time || ""}`, ruang: course.ruang || course.room || "-" },
+    ];
+    return meetings
+      .map((meeting) => `<div class="course-meeting">${meeting[field] || "-"}</div>`)
+      .join("");
+  };
 
   status.textContent = courses.length
     ? isValid
@@ -51,10 +59,8 @@
               <td>${course.name}</td>
               <td><span class="badge">${course.sks} SKS</span></td>
               <td>${course.kelas || course.class || "-"}</td>
-              <td>${
-                course.jadwal || `${course.day || ""}, ${course.time || ""}`
-              }</td>
-              <td>${course.ruang || course.room || "-"}</td>
+              <td class="meeting-cell">${renderMeetings(course, "jadwal")}</td>
+              <td class="meeting-cell">${renderMeetings(course, "ruang")}</td>
             </tr>
           `,
         )

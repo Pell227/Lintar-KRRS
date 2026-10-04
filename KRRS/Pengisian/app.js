@@ -14,6 +14,15 @@ function getTotalSks() {
   return getSelectedCourses().reduce((total, course) => total + course.sks, 0);
 }
 
+function renderMeetings(course, field) {
+  const meetings = course.pertemuan || [
+    { jadwal: course.jadwal, ruang: course.ruang },
+  ];
+  return meetings
+    .map((meeting) => `<div class="course-meeting">${meeting[field] || "-"}</div>`)
+    .join("");
+}
+
 function renderCourses() {
   const query = getElement("search").value.toLowerCase();
   const filteredCourses = COURSES.filter((course) =>
@@ -37,8 +46,8 @@ function renderCourses() {
           <td>${course.name}</td>
           <td><span class="badge">${course.sks} SKS</span></td>
           <td>${course.kelas}</td>
-          <td>${course.jadwal}</td>
-          <td>${course.ruang}</td>
+          <td class="meeting-cell">${renderMeetings(course, "jadwal")}</td>
+          <td class="meeting-cell">${renderMeetings(course, "ruang")}</td>
         </tr>
       `,
     )
